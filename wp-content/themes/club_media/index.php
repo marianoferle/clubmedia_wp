@@ -28,7 +28,7 @@
 
                                 <script type="text/javascript">
                                     var v_id='<?php if(isset($_GET['id'])){ echo $_GET['id']; } ?>';
-                                    var v_hora='<?php if(isset($_GET['hora'])){ echo $_GET['hora']; } ?>';
+                                    
 
                                     var dir = window.document.URL;
                                     var dir_URL_Code = encodeURIComponent(dir); //url del post

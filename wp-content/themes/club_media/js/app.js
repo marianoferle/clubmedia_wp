@@ -246,20 +246,27 @@
 
 
 
+
+
         //-----------------------------------------------------------------
         this.listarDest_index=function(){
 
-             $.post(urlR_+"/include/restApi/result_dest_index.php",{}, function (data){
+
+            // $.post(urlR_+"/include/restApi/result_dest_index.php",{}, function (data){
+            var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
+            $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/", {}, function(data){
+
 
                $("#cont_destacado_header ul").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
 
 
              }).done(function(data) {
 
+
                setTimeout(function(){
 
                          Handlebars.registerHelper("moduloDestacado_index_linkPost", function(value){
-                              return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.dia_id+'&hora='+this.hora_id);
+                              return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
                          });
 
                          Handlebars.registerHelper("moduloDestacado_index", function(value){
@@ -275,17 +282,17 @@
                           });
 
                           if(data.length>0){
-                              var dat=JSON.parse(data);
+                              //var dat=JSON.parse(data);
 
                               //-----------convert array el string ','---------------
-                              if(dat != null && dat.length > 0) {
+                              if(data != null && data.length > 0) {
 
-                                    for(var i=0;i < dat.length;i++){  dat[i].categorias=dat[i].categorias.split(',');  }
+                                    //for(var i=0;i < data.length;i++){  dat[i].categorias=dat[i].categorias.split(',');  }
 
                                     var template_ = document.getElementById("template_destacado_index").innerHTML;
                                     var contTemplate = Handlebars.compile(template_);
                                     //---------------json para los resultados destacados del index-------------
-                                    var context=dat;//bd_result_destacado_index;
+                                    var context=data;//bd_result_destacado_index;
                                     var templateCompile = contTemplate(context);
                                     $("#cont_destacado_header ul").html(templateCompile);
                               }
@@ -306,20 +313,33 @@
 
 
 
+
+
+
        //------------------------------------------------------
        this.listarPost_index=function(posicion_result_list_){
+
              var pos_=posicion_result_list_;
-             $.post(urlR_+"/include/restApi/result_index.php",{pos:pos_}, function (data){
+             //$.post(urlR_+"/include/restApi/result_index.php",{pos:pos_}, function (data){
+
+             var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
+             $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/", {"page":pos_,"per_page":10}, function(data){
 
                $(".fila1_load").css({'display':'block'});
-
+              /*
+                $.each(data, function(key,value){
+                     console.log(data[key].title.rendered);
+                     console.log(data[key].content.rendered);
+                     console.log(data[key].acf);
+                 });
+              */
 
              }).done(function(data) {
 
                         //-------------crea URL para lista de post en el index----------
                          Handlebars.registerHelper("moduloResult_index_linkPost", function(value){
                              //console.log(this.dia_id,this.hora_id);
-                             return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.dia_id+'&hora='+this.hora_id);
+                             return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
                          });
 
                          //-----------------crea subcategorias en modulo POST index---------------------
@@ -335,30 +355,26 @@
                          });
 
 
-
                  setTimeout(function(){
 
                          if(data.length>0){
-                               var dat=JSON.parse(data);
+                               //var dat=JSON.parse(data);
                                //console.log(dat[0]);
-                                 if(dat[0] != undefined){
-                                     if(dat[0].length>0 && typeof  dat === 'object'){
+                                 if(data != undefined){
+                                     if(data.length>0 && typeof  data === 'object'){
 
-                                          //-----------convert array el string ','---------------
-                                          for(var i=0;i < dat[0].length;i++){
-                                            dat[0][i].categorias=dat[0][i].categorias.split(',');
-                                          }
                                           var template_ = document.getElementById("template_ContChicoResult").innerHTML;
                                           var contTemplate = Handlebars.compile(template_);
                                           //---------------json para los resultados del index-------------------
-                                          var context=dat[0];//bd_result_index;
+                                          var context=data;//bd_result_index;
+                                          console.log(data);
                                           var templateCompile = contTemplate(context);
                                           $(".fila1").append(templateCompile);
 
                                           //---------------ultimo array-----------
-                                          var ultimo_ = dat[0].pop();
-                                          var primero_=dat[0].shift();
-                                          $("#numResult_pos").html(primero_.id+" / "+ultimo_.id);
+                                          //var ultimo_ =data.pop().id;
+                                          //var primero_=data.shift().id;
+                                          //$("#numResult_pos").html(primero_+" / "+ultimo_);
                                           $(".fila1_load").css({'display':'none'});
 
                                    }
@@ -398,7 +414,10 @@
                   //-----------------------------------------------------------------
                   this.listarDest_indexCat_sideBar=function(page_){
 
-                      $.post(urlR_+"/include/restApi/result_dest_index.php",{}, function (data){
+                    //  $.post(urlR_+"/include/restApi/result_dest_index.php",{}, function (data){
+                    var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
+                    $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/", {}, function(data){
+
 
                       if(page_=='index_'){
                           $("#contAsideBotton").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
@@ -408,10 +427,12 @@
 
                       }).done(function(data) {
 
+                         console.log(data);
+
                                     setTimeout(function(){
 
                                               Handlebars.registerHelper("moduloDestacado_index_linkPost_sideBar", function(value){
-                                                  return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.dia_id+'&hora='+this.hora_id);
+                                                  return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
                                               });
                                               Handlebars.registerHelper("moduloDestacado_index", function(value){
                                                            return new Handlebars.SafeString("<div>"+this+"</div>");
@@ -422,18 +443,18 @@
 
 
                                               if(data.length>0){
-                                                var dat=JSON.parse(data);
+                                                //var dat=JSON.parse(data);
                                                  //-----------convert array el string ','---------------
-                                              if(dat != null && dat.length > 0) {
-                                                       for(var i=0;i < dat.length;i++){
-                                                         dat[i].categorias=dat[i].categorias.split(',');
-                                                         dat[i].autores=dat[i].autores.split(',');
-                                                       }
+                                              if(data != null && data.length > 0) {
+                                                      // for(var i=0;i < dat.length;i++){
+                                                      //   dat[i].categorias=dat[i].categorias.split(',');
+                                                      //   dat[i].autores=dat[i].autores.split(',');
+                                                      // }
 
                                                        var template_ = document.getElementById("template_destacado_indexCat_sideBar").innerHTML;
                                                        var contTemplate = Handlebars.compile(template_);
                                                        //---------------json para los resultados destacados del index-----------------
-                                                       var context=dat;//bd_result_destacado_index;
+                                                       var context=data;//bd_result_destacado_index;
                                                        var templateCompile = contTemplate(context);
 
                                                        if(page_=='index_'){
@@ -657,24 +678,29 @@
 
 
 //--------------------------------lista de categorias para nav sidebar---------------------------------
-this.verPOST=function(id_dia,id_hora){
+this.verPOST=function(id_dia){
   (function() {
-       $.post(urlR_+"/include/restApi/result_post_template.php",{id:id_dia,hora:id_hora}, function (data){
+       //$.post(urlR_+"/include/restApi/result_post_template.php",{id:id_dia}, function (data){
+
+       var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
+       $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/"+id_dia, {}, function(data){
+
+         console.log(data);
 
        }).done(function(data){
 
           setTimeout(function(){
 
-                   if(data.length>0){
-                      var dat=JSON.parse(data);
-                      if(typeof  dat === 'object'&&dat.dia_id==id_dia&&dat.hora_id==id_hora){
+
+                      //var dat=JSON.parse(data);
+                      if(typeof  data === 'object' && data.id==Number(id_dia)){
                           var template_ = document.getElementById("template_Post_Script").innerHTML;
                           var contTemplate = Handlebars.compile(template_);
                           //---------------json para los resultados destacados del index-------------------
-                          var context=dat;//bd_post;
+                          var context=data;//bd_post;
                           var templateCompile = contTemplate(context);
                           $("#cont_post_result_template").html(templateCompile);
-                       }
+
                      }else{
                           location.replace("index.php");
                      }

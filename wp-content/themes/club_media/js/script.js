@@ -29,11 +29,11 @@
 
 
 
-  var ajaxURL = 'index.php';
+  /*var ajaxURL = 'index.php';
   $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/", {}, function(data){
     	$.each(data, function(key,value){
          console.log(data[key].title.rendered);
          console.log(data[key].content.rendered);
          console.log(data[key].acf);
      });
-   });
+   });*/

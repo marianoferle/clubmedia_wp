@@ -1,4 +1,4 @@
-var pos_pag=0;
+var pos_pag=1;
 
 (function($_, post_page_,urlLink){
 
@@ -16,8 +16,8 @@ var pos_pag=0;
             $("#next_pos").click(function(){
                 if(localStorage.cantidadPost=='true'){
                     if(post_page_<100){
-                          post_page_+=10;
-                          var nn_=post_page_+10;
+                          post_page_+=1;
+                          var nn_=post_page_+1;
                           AF_index.listarPost_index(post_page_);
                           $("#numResult_pos").html('/');
                     }
@@ -27,8 +27,8 @@ var pos_pag=0;
 
             $("#prev_pos").click(function(){
                 if(post_page_>=10){
-                      post_page_-=10;
-                      var nn_=post_page_+10;
+                      post_page_-=1;
+                      var nn_=post_page_-1;
                       AF_index.listarPost_index(post_page_);
                       $("#numResult_pos").html('/');
                 }

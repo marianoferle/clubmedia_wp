@@ -39,22 +39,24 @@
         <!-- ...............................modulo dinamico de destacados.............................................-->
         <script id="template_destacado_index" type="text/x-handlebars-template">
               {{#each this}}
+              {{#ifCond this.sticky '==' true}}
               {{#ifCond @index '<' 4}}
                  <li class="col s12 m6 l3">
                      <div class="cont_destacado_header_moduloCont">
 
-                         <a href="{{ moduloDestacado_index_linkPost this.categorias }}"target='_self' title=''>
-                             <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{urlImgVid}}" alt=""/>
+                         <a href="{{ moduloDestacado_index_linkPost acf.categorias }}"target='_self' title=''>
+                             <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt=""/>
                              <div class="cont_destacado_header_moduloCont_fondo_opacity{{@key}}"></div>
                              <div class="cont_info_destacado_header">
-                               {{#each this.categorias}}
-                                    {{moduloDestacado_index categorias}}
+                               {{#each acf.categorias}}
+                                    {{moduloDestacado_index acf.categorias}}
                                {{/each}}
-                               <p>{{titulo}}</p>
+                               <p>{{title.rendered}}</p>
                              </div>
                          </a>
                      </div>
                  </li>
+                 {{/ifCond}}
                  {{/ifCond}}
               {{/each}}
         </script>

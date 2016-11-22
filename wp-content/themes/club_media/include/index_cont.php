@@ -108,27 +108,27 @@
                   <script id="template_destacado_indexCat_sideBar" type="text/x-handlebars-template">
                         {{#each this}}
                           {{#ifCond @index '==' 4}}
-                             <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{urlImgVid}}" title="Destacado"/>
+                             <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" title="Destacado"/>
                              <!--img src="img/template/{{srcImgDestacado}}" title="Destacado"/-->
 
                              <div class="contAsideBotton_fondo_opacity"></div>
                              <div class="contAsideBotton_info">
                                    <h1>
-                                    {{#each this.autores}}
+                                    {{#each acf.autores}}
                                           {{#ifCond @index '<=' 1}}
-                                               {{moduloDestacado_index_autores this.autores}}
+                                               {{moduloDestacado_index_autores acf.autores}}
                                           {{/ifCond}}
                                      {{/each}}
                                    </h1>
                                    <h4>
-                                   {{#each this.categorias}}
+                                   {{#each acf.categorias}}
                                         {{#ifCond @index '>=' 0}}
-                                             {{moduloDestacado_index this.categorias}}
+                                             {{moduloDestacado_index acf.categorias}}
                                         {{/ifCond}}
                                    {{/each}}
                                    </h4>
-                                   <p>{{titulo}}</p>
-                               <a href="{{ moduloDestacado_index_linkPost_sideBar this.categorias }}" title="" class="waves-effect waves-light btn">Leer más</a>
+                                   <p>{{title.rendered}}</p>
+                               <a href="{{ moduloDestacado_index_linkPost_sideBar acf.categorias }}" title="" class="waves-effect waves-light btn">Leer más</a>
                              </div>
                           {{/ifCond}}
                         {{/each}}
@@ -198,16 +198,16 @@
                                             <!--.................... modulo de resultado grande...................-->
                                             <div class="contGrandeResult col s12 m12 l8">
                                                     <div class="contGrandeResult_moduloCont">
-                                                        <a href="{{moduloResult_index_linkPost this.categorias}}" target="_self" title="link post">
-                                                            <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{urlImgVid}}"/>
+                                                        <a href="{{moduloResult_index_linkPost acf.categorias}}" target="_self" title="link post">
+                                                            <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}"/>
                                                             <div class="contGrandeResult_moduloContfondo_opacity"></div>
                                                             <div class="contGrandeResult_moduloContfondo_cont_info">
-                                                              {{#each this.categorias}}
-                                                                   {{moduloResult_itemsCategoria this.categorias}}
+                                                              {{#each acf.categorias}}
+                                                                   {{moduloResult_itemsCategoria acf.categorias}}
                                                               {{/each}}
                                                             <!--  {{id}}- {{hora_id}} - {{dia_id}} -->
-                                                              <h1>{{titulo}}</h1>
-                                                              <p>{{subTit}}</p>
+                                                              <h1>{{title.rendered}}</h1>
+                                                              <p>{{acf.subtit}}</p>
                                                             </div>
                                                         </a>
                                                     </div>
@@ -216,16 +216,16 @@
                                           <!--.................... modulo de resultado chico................-->
                                             <div class="contChicoResult col s12 m12 l4">
                                               <div class="contChicoResult_moduloCont">
-                                                 <a href="{{moduloResult_index_linkPost this.categorias}}" target="_self" title="link post">
-                                                      <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{urlImgVid}}"/>
+                                                 <a href="{{moduloResult_index_linkPost acf.categorias}}" target="_self" title="link post">
+                                                      <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}"/>
                                                       <div class="contChicoResult_moduloContfondo_opacity"></div>
                                                       <div class="contChicoResult_moduloContfondo_cont_info">
-                                                        {{#each this.categorias}}
-                                                             {{moduloResult_itemsCategoria this.categorias}}
+                                                        {{#each acf.categorias}}
+                                                             {{moduloResult_itemsCategoria acf.categorias}}
                                                         {{/each}}
                                                         <!--  {{id}}- {{hora_id}} - {{dia_id}} -->
-                                                        <h1>{{titulo}}</h1>
-                                                        <p>{{subTit}}</p>
+                                                        <h1>{{title.rendered}}</h1>
+                                                        <p>{{acf.subtit}}</p>
                                                       </div>
                                                   </a>
                                               </div>
@@ -244,16 +244,16 @@
                                     </div>
                                     <div class="contGrandeResult contGrandeResult_2b col s12 m12 l8">
                                           <div class="contGrandeResult_moduloCont">
-                                              <a href="{{moduloResult_index_linkPost this.categorias}}" target="_self" title="link post">
-                                                  <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{urlImgVid}}"/>
+                                              <a href="{{moduloResult_index_linkPost acf.categorias}}" target="_self" title="link post">
+                                                  <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}"/>
                                                   <div class="contGrandeResult_moduloContfondo_opacity"></div>
                                                   <div class="contGrandeResult_moduloContfondo_cont_info">
-                                                    {{#each this.categorias}}
-                                                         {{moduloResult_itemsCategoria categorias}}
+                                                    {{#each acf.categorias}}
+                                                         {{moduloResult_itemsCategoria acf.categorias}}
                                                     {{/each}}
                                                     <!--  {{id}}- {{hora_id}} - {{dia_id}} -->
-                                                    <h1>{{titulo}}</h1>
-                                                    <p>{{subTit}}</p>
+                                                    <h1>{{title.rendered}}</h1>
+                                                    <p>{{acf.subtit}}</p>
                                                   </div>
                                               </a>
                                           </div>
@@ -262,16 +262,16 @@
                                       <!--.................... modulo de resultado chico................-->
                                         <div class="contChicoResult col s12 m12 l4">
                                           <div class="contChicoResult_moduloCont">
-                                               <a href="{{moduloResult_index_linkPost this.categorias}}" target="_self" title="link post">
-                                                  <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{urlImgVid}}"/>
+                                               <a href="{{moduloResult_index_linkPost acf.categorias}}" target="_self" title="link post">
+                                                  <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}"/>
                                                   <div class="contChicoResult_moduloContfondo_opacity"></div>
                                                   <div class="contChicoResult_moduloContfondo_cont_info">
-                                                    {{#each this.categorias}}
-                                                         {{moduloResult_itemsCategoria categorias}}
+                                                    {{#each acf.categorias}}
+                                                         {{moduloResult_itemsCategoria acf.categorias}}
                                                     {{/each}}
-                                                      <!--  {{id}}- {{hora_id}} - {{dia_id}} -->
-                                                    <h1>{{titulo}}</h1>
-                                                    <p>{{subTit}}</p>
+                                                    <!--  {{id}}- {{hora_id}} - {{dia_id}} -->
+                                                    <h1>{{title.rendered}}</h1>
+                                                    <p>{{acf.subtit}}</p>
                                                   </div>
                                               </a>
                                           </div>

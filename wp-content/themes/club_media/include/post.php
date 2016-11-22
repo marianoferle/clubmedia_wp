@@ -6,15 +6,22 @@
 
              <div id="cont_post_head" class="col s12 m12 l12 center">
                <div id="cont_post_head_catSubcat" class="col s12 m12 l12 center">
-                   <h2 style="color:#84ab1a;"> {{#each this.categoria}} #{{this}} {{/each}}   </h2>
-                   <h2 style="color:#6e3ac3;"> {{#each this.subCat}}    #{{this}} {{/each}}  </h2>
+                   <h2 style="color:#84ab1a;"> {{#each acf.categorias}} #{{this}} {{/each}}   </h2>
+                   <h2 style="color:#6e3ac3;">
+                     {{#each acf.sub_categorias_clubmediafest}}  #{{this}} {{/each}}
+                     {{#each acf.sub_categorias_humor}}  #{{this}} {{/each}}
+                     {{#each acf.sub_categorias_musica}}  #{{this}} {{/each}}
+                     {{#each acf.sub_categorias_belleza}}  #{{this}} {{/each}}
+                     {{#each acf.sub_categorias_lifestyle}}  #{{this}} {{/each}}
+                     {{#each acf.sub_categorias_gamers}}  #{{this}} {{/each}}
+                   </h2>
                </div>
                <div id="cont_post_head_titu" class="col s12 m12 l12 center">
-                   <h1 id="tituloPost" class="center">{{titulo}}</h1>
+                   <h1 id="tituloPost" class="center">{{title.rendered}}</h1>
                    <h1 id="categoriaPost" class="center">
-                       {{#each this.subcat}}
-                          #{{nombre}}
-                       {{/each}}
+                        {{#each acf.categorias}}
+                                #{{this}}
+                        {{/each}}
                    </h1>
                </div>
                <div  id="cont_post_head_titRedsocial" class="col s12 m12 l12" style="margin-bottom:10px;">Compartime</div>
@@ -46,13 +53,13 @@
             <div id="cont_post_section_video" class="col s12 m12 l12">
 
                  <div id="cont_post_section_video_cont" class="col s12 m12 l12">
-                   <iframe src="https://player.vimeo.com/video/{{urlVideo}}" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                   <iframe src="https://player.vimeo.com/video/{{acf.url_video}}" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                  </div>
 
                  <div id="cont_post_section_video_info" class="col s12 m12 l12">
 
                        <div id="cont_post_section_video_info_youtuber" class="col s12 m12 l12">
-                         {{#each this.autores}}
+                         {{#each acf.autores}}
                               <div class="infoLink_youtuber_section">
                                    {{#if this}}
                                          <img src="https://s3-sa-east-1.amazonaws.com/club.media/youtubers/{{this}}_perfil.jpg" width="40" height="40" />
@@ -66,10 +73,10 @@
 
                        <div id="cont_post_section_video_info_youtuber_texto" class="col s12 m12 l12">
                              <p>
-                               {{info}}
+                               {{{content.rendered}}}
                              </p>
                              <p>
-                               {{masInfo}}
+                               {{acf.masinfo}}
                              </p>
                        </div>
 

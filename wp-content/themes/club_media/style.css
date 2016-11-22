@@ -108,8 +108,7 @@ body {
 .img_banner1{background: url("https://s3-sa-east-1.amazonaws.com/club.media/banner_header/banner_01.jpg"); background-size:100%; background-repeat: no-repeat;}
 .img_banner2{background: url("https://s3-sa-east-1.amazonaws.com/club.media/banner_header/banner_02.jpg"); background-size:100%; background-repeat: no-repeat; }
 .img_banner3{background: url("https://s3-sa-east-1.amazonaws.com/club.media/banner_header/banner_03.jpg"); background-size:100%; background-repeat: no-repeat; }
-.img_banner4{background: url("https://s3-sa-east-1.amazonaws.com/club.media/banner_header/banner_01.jpg"); background-size:100%; background-repeat: no-repeat; }
-.img_banner5{background: url("https://s3-sa-east-1.amazonaws.com/club.media/banner_header/banner_02.jpg"); background-size:100%; background-repeat: no-repeat; }
+.img_banner4{background: url("https://s3-sa-east-1.amazonaws.com/club.media/banner_header/banner_04.jpg"); background-size:100%; background-repeat: no-repeat; }
 
 
 #prev_header_car{font-size:40px; z-index:1; position:absolute; z-index:1; left:5px; color:#999;}
