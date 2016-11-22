@@ -256,9 +256,7 @@
             var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
             $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/", {}, function(data){
 
-
                $("#cont_destacado_header ul").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
-
 
              }).done(function(data) {
 
@@ -326,13 +324,6 @@
              $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/", {"page":pos_,"per_page":10}, function(data){
 
                $(".fila1_load").css({'display':'block'});
-              /*
-                $.each(data, function(key,value){
-                     console.log(data[key].title.rendered);
-                     console.log(data[key].content.rendered);
-                     console.log(data[key].acf);
-                 });
-              */
 
              }).done(function(data) {
 
@@ -367,7 +358,7 @@
                                           var contTemplate = Handlebars.compile(template_);
                                           //---------------json para los resultados del index-------------------
                                           var context=data;//bd_result_index;
-                                          console.log(data);
+                                          //console.log(data);
                                           var templateCompile = contTemplate(context);
                                           $(".fila1").append(templateCompile);
 
@@ -427,7 +418,7 @@
 
                       }).done(function(data) {
 
-                         console.log(data);
+                         //console.log(data);
 
                                     setTimeout(function(){
 
@@ -511,15 +502,18 @@
 
            if(cat_.length>0){
 
-              $.post(urlR_+"/include/restApi/result_sel_cat.php",{cat:cat_,sub:sub_}, function (data){
+              //$.post(urlR_+"/include/restApi/result_sel_cat.php",{cat:cat_,sub:sub_}, function (data){
+              var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
+              $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[category_name]="+cat_, {}, function(data){
 
                    $(".cont_categoria_section_result").html("<div class='progress'><div class='indeterminate' style='background-color:#"+colorFondoPorCategoria_(cat_)+"'></div></div>");
 
               }).done(function(data){
 
+                  console.log(data);
 
                          Handlebars.registerHelper("moduloCategoria_index_linkPost", function(value){
-                             return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.dia_id+'&hora='+this.hora_id);
+                             return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
                          });
 
                          Handlebars.registerHelper("modulo_Categoria_resultado_cat", function(value){
@@ -542,17 +536,17 @@
 
 
                   setTimeout(function(){
-                          if(data.length>2){
-                              var dat=JSON.parse(data);
-                             if(dat[0].length>0 && typeof  dat === 'object'){
+                          if(data.length>0){
+                              //var dat=JSON.parse(data);
+                             if(data.length>0 && typeof  data === 'object'){
 
                                    //------pre compres a array el string ','-----------
-                                   for(var i=0;i < dat[0].length;i++){  dat[0][i].categorias=dat[0][i].categorias.split(',');  }
+                                   //for(var i=0;i < dat[0].length;i++){  dat[0][i].categorias=dat[0][i].categorias.split(',');  }
 
                                    var template_ = document.getElementById("template_resultCategoria").innerHTML;
                                    var contTemplate = Handlebars.compile(template_);
                                    //---------------json para los resultados destacados del index-------------------
-                                   var context=dat[0];
+                                   var context=data;
                                    var templateCompile = contTemplate(context);
                                    $(".cont_categoria_section_result").html(templateCompile);
                              }
@@ -567,7 +561,7 @@
 
              }).always(function(data) {
 
-                if(data.length<=2){
+                if(data.length<=0){
                       setTimeout(function(){
                           $(".cont_categoria_section_result").append("<div class='center'><i class='fa fa-hand-o-up' aria-hidden='true' style='font-size:22px;'></i>  Sin Resultados </div>");
                       },500);

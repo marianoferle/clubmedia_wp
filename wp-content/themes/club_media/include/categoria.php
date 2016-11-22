@@ -37,13 +37,13 @@
          {{#ifCond @index '<' 7}}
                {{#ifCond @index '%' 2}}
                    <div class="cont_categoria_section_result_post">
-                           <a href="{{moduloCategoria_index_linkPost this.categorias}}" target="_self" title="link post">
+                           <a href="{{moduloCategoria_index_linkPost acf.categorias}}" target="_self" title="link post">
                                  <div class="result_post_01 col s12 m6 s6">
                                      <div class="result_post_01_contenido">
                                            <div class="result_post_01_contCat">
                                               <div class="result_post_01_contCat_subCont">
-                                                      {{#each this.categorias}}
-                                                          {{modulo_Categoria_resultado_cat categorias}}
+                                                      {{#each acf.categorias}}
+                                                          {{modulo_Categoria_resultado_cat acf.categorias}}
                                                       {{/each}}
                                               </div>
                                               <!--div class="result_post_01_contCat_subCont">
@@ -52,14 +52,14 @@
                                                    {{/each}}
                                              </div-->
                                            </div>
-                                           <h1>{{titulo}}</h1>
-                                           <p>{{subTit}}</p>
+                                           <h1>{{title.rendered}}</h1>
+                                           <p>{{acf.subtit}}</p>
                                            <div class="result_post_01_contenido_icon"></div>
                                      </div>
                                  </div>
 
                                  <div class="result_post_02 col s12 m6 s6">
-                                     <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{urlImgVid}}" alt=""/>
+                                     <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt=""/>
                                      <div class="result_post_02_contOpacity"></div>
                                  </div>
                            </a>
@@ -68,10 +68,10 @@
                {{else}}
 
                    <div class="cont_categoria_section_result_post">
-                           <a href="{{moduloCategoria_index_linkPost this.categorias}}" target="_self" title="link post">
+                           <a href="{{moduloCategoria_index_linkPost acf.categorias}}" target="_self" title="link post">
 
                                  <div class="result_post_02 col s12 m6 s6">
-                                     <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{urlImgVid}}" alt=""/>
+                                     <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt=""/>
                                      <div class="result_post_02_contOpacity"></div>
                                  </div>
 
@@ -79,8 +79,8 @@
                                    <div class="result_post_01_contenido">
                                          <div class="result_post_01_contCat">
                                                <div class="result_post_01_contCat_subCont">
-                                                 {{#each this.categorias}}
-                                                     {{modulo_Categoria_resultado_cat categorias}}
+                                                 {{#each acf.categorias}}
+                                                     {{modulo_Categoria_resultado_cat acf.categorias}}
                                                  {{/each}}
                                                 </div>
                                                 <!--div class="result_post_01_contCat_subCont">
@@ -90,8 +90,8 @@
                                                </div-->
                                          </div>
 
-                                         <h1>{{titulo}}</h1>
-                                         <p>{{subTit}}</p>
+                                         <h1>{{title.rendered}}</h1>
+                                         <p>{{acf.subtit}}</p>
                                          <div class="result_post_01_contenido_icon"></div>
                                    </div>
                                  </div>
