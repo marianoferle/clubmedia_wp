@@ -53,9 +53,15 @@
 
                        <div id="cont_post_section_video_info_youtuber" class="col s12 m12 l12">
                          {{#each this.autores}}
-                           <div class="infoLink_youtuber_section"><i class="fa fa-link" aria-hidden="true"></i> <h1>{{this}}</h1> </div>
-
-                           {{/each}}
+                              <div class="infoLink_youtuber_section">
+                                   {{#if this}}
+                                         <img src="https://s3-sa-east-1.amazonaws.com/club.media/youtubers/{{this}}_perfil.jpg" width="40" height="40" />
+                                   {{else}}
+                                         <i class="fa fa-link" aria-hidden="true"></i>
+                                   {{/if}}
+                                        <h1>{{this}}</h1>
+                              </div>
+                          {{/each}}
                        </div>
 
                        <div id="cont_post_section_video_info_youtuber_texto" class="col s12 m12 l12">
