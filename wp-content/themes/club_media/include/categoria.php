@@ -4,30 +4,32 @@
 <div id="cont_categoria"  class="col s12 m12 l12">
   <div class="row">
 
-    <script id="template_categoria_subCatList" type="text/x-handlebars-template">
-           <h1 class="center" style="color:#{{colorFondo}};">{{cat_nombre}}</h1>
-           <div class="cont_categoria_head_navBar_subCategorias">
-              <ul class="col s12 m12 l12">
-                      {{#each this.subCat}}
-                      <li><a href='{{modulo_categoria_subcat_link ../this }}' class='waves-effect btn' style='background:#{{../colorFondo}}; color:#{{../colorTexto}};'>
-                              {{modulo_categoria_subcat this }}
-                      </a></li>
-                      {{/each}}
-              </ul>
-           </div>
-   </script>
-
-   <div id="cont_categoria_head" class="col s12 m12 l12">   </div>
 
 
+          <script id="template_categoria_subCatList" type="text/x-handlebars-template">
+                 <h1 class="center" style="color:#{{colorFondo}};">{{cat_nombre}}</h1>
+                 <div class="cont_categoria_head_navBar_subCategorias">
+                    <ul class="col s12 m12 l12">
+                            {{#each this.subCat}}
+                            <li><a href='{{modulo_categoria_subcat_link ../this }}' class='waves-effect btn' style='background:#{{../colorFondo}}; color:#{{../colorTexto}};'>
+                                    {{modulo_categoria_subcat this }}
+                            </a></li>
+                            {{/each}}
+                    </ul>
+                 </div>
+         </script>
 
-
+         <div id="cont_categoria_head" class="col s12 m12 l12">   </div>
 
 
 
 
 
-   <!-- .............................. -->
+  <!-- ............................................ -->
+
+
+
+
 
 
   <div id="cont_categoria_section"  class="col s12 m12 l12">
@@ -195,7 +197,7 @@
 
       <!-- ......................................nav categoria en sidebar..................................................... -->
 
-          <!--script id="template_categoria_categorias_nav" type="text/x-handlebars-template">
+          <script id="template_categoria_categorias_nav" type="text/x-handlebars-template">
               {{#each this}}
                         <div class="cont_sideBar_Categorias_individual" style="background:#{{colorFondo}};">
                           <a href="{{moduloCategoria_catNav_link this.categorias }}" target="_self" title="" style="color:#{{colorTexto}};">
@@ -213,92 +215,16 @@
               {{/each}}
         </script>
 
-       <div class="cont_sideBar_Categorias col s12 m12 l12"> </div-->
-
-       <div class="cont_sideBar_Categorias col s12 m12 l12">
-                        <div class="cont_sideBar_Categorias_individual" style="background:#200944;">
-                          <a href="index.php?page=categoria_&amp;cat=clubmediafest" target="_self" title="" style="color:#ffffff;">
-                              <div class="cont_sideBar_Categorias_individual_info">
-                                    <h1>Club Media Fest</h1>
-                                    <p>Enterate de lo que se viene en los próximos CMF. Mirá de cerca los backstage de los festivales que pasaron en videos exclusivos para que no te pierdas de nada!</p>
-                                    <div class="cont_sideBar_Categorias_individual_info_vid">
-                                        <div id="cantidad_videos_cat_clubmediafest" class="cont_cantidad_vid_navCat">19</div>
-                                        <p>Videos</p>
-                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#ffffff;"></div>
-                                    </div>
-                              </div>
-                          </a>
-                    </div>
-                        <div class="cont_sideBar_Categorias_individual" style="background:#ffff01;">
-                          <a href="index.php?page=categoria_&amp;cat=humor" target="_self" title="" style="color:#333333;">
-                              <div class="cont_sideBar_Categorias_individual_info">
-                                    <h1>Humor</h1>
-                                    <p>Bloopers, retos, desafíos, chistes, parodias y los encuentros más divertidos. Imposible no reírse con ellos.</p>
-                                    <div class="cont_sideBar_Categorias_individual_info_vid">
-                                        <div id="cantidad_videos_cat_humor" class="cont_cantidad_vid_navCat">16</div>
-                                        <p>Videos</p>
-                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#333333;"></div>
-                                    </div>
-                              </div>
-                          </a>
-                    </div>
-                        <div class="cont_sideBar_Categorias_individual" style="background:#168ce6;">
-                          <a href="index.php?page=categoria_&amp;cat=musica" target="_self" title="" style="color:#ffffff;">
-                              <div class="cont_sideBar_Categorias_individual_info">
-                                    <h1>Música</h1>
-                                    <p>Son las nuevas estrellas de todos los tiempos. Reviví los shows en vivo de tus artistas favoritos.</p>
-                                    <div class="cont_sideBar_Categorias_individual_info_vid">
-                                        <div id="cantidad_videos_cat_musica" class="cont_cantidad_vid_navCat">10</div>
-                                        <p>Videos</p>
-                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#ffffff;"></div>
-                                    </div>
-                              </div>
-                          </a>
-                    </div>
-                        <div class="cont_sideBar_Categorias_individual" style="background:#f4206a;">
-                          <a href="index.php?page=categoria_&amp;cat=belleza" target="_self" title="" style="color:#ffffff;">
-                              <div class="cont_sideBar_Categorias_individual_info">
-                                    <h1>Belleza</h1>
-                                    <p>Aprendé sobre moda, look, tendencias, makeup con las mejores artistas de toda habla hispana.</p>
-                                    <div class="cont_sideBar_Categorias_individual_info_vid">
-                                        <div id="cantidad_videos_cat_belleza" class="cont_cantidad_vid_navCat">0</div>
-                                        <p>Videos</p>
-                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#ffffff;"></div>
-                                    </div>
-                              </div>
-                          </a>
-                    </div>
-                        <div class="cont_sideBar_Categorias_individual" style="background:#35df89;">
-                          <a href="index.php?page=categoria_&amp;cat=lifestyle" target="_self" title="" style="color:#ffffff;">
-                              <div class="cont_sideBar_Categorias_individual_info">
-                                    <h1>Lifestyle</h1>
-                                    <p>Conocé los viajes, vlogs, libros y la vida misma de esta nueva generación de creadores.</p>
-                                    <div class="cont_sideBar_Categorias_individual_info_vid">
-                                        <div id="cantidad_videos_cat_lifestyle" class="cont_cantidad_vid_navCat">3</div>
-                                        <p>Videos</p>
-                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#ffffff;"></div>
-                                    </div>
-                              </div>
-                          </a>
-                    </div>
-                        <div class="cont_sideBar_Categorias_individual" style="background:#fe4300;">
-                          <a href="index.php?page=categoria_&amp;cat=gamers" target="_self" title="" style="color:#ffffff;">
-                              <div class="cont_sideBar_Categorias_individual_info">
-                                    <h1>Gamers</h1>
-                                    <p>Ellos juegan, se divierten y se enfrentan en épicos challenges. ¡Todos los videos están acá!</p>
-                                    <div class="cont_sideBar_Categorias_individual_info_vid">
-                                        <div id="cantidad_videos_cat_gamers" class="cont_cantidad_vid_navCat">5</div>
-                                        <p>Videos</p>
-                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#ffffff;"></div>
-                                    </div>
-                              </div>
-                          </a>
-                    </div>
-        </div>
+       <div class="cont_sideBar_Categorias col s12 m12 l12"> </div>
 
 
-    </div>
-  </div>
+
+
+
+
+<!-- ............-->
+</div>
+</div>
 
 
 

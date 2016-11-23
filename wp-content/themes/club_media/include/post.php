@@ -27,6 +27,7 @@
                <div  id="cont_post_head_titRedsocial" class="col s12 m12 l12" style="margin-bottom:10px;">Compartime</div>
                <div id="cont_post_head_redsocial" class="col s12 m12 l12">
                   <div class="col s1 m1 l1"></div>
+
                   <div class="col s2 m2 l2">
                     <a class='fb-xfbml-parse-ignore' target='_blank' href='http://www.facebook.com/share.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'>
                         <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -34,12 +35,19 @@
                     <!--div class="fb-share-button" data-href="http://marianoferle.com.ar/post.php?id={{id}}&amp;hora={{hora}}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
                     </div-->
                   </div>
+
                   <div class="col s2 m2 l2">
                     <a href='https://twitter.com/share' data-url='dir_URL_Code' target='_blank'>
                           <i class='fa fa-twitter' aria-hidden='true'></i>
                     </a>
                   </div>
-                  <div class="col s2 m2 l2"><a href="" alt=""> <i class="fa fa-pinterest" aria-hidden="true"></i> </a></div>
+
+                  <div class="col s2 m2 l2">
+                    <a href='http://pinterest.com/pin/create/button/?url='+dir_URL_Code+'' alt="" target="_self"> 
+
+                      <i class="fa fa-pinterest" aria-hidden="true"></i>
+                    </a>
+                  </div>
                   <div class="col s2 m2 l2"><a href="" alt=""> <i class="fa fa-paperclip" aria-hidden="true"></i> </a></div>
                   <div class="col s2 m2 l2">
                     <a href="whatsapp://send" data-text="Take a look at this awesome website:" data-href="dir_URL_Code" class="wa_btn wa_btn_s" style="display:none">

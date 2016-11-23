@@ -15,7 +15,7 @@
   }
 
 
-    document.onscroll=function(){  scrollBody(body_);}
+  document.onscroll=function(){  scrollBody(body_);}
 
 
   //-----------------evento para el menu slider-------------------------

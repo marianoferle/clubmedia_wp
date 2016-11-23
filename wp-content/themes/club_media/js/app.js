@@ -114,6 +114,7 @@
         }
         setColCat();
 
+
         //-----------------------------------------------------------------------
         var cantCat_=function(){
              for(var i=0;i<listColCat.length;i++){
@@ -135,18 +136,18 @@
         var cantCat_wordpress=function(){
                       var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
                       $.getJSON(ajaxURL+"/wp-json/wp/v2/categories?parent=0", {}, function(data){
-                      // $.post("include/restApi/cantidadPorCategoria.php",{cat:cat2_}, function (data2){
                             $.each(data, function( key, value ) {
                                   for(var i=0 ; i< listColCat.length ; i++){
                                      var cat_=listColCat[i].categoria;
                                        if(value.slug == cat_){
                                               listColCat[i].cantidad=value.count;
-                                              console.log(listColCat[i].cat_nombre,listColCat[i].cantidad);
+                                              //console.log(listColCat[i].cat_nombre,listColCat[i].cantidad);
                                        }
                                      }
                             });
                        });
         }
+
 
 
 
@@ -580,7 +581,7 @@
 
        //------------------------------resultados para la seccion-----------------------------------
        this.listarResult_Categoria=function(cat_,sub_){
-                     console.log(cat_.length,sub_.length);
+                     //console.log(cat_.length,sub_.length);
 
            if(cat_.length>0||sub_.length>0){
 
@@ -708,22 +709,23 @@
            this.listarCategoria_navLik=function(){
              (function() {
 
-                console.log(listColCat);
+
 
                      Handlebars.registerHelper("moduloCategoria_catNav_link", function(value){
                          return new Handlebars.SafeString(urlVar+"index.php?page=categoria_&amp;cat="+this.categoria);
                      });
 
-              //  setTimeout(function(){
+                setTimeout(function(){
 
                       var template_ = document.getElementById("template_categoria_categorias_nav").innerHTML;
                       var contTemplate = Handlebars.compile(template_);
                       //---------------json para los resultados destacados del index-------------------
                       var context=listColCat;//bd_categorias;
+                      //console.log(listColCat);
                       var templateCompile = contTemplate(context);
                       $(".cont_sideBar_Categorias").html(templateCompile);
 
-            //     }, 500);
+                 }, 1000);
 
               })();
            }
