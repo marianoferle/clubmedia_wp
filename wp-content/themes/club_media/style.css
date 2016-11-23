@@ -214,7 +214,7 @@ body {
 .cont_destacado_header_moduloCont img{position:relative; width:101%!important; margin-top: -20%;}
 .cont_destacado_header_moduloCont .cont_info_destacado_header{ position: absolute; top: 0; left: 0; margin:20px 30px; height: calc(100% - 40px); width: calc(100% - 60px);}
 .cont_destacado_header_moduloCont .cont_info_destacado_header .cont_destacado_header_moduloCont_item1{text-transform: capitalize; font-size: 14px; line-height: 20px; background: #333; display: block; float: left;  padding: 1px 10px; margin-left: 5px; margin-bottom: 5px; }
-.cont_destacado_header_moduloCont .cont_info_destacado_header p{  display: block; float: left; font-size: 21px; line-height: 25px; font-weight: 500; }
+.cont_destacado_header_moduloCont .cont_info_destacado_header p{ width: 100%;  display: block; float: left; font-size: 21px; line-height: 25px; font-weight: 500; }
 
  #cont_destacado_header .progress{position:relative;}
 
@@ -1146,7 +1146,7 @@ body {
 
 .cont_destacado_post_moduloFooter .cont_info_destacado_header{ position:absolute; top: 0; left: 0; margin:20px 0px; height: calc(100% - 40px);}
 .cont_destacado_post_moduloFooter .cont_info_destacado_header .cont_destacado_header_moduloCont_item1{text-transform: capitalize; font-size: 14px; line-height: 20px; background: #333; display: block; float: left;  padding: 1px 10px; margin-left: 5px; margin-bottom: 5px; }
-.cont_destacado_post_moduloFooter .cont_info_destacado_header p{  margin: 30px 0px 0px 5px;  display: block; float: left; font-size: 21px; line-height: 25px; font-weight: 500; }
+.cont_destacado_post_moduloFooter .cont_info_destacado_header p{width: 100%;  margin: 30px 0px 0px 5px;  display: block; float: left; font-size: 21px; line-height: 25px; font-weight: 500; }
 
 /*
 

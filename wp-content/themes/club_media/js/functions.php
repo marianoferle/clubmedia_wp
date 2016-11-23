@@ -38,31 +38,35 @@ add_filter( 'acf_to_wp_rest_api_post_data', function( $data, $object, $context )
 
 
 
-function my_post_object_query( $args, $field, $post_id ) {
-    // only show children of the current post being edited
-    $args['post_parent'] = $post_id;
-	// return
-    return $args;
+
+function add_custom_taxonomies() {
+  // Add new "Locations" taxonomy to Posts
+  register_taxonomy('subcategorias_post', 'post', array(
+    // Hierarchical taxonomy (like categories)
+    'hierarchical' => true,
+    // This array of options controls the labels displayed in the WordPress Admin UI
+    'labels' => array(
+      'name' => _x( 'Subcategorias_post', 'taxonomy general name' ),
+      'singular_name' => _x( 'Subcategorias_post', 'taxonomy singular name' ),
+      'search_items' =>  __( 'Search Locations' ),
+      'all_items' => __( 'All Locations' ),
+      'parent_item' => __( 'Parent Location' ),
+      'parent_item_colon' => __( 'Parent Location:' ),
+      'edit_item' => __( 'Edit Location' ),
+      'update_item' => __( 'Update Location' ),
+      'add_new_item' => __( 'Add New Location' ),
+      'new_item_name' => __( 'New Location Name' ),
+      'menu_name' => __( 'Subcategorias_post' ),
+    ),
+    // Control the slugs used for this taxonomy
+    'rewrite' => array(
+      'slug' => 'Subcategorias_post', // This controls the base slug that will display before each term
+      'with_front' => false, // Don't display the category base before "/locations/"
+      'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+    ),
+  ));
 }
-// filter for every field
-add_filter('acf/fields/post_object/query', 'my_post_object_query', 10, 3);
-// filter for a specific field based on it's name
-add_filter('acf/fields/post_object/query/name=my_post_object', 'my_post_object_query', 10, 3);
-// filter for a specific field based on it's key
-add_filter('acf/fields/post_object/query/key=field_508a263b40457', 'my_post_object_query', 10, 3);
-
-
-
-function acf_campos_rest_api( $response ) {
-  // Verifica se existe dados na resposta
-  if ( isset( $response->data ) && ! empty( $response->data ) ) {
-    // adiciona os campos do ACF na resposta
-    $response->data['acf'] = get_fields( $response->data['id'] );
-  }
-  // retorna a resposta com os dados do acf
-  return $response;
-}
-add_filter( 'rest_prepare_post', 'acf_campos_rest_api' );
+add_action( 'init', 'add_custom_taxonomies', 0 );
 
 
 
@@ -74,7 +78,7 @@ add_filter( 'rest_prepare_post', 'acf_campos_rest_api' );
 
 
 
-
+/*
 
 
 if(function_exists("register_field_group"))
@@ -338,12 +342,11 @@ if(function_exists("register_field_group"))
 		'title' => 'categorias',
 		'fields' => array (
 			array (
-				'key' => 'field_5834675fe468f',
+				'key' => 'field_583461bf0d6c9',
 				'label' => 'categorias',
 				'name' => 'categorias',
 				'type' => 'checkbox',
-				'instructions' => 'categorias',
-				'required' => 1,
+				'instructions' => 'Categorias para el post',
 				'choices' => array (
 					'clubmediafest' => 'Club Media Fest',
 					'humor' => 'Humor',
@@ -351,22 +354,21 @@ if(function_exists("register_field_group"))
 					'belleza' => 'Belleza',
 					'lifestyle' => 'Lifestyle',
 					'gamers' => 'Gamers',
-					'' => '',
 				),
 				'default_value' => '',
 				'layout' => 'vertical',
 			),
 			array (
-				'key' => 'field_5835a19949a1c',
-				'label' => 'sub_clubmediafest',
-				'name' => 'sub_clubmediafest',
+				'key' => 'field_583463134443d',
+				'label' => 'sub categorias clubmediafest',
+				'name' => 'sub_categorias_clubmediafest',
 				'type' => 'checkbox',
-				'instructions' => 'club media fest',
+				'instructions' => 'sub categorias para club media fest',
 				'conditional_logic' => array (
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_5834675fe468f',
+							'field' => 'field_583461bf0d6c9',
 							'operator' => '==',
 							'value' => 'clubmediafest',
 						),
@@ -387,16 +389,16 @@ if(function_exists("register_field_group"))
 				'layout' => 'vertical',
 			),
 			array (
-				'key' => 'field_5835a1e17b8d2',
-				'label' => 'sub_humor',
-				'name' => 'sub_humor',
+				'key' => 'field_583463d225365',
+				'label' => 'sub categorias humor',
+				'name' => 'sub_categorias_humor',
 				'type' => 'checkbox',
-				'instructions' => 'humor',
+				'instructions' => 'sub categorias para humor',
 				'conditional_logic' => array (
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_5834675fe468f',
+							'field' => 'field_583461bf0d6c9',
 							'operator' => '==',
 							'value' => 'humor',
 						),
@@ -419,16 +421,46 @@ if(function_exists("register_field_group"))
 				'layout' => 'vertical',
 			),
 			array (
-				'key' => 'field_5835a21637706',
-				'label' => 'sub_belleza',
-				'name' => 'sub_belleza',
+				'key' => 'field_58346402f93a7',
+				'label' => 'sub categorias musica',
+				'name' => 'sub_categorias_musica',
 				'type' => 'checkbox',
-				'instructions' => 'belleza',
+				'instructions' => 'sub categorias para humor',
 				'conditional_logic' => array (
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_5834675fe468f',
+							'field' => 'field_583461bf0d6c9',
+							'operator' => '==',
+							'value' => 'musica',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'choices' => array (
+					'playlist' => 'playlist',
+					'bandas' => 'bandas',
+					'en_vivo' => 'en_vivo',
+					'acústico' => 'acústico',
+					'lanzamientos' => 'lanzamientos',
+					'reviews' => 'reviews',
+					'ensayos' => 'ensayos',
+					'hit' => 'hit',
+				),
+				'default_value' => '',
+				'layout' => 'vertical',
+			),
+			array (
+				'key' => 'field_583465d7f8cb5',
+				'label' => 'sub categorias belleza',
+				'name' => 'sub_categorias_belleza',
+				'type' => 'checkbox',
+				'instructions' => 'sub categorías para belleza',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'field_583461bf0d6c9',
 							'operator' => '==',
 							'value' => 'belleza',
 						),
@@ -449,47 +481,16 @@ if(function_exists("register_field_group"))
 				'layout' => 'vertical',
 			),
 			array (
-				'key' => 'field_5835a28d37707',
-				'label' => 'sub_musica',
-				'name' => 'sub_musica',
+				'key' => 'field_5834670c96f2d',
+				'label' => 'sub categorias lifestyle',
+				'name' => 'sub_categorias_lifestyle',
 				'type' => 'checkbox',
-				'instructions' => 'musica',
+				'instructions' => 'sub categorias para lifestyle',
 				'conditional_logic' => array (
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_5834675fe468f',
-							'operator' => '==',
-							'value' => 'musica',
-						),
-					),
-					'allorany' => 'all',
-				),
-				'choices' => array (
-					'playlist' => 'playlist',
-					'bandas' => 'bandas',
-					'en_vivo' => 'en_vivo',
-					'acústico' => 'acústico',
-					'lanzamientos' => 'lanzamientos',
-					'reviews' => 'reviews',
-					'ensayos' => 'ensayos',
-					'hit' => 'hit',
-					'' => '',
-				),
-				'default_value' => '',
-				'layout' => 'vertical',
-			),
-			array (
-				'key' => 'field_5835a2b312ef8',
-				'label' => 'sub_lifestyle',
-				'name' => 'sub_lifestyle',
-				'type' => 'checkbox',
-				'instructions' => 'lifestyle',
-				'conditional_logic' => array (
-					'status' => 1,
-					'rules' => array (
-						array (
-							'field' => 'field_5834675fe468f',
+							'field' => 'field_583461bf0d6c9',
 							'operator' => '==',
 							'value' => 'lifestyle',
 						),
@@ -506,22 +507,21 @@ if(function_exists("register_field_group"))
 					'vlogs' => 'vlogs',
 					'libros' => 'libros',
 					'películas' => 'películas',
-					'' => '',
 				),
 				'default_value' => '',
 				'layout' => 'vertical',
 			),
 			array (
-				'key' => 'field_5835a2e0cd7ea',
-				'label' => 'sub_gamers',
-				'name' => 'sub_gamers',
+				'key' => 'field_5834675fe468f',
+				'label' => 'sub categorias gamers',
+				'name' => 'sub_categorias_gamers',
 				'type' => 'checkbox',
-				'instructions' => 'gamers',
+				'instructions' => 'sub categorias para gamers',
 				'conditional_logic' => array (
 					'status' => 1,
 					'rules' => array (
 						array (
-							'field' => 'field_5834675fe468f',
+							'field' => 'field_583461bf0d6c9',
 							'operator' => '==',
 							'value' => 'gamers',
 						),
@@ -537,7 +537,6 @@ if(function_exists("register_field_group"))
 					'lanzamientos' => 'lanzamientos',
 					'testeo' => 'testeo',
 					'tutoriales' => 'tutoriales',
-					'' => '',
 				),
 				'default_value' => '',
 				'layout' => 'vertical',
@@ -569,6 +568,9 @@ if(function_exists("register_field_group"))
 
 
 
+
+
+*/
 
 
 

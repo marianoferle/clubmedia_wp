@@ -53,7 +53,9 @@
             <div id="cont_post_section_video" class="col s12 m12 l12">
 
                  <div id="cont_post_section_video_cont" class="col s12 m12 l12">
-                   <iframe src="https://player.vimeo.com/video/{{acf.url_video}}" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                   <iframe src="https://player.vimeo.com/video/{{acf.url_video}}?title=0&amp;byline=0&amp;portrait=0\" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                   </iframe>
+                   <style>#player .title{display:none!important;}</style>
                  </div>
 
                  <div id="cont_post_section_video_info" class="col s12 m12 l12">
@@ -121,16 +123,16 @@
           {{#each this}}
           {{#ifCond @index '<=' 2}}
                  <div class="cont_destacado_post_moduloFooter col s12 m12 l4">
-                   <a href="{{ moduloDestacado_index_linkPost this.categorias }}" target='_self' title=''>
+                   <a href="{{ moduloDestacado_index_linkPost acf.categorias }}" target='_self' title=''>
                      <div class="contDestFooter_Img col s12 m6 l12   {{#ifCond @index '==' 1}} right{{/ifCond}}">
-                         <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{urlImgVid}}" alt=""/>
+                         <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt=""/>
                          <div class="cont_destacado_footer_moduloCont_fondo_opacity"></div>
                      </div>
                      <div class="cont_info_destacado_header col s12 m6 l12">
-                         {{#each this.categorias}}
-                              {{moduloDestacado_index this.categorias}}
+                         {{#each acf.categorias}}
+                              {{moduloDestacado_index acf.categorias}}
                          {{/each}}
-                         <p>{{titulo}}</p>
+                         <p>{{title.rendered}}</p>
                      </div>
                   </a>
                </div>

@@ -10,7 +10,7 @@
         </a>
      </div>
       <a class="navFooterLink col s12 m4 l2" href="http://www.bennu.tv/byc/?p=17" target="_blank">Términos y Condiciones</a>
-      <a class="navFooterLink col s12 m4 l2" href="#!">Baja</a>
+      <a class="navFooterLink col s12 m4 l2" href="http://wap.bennu.tv/eventos/landing_baja.php?id_servicio=165">Baja</a>
       <a class="navFooterLink col s12 m4 l2" href="index.php?page=terminos_">Políticas de privacidad</a>
       <div class="navFooterIcon col s12 m12 l3 center">
           <div class="row">

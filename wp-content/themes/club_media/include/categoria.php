@@ -157,30 +157,32 @@
 
       <!-- ...............................modulo dinamico de destacados.............................................-->
       <script id="template_destacado_indexCat_sideBar" type="text/x-handlebars-template">
-            {{#each this}}
-              {{#ifCond @index '==' 4}}
-                 <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{urlImgVid}}" title="Destacado"/>
+        {{#each this}}
+          {{#ifCond sticky '==' true}}
+          {{#ifCond @index '==' 4}}
+                 <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" title="Destacado"/>
                  <!--img src="img/template/{{srcImgDestacado}}" title="Destacado"/-->
 
                  <div class="contAsideBotton_fondo_opacity"></div>
                  <div class="contAsideBotton_info">
                        <h1>
-                        {{#each this.autores}}
-                              {{#ifCond @index '<=' 1}}
-                                   {{moduloDestacado_index_autores this.autores}}
-                              {{/ifCond}}
-                         {{/each}}
+                         {{#each acf.autores}}
+                               {{#ifCond @index '<=' 1}}
+                                    {{moduloDestacado_index_autores acf.autores}}
+                               {{/ifCond}}
+                          {{/each}}
                        </h1>
                        <h4>
-                       {{#each this.categorias}}
-                            {{#ifCond @index '>=' 0}}
-                                 {{moduloDestacado_index this.categorias}}
-                            {{/ifCond}}
-                       {{/each}}
+                         {{#each acf.categorias}}
+                              {{#ifCond @index '>=' 0}}
+                                   {{moduloDestacado_index acf.categorias}}
+                              {{/ifCond}}
+                         {{/each}}
                        </h4>
-                       <p>{{titulo}}</p>
-                   <a href="{{ moduloDestacado_index_linkPost_sideBar this.categorias }}" title="" class="waves-effect waves-light btn">Leer más</a>
+                       <p>{{title.rendered}}</p>
+                   <a href="{{ moduloDestacado_index_linkPost_sideBar acf.categorias }}" title="" class="waves-effect waves-light btn">Leer más</a>
                  </div>
+              {{/ifCond}}
               {{/ifCond}}
             {{/each}}
       </script>
@@ -193,7 +195,7 @@
 
       <!-- ......................................nav categoria en sidebar..................................................... -->
 
-          <script id="template_categoria_categorias_nav" type="text/x-handlebars-template">
+          <!--script id="template_categoria_categorias_nav" type="text/x-handlebars-template">
               {{#each this}}
                         <div class="cont_sideBar_Categorias_individual" style="background:#{{colorFondo}};">
                           <a href="{{moduloCategoria_catNav_link this.categorias }}" target="_self" title="" style="color:#{{colorTexto}};">
@@ -211,7 +213,88 @@
               {{/each}}
         </script>
 
-       <div class="cont_sideBar_Categorias col s12 m12 l12"> </div>
+       <div class="cont_sideBar_Categorias col s12 m12 l12"> </div-->
+
+       <div class="cont_sideBar_Categorias col s12 m12 l12">
+                        <div class="cont_sideBar_Categorias_individual" style="background:#200944;">
+                          <a href="index.php?page=categoria_&amp;cat=clubmediafest" target="_self" title="" style="color:#ffffff;">
+                              <div class="cont_sideBar_Categorias_individual_info">
+                                    <h1>Club Media Fest</h1>
+                                    <p>Enterate de lo que se viene en los próximos CMF. Mirá de cerca los backstage de los festivales que pasaron en videos exclusivos para que no te pierdas de nada!</p>
+                                    <div class="cont_sideBar_Categorias_individual_info_vid">
+                                        <div id="cantidad_videos_cat_clubmediafest" class="cont_cantidad_vid_navCat">19</div>
+                                        <p>Videos</p>
+                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#ffffff;"></div>
+                                    </div>
+                              </div>
+                          </a>
+                    </div>
+                        <div class="cont_sideBar_Categorias_individual" style="background:#ffff01;">
+                          <a href="index.php?page=categoria_&amp;cat=humor" target="_self" title="" style="color:#333333;">
+                              <div class="cont_sideBar_Categorias_individual_info">
+                                    <h1>Humor</h1>
+                                    <p>Bloopers, retos, desafíos, chistes, parodias y los encuentros más divertidos. Imposible no reírse con ellos.</p>
+                                    <div class="cont_sideBar_Categorias_individual_info_vid">
+                                        <div id="cantidad_videos_cat_humor" class="cont_cantidad_vid_navCat">16</div>
+                                        <p>Videos</p>
+                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#333333;"></div>
+                                    </div>
+                              </div>
+                          </a>
+                    </div>
+                        <div class="cont_sideBar_Categorias_individual" style="background:#168ce6;">
+                          <a href="index.php?page=categoria_&amp;cat=musica" target="_self" title="" style="color:#ffffff;">
+                              <div class="cont_sideBar_Categorias_individual_info">
+                                    <h1>Música</h1>
+                                    <p>Son las nuevas estrellas de todos los tiempos. Reviví los shows en vivo de tus artistas favoritos.</p>
+                                    <div class="cont_sideBar_Categorias_individual_info_vid">
+                                        <div id="cantidad_videos_cat_musica" class="cont_cantidad_vid_navCat">10</div>
+                                        <p>Videos</p>
+                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#ffffff;"></div>
+                                    </div>
+                              </div>
+                          </a>
+                    </div>
+                        <div class="cont_sideBar_Categorias_individual" style="background:#f4206a;">
+                          <a href="index.php?page=categoria_&amp;cat=belleza" target="_self" title="" style="color:#ffffff;">
+                              <div class="cont_sideBar_Categorias_individual_info">
+                                    <h1>Belleza</h1>
+                                    <p>Aprendé sobre moda, look, tendencias, makeup con las mejores artistas de toda habla hispana.</p>
+                                    <div class="cont_sideBar_Categorias_individual_info_vid">
+                                        <div id="cantidad_videos_cat_belleza" class="cont_cantidad_vid_navCat">0</div>
+                                        <p>Videos</p>
+                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#ffffff;"></div>
+                                    </div>
+                              </div>
+                          </a>
+                    </div>
+                        <div class="cont_sideBar_Categorias_individual" style="background:#35df89;">
+                          <a href="index.php?page=categoria_&amp;cat=lifestyle" target="_self" title="" style="color:#ffffff;">
+                              <div class="cont_sideBar_Categorias_individual_info">
+                                    <h1>Lifestyle</h1>
+                                    <p>Conocé los viajes, vlogs, libros y la vida misma de esta nueva generación de creadores.</p>
+                                    <div class="cont_sideBar_Categorias_individual_info_vid">
+                                        <div id="cantidad_videos_cat_lifestyle" class="cont_cantidad_vid_navCat">3</div>
+                                        <p>Videos</p>
+                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#ffffff;"></div>
+                                    </div>
+                              </div>
+                          </a>
+                    </div>
+                        <div class="cont_sideBar_Categorias_individual" style="background:#fe4300;">
+                          <a href="index.php?page=categoria_&amp;cat=gamers" target="_self" title="" style="color:#ffffff;">
+                              <div class="cont_sideBar_Categorias_individual_info">
+                                    <h1>Gamers</h1>
+                                    <p>Ellos juegan, se divierten y se enfrentan en épicos challenges. ¡Todos los videos están acá!</p>
+                                    <div class="cont_sideBar_Categorias_individual_info_vid">
+                                        <div id="cantidad_videos_cat_gamers" class="cont_cantidad_vid_navCat">5</div>
+                                        <p>Videos</p>
+                                        <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#ffffff;"></div>
+                                    </div>
+                              </div>
+                          </a>
+                    </div>
+        </div>
 
 
     </div>
