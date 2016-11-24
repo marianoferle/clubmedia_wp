@@ -772,6 +772,10 @@ this.verPOST=function(id_dia){
 
           setTimeout(function(){
 
+                    Handlebars.registerHelper("modulo_cartegoriPorId", function(value){
+                        return new Handlebars.SafeString(this.categories);
+                    });
+
 
                       //var dat=JSON.parse(data);
                       if(typeof  data === 'object' && data.id==Number(id_dia)){

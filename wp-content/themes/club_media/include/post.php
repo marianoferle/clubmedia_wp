@@ -6,22 +6,20 @@
 
              <div id="cont_post_head" class="col s12 m12 l12 center">
                <div id="cont_post_head_catSubcat" class="col s12 m12 l12 center">
-                   <h2 style="color:#84ab1a;"> {{#each acf.categorias}} #{{this}} {{/each}}   </h2>
+                   <h2 style="color:#84ab1a;"> {{#each acf.categorias}} #{{this}} {{/each}}   </h2>          
                    <h2 style="color:#6e3ac3;">
-                     {{#each acf.sub_categorias_clubmediafest}}  #{{this}} {{/each}}
-                     {{#each acf.sub_categorias_humor}}  #{{this}} {{/each}}
-                     {{#each acf.sub_categorias_musica}}  #{{this}} {{/each}}
-                     {{#each acf.sub_categorias_belleza}}  #{{this}} {{/each}}
-                     {{#each acf.sub_categorias_lifestyle}}  #{{this}} {{/each}}
-                     {{#each acf.sub_categorias_gamers}}  #{{this}} {{/each}}
+                     {{#each acf.sub_clubmediafest}}  #{{this}} {{/each}}
+                     {{#each acf.sub_humor}}  #{{this}} {{/each}}
+                     {{#each acf.sub_musica}}  #{{this}} {{/each}}
+                     {{#each acf.sub_belleza}}  #{{this}} {{/each}}
+                     {{#each acf.sub_lifestyle}}  #{{this}} {{/each}}
+                     {{#each acf.sub_gamers}}  #{{this}} {{/each}}
                    </h2>
                </div>
                <div id="cont_post_head_titu" class="col s12 m12 l12 center">
                    <h1 id="tituloPost" class="center">{{title.rendered}}</h1>
                    <h1 id="categoriaPost" class="center">
-                        {{#each acf.categorias}}
-                                #{{this}}
-                        {{/each}}
+                     {{acf.subtit}}
                    </h1>
                </div>
                <div  id="cont_post_head_titRedsocial" class="col s12 m12 l12" style="margin-bottom:10px;">Compartime</div>
@@ -43,7 +41,7 @@
                   </div>
 
                   <div class="col s2 m2 l2">
-                    <a href='http://pinterest.com/pin/create/button/?url='+dir_URL_Code+'' alt="" target="_self"> 
+                    <a href='http://pinterest.com/pin/create/button/?url='+dir_URL_Code+'' alt="" target="_self">
 
                       <i class="fa fa-pinterest" aria-hidden="true"></i>
                     </a>
@@ -63,7 +61,6 @@
                  <div id="cont_post_section_video_cont" class="col s12 m12 l12">
                    <iframe src="https://player.vimeo.com/video/{{acf.url_video}}?title=0&amp;byline=0&amp;portrait=0\" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
                    </iframe>
-                   <style>#player .title{display:none!important;}</style>
                  </div>
 
                  <div id="cont_post_section_video_info" class="col s12 m12 l12">

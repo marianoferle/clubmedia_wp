@@ -207,7 +207,7 @@
                                                               {{#each acf.categorias}}
                                                                    {{moduloResult_itemsCategoria acf.categorias}}
                                                               {{/each}}
-                                                            <!--  {{id}}- {{hora_id}} - {{dia_id}} -->{{id}}
+                                                            <!--  {{id}}- {{hora_id}} - {{dia_id}} -->
                                                               <h1>{{title.rendered}}</h1>
                                                               <p>{{acf.subtit}}</p>
                                                             </div>
@@ -225,7 +225,7 @@
                                                         {{#each acf.categorias}}
                                                              {{moduloResult_itemsCategoria acf.categorias}}
                                                         {{/each}}
-                                                        <!--  {{id}}- {{hora_id}} - {{dia_id}} -->{{id}}
+                                                        <!--  {{id}}- {{hora_id}} - {{dia_id}} -->
                                                         <h1>{{title.rendered}}</h1>
                                                         <p>{{acf.subtit}}</p>
                                                       </div>
@@ -253,7 +253,7 @@
                                                     {{#each acf.categorias}}
                                                          {{moduloResult_itemsCategoria acf.categorias}}
                                                     {{/each}}
-                                                    <!--  {{id}}- {{hora_id}} - {{dia_id}} -->{{id}}
+                                                    <!--  {{id}}- {{hora_id}} - {{dia_id}} -->
                                                     <h1>{{title.rendered}}</h1>
                                                     <p>{{acf.subtit}}</p>
                                                   </div>
@@ -271,7 +271,7 @@
                                                     {{#each acf.categorias}}
                                                          {{moduloResult_itemsCategoria acf.categorias}}
                                                     {{/each}}
-                                                    <!--  {{id}}- {{hora_id}} - {{dia_id}} -->{{id}}
+                                                    <!--  {{id}}- {{hora_id}} - {{dia_id}} -->
                                                     <h1>{{title.rendered}}</h1>
                                                     <p>{{acf.subtit}}</p>
                                                   </div>

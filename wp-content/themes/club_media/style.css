@@ -1076,8 +1076,8 @@ body {
 
 #cont_post_head_catSubcat{ position:relative; float:none; margin:0 auto; text-transform: capitalize; margin-top: 20px; }
 #cont_post_head_catSubcat h2{font-size: 18px; float:left; margin-left:15px; margin-bottom:5px;  margin-top:5px;}
-#tituloPost{  font-size: 60px; margin:30px;}
-#categoriaPost{ font-size: 40px; margin:20px 0px 0px 0px; font-weight: bold; text-transform: capitalize;}
+#tituloPost{  font-size: 60px; margin: 30px 100px;}
+#categoriaPost{ font-size: 40px; margin:20px 0px 0px 0px; font-weight: bold; text-transform: capitalize; color:#979797;}
 #cont_post_head_titRedsocial{ margin:30px 0px 10px 0px; color:#2095f4; font-size: 20px;}
 #cont_post_head_redsocial{ margin:20px 0px;}
 #cont_post_head_redsocial a{  }
