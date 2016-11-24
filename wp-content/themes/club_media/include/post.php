@@ -1,12 +1,10 @@
 
-
-
     <!-- ...............template Handlebars..................... -->
        <script id="template_Post_Script" type="text/x-handlebars-template">
 
              <div id="cont_post_head" class="col s12 m12 l12 center">
                <div id="cont_post_head_catSubcat" class="col s12 m12 l12 center">
-                   <h2 style="color:#84ab1a;"> {{#each acf.categorias}} #{{this}} {{/each}}   </h2>          
+                   <h2 style="color:#84ab1a;"> {{#each acf.categorias}} #{{this}} {{/each}}   </h2>
                    <h2 style="color:#6e3ac3;">
                      {{#each acf.sub_clubmediafest}}  #{{this}} {{/each}}
                      {{#each acf.sub_humor}}  #{{this}} {{/each}}
@@ -27,30 +25,33 @@
                   <div class="col s1 m1 l1"></div>
 
                   <div class="col s2 m2 l2">
-                    <a class='fb-xfbml-parse-ignore' target='_blank' href='http://www.facebook.com/share.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'>
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <!--div class="fb-share-button" data-href="http://marianoferle.com.ar/post.php?id={{id}}&amp;hora={{hora}}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-                    </div-->
+                        <!--a class='fb-xfbml-parse-ignore' target='_blank' href='http://www.facebook.com/share.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'-->
+                        <!--a href='https://www.facebook.com/sharer/sharer.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'><i class="fa fa-facebook" aria-hidden="true"></i></a-->
+                        <a href="javascript:fbShare('dir_URL_Code', '{{title.rendered}}', '{{{content.rendered}}}', 'https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg', 520, 350)" target="_blank">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
                   </div>
-
                   <div class="col s2 m2 l2">
-                    <a href='https://twitter.com/share' data-url='dir_URL_Code' target='_blank'>
-                          <i class='fa fa-twitter' aria-hidden='true'></i>
-                    </a>
+                        <!--a href='https://twitter.com/share' data-url='dir_URL_Code' target='_blank'><i class='fa fa-twitter' aria-hidden='true'></i></a-->
+                        <a class="twitter-share-button"  href="https://twitter.com/share" data-size="large" data-text="custom share text"
+                            data-url="dir_URL_Code" data-hashtags="{{{content.rendered}}}" data-via="twitterdev" data-related="twitterapi,twitter" target="_blank">
+                                <i class='fa fa-twitter' aria-hidden='true'></i>
+                        </a>
                   </div>
-
                   <div class="col s2 m2 l2">
-                    <a href='http://pinterest.com/pin/create/button/?url='+dir_URL_Code+'' alt="" target="_self">
-
-                      <i class="fa fa-pinterest" aria-hidden="true"></i>
-                    </a>
+                        <a href="" alt="" target="_blank" id="bot_pinteres_share">
+                              <i class="fa fa-pinterest" aria-hidden="true"></i>
+                        </a>
                   </div>
-                  <div class="col s2 m2 l2"><a href="" alt=""> <i class="fa fa-paperclip" aria-hidden="true"></i> </a></div>
                   <div class="col s2 m2 l2">
-                    <a href="whatsapp://send" data-text="Take a look at this awesome website:" data-href="dir_URL_Code" class="wa_btn wa_btn_s" style="display:none">
-                          <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                    </a>
+                        <a href="" alt="">
+                          <i class="fa fa-paperclip" aria-hidden="true"></i>
+                        </a>
+                  </div>
+                  <div class="col s2 m2 l2">
+                        <a href="whatsapp://send" data-text="Take a look at this awesome website:" data-href="dir_URL_Code" class="wa_btn wa_btn_s" style="display:none">
+                              <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                        </a>
                   </div>
                   <div class="col s1 m1 l1"></div>
                </div>
@@ -79,6 +80,7 @@
                        </div>
 
                        <div id="cont_post_section_video_info_youtuber_texto" class="col s12 m12 l12">
+
                              <p>
                                {{{content.rendered}}}
                              </p>
@@ -91,10 +93,22 @@
                        <div id="cont_post_section_video_info_youtuber_redSocial" class="col s12 m10 l8">
                            <div  id="cont_post_section_video_info_youtuber_redSocial_tit" class="col s12 m4 l6" style="margin-bottom:10px;">Compartime:</div>
                            <div id="cont_post_section_video_info_youtuber_redSocial_icon" class="col s12 m8 l6">
-                              <div class="col s1 m1 l1"><a href="#!" alt="">   </a></div>
-                              <div class="col s2 m2 l2"><a href="#!" alt=""> <i class="fa fa-facebook" aria-hidden="true"></i>  </a></div>
-                              <div class="col s2 m2 l2"><a href="#!" alt=""> <i class="fa fa-twitter" aria-hidden="true"></i>   </a></div>
-                              <div class="col s2 m2 l2"><a href="#!" alt=""> <i class="fa fa-pinterest" aria-hidden="true"></i> </a></div>
+                              <div class="col s1 m1 l1"><a href="#!" alt=""></a></div>
+                              <div class="col s2 m2 l2">
+                                <a class='fb-xfbml-parse-ignore' target='_blank' href='http://www.facebook.com/share.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'>
+                                      <i class="fa fa-facebook" aria-hidden="true"></i>
+                                  </a>
+                              </div>
+                              <div class="col s2 m2 l2">
+                                  <a href='https://twitter.com/share' data-url='dir_URL_Code' target='_blank'>
+                                       <i class="fa fa-twitter" aria-hidden="true"></i>
+                                  </a>
+                              </div>
+                              <div class="col s2 m2 l2">
+                                  <a href='http://pinterest.com/pin/create/button/?url='+dir_URL_Code+'' alt="" target="_self">
+                                      <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                  </a>
+                              </div>
                               <div class="col s2 m2 l2"><a href="#!" alt=""> <i class="fa fa-paperclip" aria-hidden="true"></i> </a></div>
                               <div class="col s2 m2 l2"><a href="#!" alt=""> <i class="fa fa-whatsapp" aria-hidden="true"></i> </a></div>
                               <div class="col s1 m1 l1"><a href="#!" alt="">  </a></div>
@@ -108,7 +122,7 @@
                   </div>
               </div>
        </script>
-
+       
 
        <div id="cont_post"  class="col s12 m12 l12">
           <div class="row">

@@ -10,11 +10,21 @@
 <link rel="shortcut icon" type="image/ico" href="https://s3-sa-east-1.amazonaws.com/club.media/template/favicon.ico" />
 
 
+
+
+
+
+
+
+
 <!--link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"-->
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/normalize.css" /></link>
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/materialize.min.css">
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/font-awesome.min.css">
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" /></link>
+
+
+
 
 
 

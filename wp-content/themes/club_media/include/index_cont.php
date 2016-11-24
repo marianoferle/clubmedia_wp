@@ -240,7 +240,7 @@
                                             <div class="contChicoResult_moduloPopUp_Aviso">
                                                 <a href="#!" alt="">
                                                     <img src="https://s3-sa-east-1.amazonaws.com/club.media/template/bot_aviso.jpg"/>
-                                                    <div class="contChicoResult_moduloPopUp_Aviso_info">¡Vos podés der el próximo!</div>
+                                                    <div class="contChicoResult_moduloPopUp_Aviso_info">¡Vos podés ser el próximo!</div>
                                                 </a>
                                             </div>
                                     </div>

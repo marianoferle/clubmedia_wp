@@ -106,11 +106,10 @@
          {{/each}}
        </script>
 
+
+
     <!-- ...........resultados.............. -->
     <div class="cont_categoria_section_result col s12 m12 l8"></div>
-
-
-
 
 
 
@@ -133,7 +132,7 @@
       <div class="cont_sideBar_Aviso col s12 m6 l12">
                     <a href="#!" alt="">
                         <img src="https://s3-sa-east-1.amazonaws.com/club.media/template/bot_aviso.jpg"/>
-                        <div class="cont_sideBar_Aviso_info"> ¡Vos podés der el próximo! </div>
+                        <div class="cont_sideBar_Aviso_info"> ¡Vos podés ser el próximo! </div>
                     </a>
       </div>
 
@@ -221,9 +220,18 @@
 
 
 
-
 <!-- ............-->
 </div>
+
+
+<div id="cont_page_pos" class="col s12 m12 l12 center">
+      <div id="next_pos" class="col s12 m12 l12">
+        <a class="btn-floating btn-large waves-effect waves-light yellow">+</a>
+      </div>
+</div>
+
+
+
 </div>
 
 

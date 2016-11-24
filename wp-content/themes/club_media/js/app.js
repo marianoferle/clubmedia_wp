@@ -580,8 +580,9 @@
 
 
        //------------------------------resultados para la seccion-----------------------------------
-       this.listarResult_Categoria=function(cat_,sub_){
-                     //console.log(cat_.length,sub_.length);
+       this.listarResult_Categoria=function(cat_,sub_,posicion_result_list_){
+             var pos_=posicion_result_list_;
+            //console.log(cat_.length,sub_.length);
 
            if(cat_.length>0||sub_.length>0){
 
@@ -589,7 +590,7 @@
 
               //$.post(urlR_+"/include/restApi/result_sel_cat.php",{cat:cat_,sub:sub_}, function (data){
               var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-              $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[category_name]="+cat_, {}, function(data){     //filter cat acf
+              $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[category_name]="+cat_, {"page":pos_,"per_page":7}, function(data){     //filter cat acf
               $(".cont_categoria_section_result").html("<div class='progress'><div class='indeterminate' style='background-color:#"+colorFondoPorCategoria_(cat_)+"'></div></div>");
 
               }).done(function(data){

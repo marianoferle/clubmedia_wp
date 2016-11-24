@@ -26,15 +26,12 @@ add_theme_support( 'post-thumbnails' );
 
 
 
-
-
 add_filter( 'acf_to_wp_rest_api_post_data', function( $data, $object, $context ) {
     if ( isset( $data['type'] ) && 'my_post_type' == $data['type'] && isset( $data['acf'] ) ) {
       // do something
     }
     return $data;
 }, 10, 3 );
-
 
 
 
@@ -66,6 +63,26 @@ add_filter( 'rest_prepare_post', 'acf_campos_rest_api' );
 
 
 
+
+
+
+/*
+	Facebook Share Shortcode for WordPress
+	http://www.internoetics.com/2014/01/08/facebook-share-shortcode-for-wordpress/
+*/
+
+function facebookShare($atts) {
+  extract(shortcode_atts(array(
+    'url' => '',
+    'layout' => 'link', // box_count, button_count, button, icon_link, icon, link
+    'width' => '110'
+  ), $atts));
+
+ if (!$url) $url = get_permalink($post->ID);
+ $return = '<p><div class="fb-share-button" data-href="' . $url . '" data-width="' . $width . '" data-type="' . $layout . '"></div></p>';
+return $return;
+}
+add_shortcode('fbshare', 'facebookShare');
 
 
 
@@ -157,7 +174,7 @@ if(function_exists("register_field_group"))
 					'werevertumorro' => 'Werevertumorro',
 					'willyrex' => 'Willyrex',
 					'xoda' => 'Xoda',
-					'yaninasantamadre' => 'Yanina Santamadre',
+					'kikasantamadre' => 'Kika Santamadre',
 					'yellowmellow' => 'Yellow Mellow',
 					'yoana' => 'Yoana Marlén Style',
 					'zarcort' => 'Zarcort',
@@ -563,7 +580,6 @@ if(function_exists("register_field_group"))
 		'menu_order' => 7,
 	));
 }
-
 
 
 

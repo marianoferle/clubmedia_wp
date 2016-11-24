@@ -88,14 +88,14 @@ body {
 
 #slider_header_car{height:200px!important; }
 
-          @media only screen and (min-width:1780px) {  #slider_header_car{ height:800px!important;}  }
-          @media only screen and (min-width:1580px) AND (max-width:1780px){  #slider_header_car{ height:790px!important;}  }
+          @media only screen and (min-width:1780px) {  #slider_header_car{ height:910px!important;}  }
+          @media only screen and (min-width:1580px) AND (max-width:1780px){  #slider_header_car{ height:850px!important;}  }
           @media only screen and (min-width:1480px) AND (max-width:1580px){  #slider_header_car{ height:790px!important;}  }
           @media only screen and (min-width:1360px) AND (max-width:1480px){  #slider_header_car{ height:720px!important;}  }
-          @media only screen and (min-width:1280px) AND (max-width:1360px){  #slider_header_car{ height:700px!important;}  }
-          @media only screen and (min-width:1024px) AND (max-width:1280px) { #slider_header_car{ height:555px!important;} }
-          @media only screen and (min-width:768px) AND (max-width:1023px) {  #slider_header_car{ height:430px!important;} }
-          @media only screen and (min-width:600px) AND (max-width:799px) {   #slider_header_car{ height:310px!important;}}
+          @media only screen and (min-width:1280px) AND (max-width:1360px){  #slider_header_car{ height:690px!important;}  }
+          @media only screen and (min-width:1024px) AND (max-width:1280px) { #slider_header_car{ height:620px!important;} }
+          @media only screen and (min-width:768px) AND (max-width:1023px) {  #slider_header_car{ height:520px!important;} }
+          @media only screen and (min-width:600px) AND (max-width:799px) {   #slider_header_car{ height:380px!important;}}
           @media only screen and (min-width:480px) AND (max-width:599px) {   #slider_header_car{ height:250px!important;} }
           @media only screen and (min-width:320px) AND (max-width:479px) {   #slider_header_car{ height:170px!important;}}
 
@@ -1077,7 +1077,7 @@ body {
 #cont_post_head_catSubcat{ position:relative; float:none; margin:0 auto; text-transform: capitalize; margin-top: 20px; }
 #cont_post_head_catSubcat h2{font-size: 18px; float:left; margin-left:15px; margin-bottom:5px;  margin-top:5px;}
 #tituloPost{  font-size: 60px; margin: 30px 100px;}
-#categoriaPost{ font-size: 40px; margin:20px 0px 0px 0px; font-weight: bold; text-transform: capitalize; color:#979797;}
+#categoriaPost{ font-size: 40px; margin:20px 0px 0px 0px; font-weight: bold; text-transform:initial; color:#979797;}
 #cont_post_head_titRedsocial{ margin:30px 0px 10px 0px; color:#2095f4; font-size: 20px;}
 #cont_post_head_redsocial{ margin:20px 0px;}
 #cont_post_head_redsocial a{  }

@@ -25,14 +25,6 @@ var pos_pag=1;
             });
 
 
-            $("#prev_pos").click(function(){
-                if(post_page_>=10){
-                      post_page_-=1;
-                      var nn_=post_page_-1;
-                      AF_index.listarPost_index(post_page_);
-                      $("#numResult_pos").html('/');
-                }
-            });
 
             //--------------------nav on onscroll document----------------------------------------------
             document.onscroll=function(){  AF_index.scrollBody_(body_);}
