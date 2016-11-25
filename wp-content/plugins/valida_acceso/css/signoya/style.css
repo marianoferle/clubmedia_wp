@@ -1,0 +1,754 @@
+body > :not(#login123) {
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+	pointer-events: none;
+}
+
+.login-popup-1-active .login-popup-overlay,
+.login-popup-2-active .login-popup-overlay,
+.login-popup-3-active .login-popup-overlay {
+	display: flex;
+	display: -webkit-flex;
+}
+
+.login-popup-1-active .popup-1 {
+	display: initial;
+}
+
+.login-popup-2-active .popup-2 {
+	display: initial;
+}
+
+.login-popup-3-active .popup-3 {
+	display: initial;
+}
+
+.login-popup-overlay {
+	display: none;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,.5);
+	z-index: 200;
+
+	justify-content: center;
+	flex-direction: column;
+
+	-webkit-flex-direction: column;
+	-webkit-justify-content: center;
+}
+
+.login-popup {
+	width: calc(100% - 80px);
+	max-width: 960px;
+	height: calc(100% - 80px);
+	max-height: 800px;
+	background: #fff;
+	margin: 0 auto;
+	color: #4d4d4d;
+	overflow-y: auto;
+	overflow-x: hidden;
+	display: none;
+}
+
+.login-popup-cont {
+	width: 960px;
+	height: 800px;
+	position: relative;
+	box-sizing: border-box;
+	padding: 40px;
+}
+
+.login-logo {
+	width: 400px;
+	height: 69px;
+	background: url('../../img/serpositivo/logo_full.png') no-repeat center / 100%;
+	position: absolute;
+}
+.popup-1 .login-logo {
+	top: 92px;
+	right: 40px;
+}
+.popup-2 .login-logo {
+	top: 109px;
+	left: 40px;
+}
+.popup-3 .login-logo {
+	top: 59px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+.login-title {
+	font-size: 36px;
+	font-family: SimplonBP-Light;
+	line-height: initial;
+	display: inline-block;
+	position: absolute;
+}
+.login-title span {
+	color: #fa7226;
+	font-family: SimplonBP-Medium;
+}
+.popup-1 .login-title {
+	width: 450px;
+	top: 68px;
+	left: 40px;
+}
+.popup-2 .login-title {
+	width: initial;
+	top: 185px;
+	left: 40px;
+}
+.popup-3 .login-title {
+	width: 100%;
+	text-align: center;
+	top: 135px;
+	left: 0;
+}
+
+.login-info {
+	position: absolute;
+	top: 176px;
+	left: 40px;
+}
+.login-info h3 {
+	color: #fa7226;
+	font-family: SimplonBP-Regular;
+	line-height: initial;
+	font-size: 18px;
+	font-weight: normal;
+	padding: 0 0 21px;
+}
+.login-info h3 span {
+	font-family: SimplonBP-Medium;
+}
+
+.login-info ul {
+	margin: 0 0 21px;
+}
+.login-info li {
+	color: #4d4d4d;
+	font-family: SimplonBP-Regular;
+	line-height: 1.2;
+	font-size: 18px;
+	list-style-type: none;
+	padding: 0 0 0 21px;
+	background: url('../../img/serpositivo/list_checkmark.svg') no-repeat left 2px / auto 16px;
+	margin: 0 0 8px;
+	box-sizing: border-box;
+}
+.login-info li span {
+	font-family: SimplonBP-Medium;
+}
+.login-info .login-notas {
+	margin: 0;
+}
+.login-notas li {
+	background: none;
+	padding: 0 0 0 10px;
+	margin: 0;
+}
+.login-notas li:before {
+	content: '+ ';
+	font-family: SimplonBP-Medium;
+	color: #fa7226;
+}
+
+.login-popup ::-webkit-input-placeholder {
+	color: inherit;
+	opacity: inherit;
+}
+
+.login-popup :-moz-placeholder {
+	color: inherit;
+	opacity: inherit;
+}
+
+.login-popup ::-moz-placeholder {
+	color: inherit;
+	opacity: inherit;
+}
+
+.login-popup :-ms-input-placeholder {
+	color: inherit;
+	opacity: inherit;
+}
+
+.login-input {
+	position: absolute;
+	display: inline-block;
+}
+.popup-1 .login-input {
+	top: 596px;
+	left: 40px;
+}
+.popup-2 .login-input {
+	top: 313px;
+	left: 40px;
+}
+
+.login-input form {
+	font-size: 0;
+}
+
+.login-prefijo {
+	width: 60px;
+	height: 50px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	border: 2px solid #4c4c4c;
+	padding: 0 10px;
+	margin: 0 20px 20px 0;
+
+	color: #4c4c4c;
+	font-family: SimplonBP-Regular;
+	line-height: 50px;
+	font-size: 18px;
+	text-align: center;
+}
+
+.login-numero {
+	width: 130px;
+	height: 50px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	border: 2px solid #4c4c4c;
+	padding: 0 10px;
+	margin: 0 20px 20px 0;
+
+	color: #4c4c4c;
+	font-family: SimplonBP-Regular;
+	line-height: 50px;
+	font-size: 18px;
+	text-align: center;
+}
+
+.login-operadora {
+	width: 130px;
+	height: 50px;
+	border-radius: 10px;
+	background: #4c4c4c;
+	box-sizing: border-box;
+	text-align: center;
+	text-align-last: center;
+	margin-bottom: 20px;
+
+	color: #fff;
+	font-family: SimplonBP-Regular;
+	line-height: 50px;
+	font-size: 18px;
+	text-align: center;
+
+	-moz-appearance: none;
+	 -webkit-appearance: none;
+	 appearance: none;
+}
+
+.login-pin {
+	width: 130px;
+	height: 50px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	border: 2px solid #4c4c4c;
+	padding: 0 10px;
+	margin: 0 0 20px 0;
+
+	color: #4c4c4c;
+	font-family: SimplonBP-Regular;
+	line-height: 50px;
+	font-size: 24px;
+	text-align: center;
+}
+
+.login-continuar {
+	width: 300px;
+	height: 50px;
+	border-radius: 10px;
+	background: #fa7226;
+	box-sizing: border-box;
+	text-align: center;
+
+	color: #fff;
+	font-family: SimplonBP-Medium;
+	line-height: 50px;
+	font-size: 24px;
+	text-align: center;
+	cursor: pointer;
+}
+.login-continuar:after {
+	content: ' >';
+	font-family: SimplonBP-Light;
+}
+.popup-2 .login-continuar {
+	width: 200px;
+}
+
+.login-input-title {
+	font-size: 24px;
+	line-height: 1.2;
+	font-family: SimplonBP-Regular;
+	color: #4c4c4c;
+	text-align: left;
+	margin: 0 0 26px;
+}
+.login-input-title span {
+	font-family: SimplonBP-Medium;
+	color: #fa7226;
+}
+
+.login-recaptcha {
+	width: 302px;
+	height: 74px;
+	margin: 0 0 20px;
+	background: url('../../img/serpositivo/hero-recaptcha-demo.gif') no-repeat center / calc(100% + 8px) auto;
+}
+
+.login-devices-img {
+	width: 498px;
+	height: 504px;
+	background: url('../../img/serpositivo/devices.png') no-repeat left center / auto 100%;
+	position: absolute;
+	top: 180px;
+	left: 463px;
+}
+
+.login-devices-precio {
+	width: 120px;
+	height: 120px;
+	background: url('../../img/serpositivo/precio-bg.png') no-repeat center / 100%;
+	line-height: initial;
+	font-family: SimplonBP-Light;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	position: absolute;
+	right: 341px;
+	top: 596px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-webkit-justify-content: center;
+}
+
+.login-social {
+	width: 154px;
+	height: 80px;
+	background: #3b5997;
+	text-align: left;
+	position: absolute;
+	right: 0;
+	top: 629px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-webkit-justify-content: center;
+}
+.login-social div {
+	line-height: initial;
+	font-family: SimplonBP-Light;
+	font-size: 18px;
+	color: #fff;
+	box-sizing: border-box;
+	padding: 0 0 0 20px;
+}
+.login-social span {
+	font-family: SimplonBP-Medium;
+	line-height: inherit;
+}
+
+.login-instructions {
+	position: absolute;
+	top: 256px;
+	left: 344px;
+}
+
+.login-instructions-img {
+	width: 600px;
+	height: 377px;
+	background: url('../../img/serpositivo/instructions-img.png') no-repeat center / 100%;
+}
+
+.login-paso {
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	font-size: 30px;
+	font-family: SimplonBP-Light;
+	color: #fff;
+	text-align: center;
+	border-radius: 100%;
+	background: #fa7226;
+	position: absolute;
+	top: 375px;
+}
+
+.paso-1 {
+	left: 78px;
+}
+.paso-2 {
+	left: 268px;
+}
+.paso-3 {
+	left: 458px;
+}
+
+.paso-1:after,
+.paso-2:after {
+	content: '';
+	width: 63px;
+	height: 16px;
+	position: absolute;
+	top: 30px;
+	left: 92px;
+	background: url('../../img/serpositivo/instructions-arrow.png') no-repeat center / 100%;
+}
+
+.login-video {
+	width: 711px;
+	height: 400px;
+	background: #cccccc;
+	position: absolute;
+	top: 201px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+.login-video iframe {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.login-nodisponible-text {
+	width: 100%;
+	font-size: 18px;
+	font-family: SimplonBP-Regular;
+	line-height: 1.2;
+	color: #4c4c4c;
+	text-align: center;
+	position: absolute;
+	top: 629px;
+	left: 0;
+
+}
+.login-nodisponible-text span {
+	font-family: SimplonBP-Medium;
+	line-height: 1.2;
+}
+
+.login-nodisponible-facebook {
+	width: 160px;
+	height: 50px;
+	background: #3b5997;
+	line-height: 50px;
+	text-align: center;
+	font-size: 24px;
+	font-family: SimplonBP-Medium;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 691px;
+	color: #fff;
+}
+
+@media screen and (max-width: 1039px) {
+
+	.login-popup {
+		max-width: 560px;
+	}
+
+	.login-popup-cont {
+		width: 100%;
+		height: initial;
+		text-align: center;
+	}
+
+	.popup-1 .login-logo,
+	.popup-2 .login-logo,
+	.popup-3 .login-logo {
+		position: relative;
+		width: 100%;
+		max-width: 400px;
+		top: initial;
+		right: initial;
+		left: initial;
+		margin: 0 auto 20px;
+		display: inline-block;
+		height: initial;
+	}
+	.popup-1 .login-logo:after,
+	.popup-2 .login-logo:after,
+	.popup-3 .login-logo:after {
+		content: '';
+		display: block;
+		margin-bottom: 17.25%;
+	}
+
+	.popup-1 .login-title,
+	.popup-2 .login-title,
+	.popup-3 .login-title {
+		position: relative;
+		top: initial;
+		left: initial;
+		text-align: center;
+		margin: 0 auto 20px;
+		width: 100%;
+		max-width: 450px;
+		font-size: 24px;
+		display: block;
+	}
+
+	.login-info {
+		position: relative;
+		left: initial;
+		top: initial;
+		display: inline-block;
+		text-align: left;
+		margin: 0 auto 20px;
+	}
+
+	.login-info > ul li:last-child {
+		width: 100%;
+		max-width: 375px;
+	}
+
+	.login-info > ul li:last-child br {
+		display: none;
+	}
+
+	.login-info h3 {
+		text-align: center;
+	}
+
+	.login-info h3:last-child {
+		width: 100%;
+		max-width: 365px;
+		margin: 0 auto;
+	}
+
+	.login-info h3:last-child br {
+		display: none;
+	}
+
+	.popup-1 .login-input {
+		position: relative;
+		top: initial;
+		left: initial;
+		margin: 0 auto 40px;
+		width: 100%;
+	}
+
+	.login-prefijo,
+	.login-numero,
+	.login-operadora {
+		margin: 0 10px 20px;
+	}
+
+	.login-continuar {
+		width: 100%;
+		max-width: 300px;
+	}
+
+	.login-devices {
+		margin: 0 0 40px;
+		transform: translate(20px, 0);
+		-webkit-transform: translate(20px, 0);
+	}
+
+	.login-devices-img {
+		position: relative;
+		left: initial;
+		top: initial;
+		width: 100%;
+		display: inline-block;
+		height: initial;
+		background-position: center;
+		margin: 0 auto 40px;
+	}
+	.login-devices-img:after {
+		content: '';
+		margin-bottom: 63%;
+		display: block;
+	}
+
+	.login-devices-precio {
+		position: relative;
+		top: initial;
+		right: initial;
+		margin: -175px 135px 0 auto;
+	}
+
+	.login-social {
+		position: relative;
+		top: initial;
+		right: initial;
+		width: 100%;
+		text-align: center;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+	.login-social br {
+		display: none;
+	}
+
+	.login-instructions {
+		position: relative;
+		top: initial;
+		left: initial;
+		margin: 0 auto 14px;
+	}
+
+	.login-instructions-img {
+		display: inline-block;
+		width: 100%;
+		position: relative;
+		height: initial;
+	}
+	.login-instructions-img:after {
+		content: '';
+		display: block;
+		margin-bottom: 62.83%;
+	}
+
+	.login-paso {
+		display: none;
+	}
+
+/*	.login-paso {
+		top: 100%;
+	}
+
+	.paso-1 {
+		left: calc((50% - 30px) - 32%);
+	}
+	.paso-2 {
+		left: calc(50% - 30px);
+	}
+	.paso-3 {
+		left: calc((50% - 30px) + 32%);
+	}
+
+	.paso-1:after,
+	.paso-2:after {
+		display: none;
+	}*/
+
+	.popup-2 .login-input {
+		left: initial;
+		top: initial;
+		position: relative;
+		width: 100%;
+	}
+
+	.login-input-title {
+		text-align: center;
+		width: 100%;
+		font-size: 18px;
+	}
+	.login-input-title br {
+		display: none;
+	}
+
+	.login-recaptcha {
+		width: 100%;
+		max-width: 302px;
+		margin: 0 auto 20px;
+	}
+
+	.login-pin {
+		width: 100%;
+		max-width: 130px;
+	}
+
+	.popup-2 .login-continuar {
+		max-width: 300px;
+		width: 100%;
+	}
+
+	.login-popup.popup-3 {
+		max-height: 640px;
+	}
+
+
+	.login-video {
+		width: 100%;
+		position: relative;
+		display: inline-block;
+		height: initial;
+		top: initial;
+		margin: 0 auto 20px;
+	}
+	.login-video:after {
+		content: '';
+		display: block;
+		margin-bottom: 56.25%;
+	}
+
+	.login-nodisponible-text {
+		position: relative;
+		top: initial;
+		left: initial;
+		margin: 0 auto 20px;
+	}
+
+	.login-nodisponible-facebook {
+		position: relative;
+		top: initial;
+		left: initial;
+		width: 100%;
+		max-width: 160px;
+	}
+
+}
+
+@media screen and (max-width: 479px) {
+
+	.login-devices-precio {
+		margin: -85px auto 0;
+		transform: translate(-20px, 0);
+		-webkit-transform: translate(-20px, 0);
+	}
+
+/*	.login-instructions {
+		margin: 0 auto 80px;
+	}
+
+	.login-paso {
+		height: 40px;
+		line-height: 40px;
+		width: 40px;
+		font-size: 24px;
+	}
+
+	.paso-1 {
+		left: calc((50% - 20px) - 32%);
+	}
+	.paso-2 {
+		left: calc(50% - 20px);
+	}
+	.paso-3 {
+		left: calc((50% - 20px) + 32%);
+	}*/
+
+	.login-nodisponible-text span {
+		display: inline-block;
+		margin-top: 20px;
+	}
+
+}

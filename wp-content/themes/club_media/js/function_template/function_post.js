@@ -6,9 +6,9 @@
            AF_post.listar_Dest_Post();
            AF_post.verNav();
 
-           
+
              var urlP_="http://pinterest.com/pin/create/button/?url="+dir_URL_Code;
-             console.log(urlP_);
+             //console.log(urlP_);
              $("#bot_pinteres_share").attr("href", urlP_);
 
 

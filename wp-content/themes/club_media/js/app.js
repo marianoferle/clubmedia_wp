@@ -591,7 +591,8 @@
               //$.post(urlR_+"/include/restApi/result_sel_cat.php",{cat:cat_,sub:sub_}, function (data){
               var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
               $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[category_name]="+cat_, {"page":pos_,"per_page":7}, function(data){     //filter cat acf
-              $(".cont_categoria_section_result").html("<div class='progress'><div class='indeterminate' style='background-color:#"+colorFondoPorCategoria_(cat_)+"'></div></div>");
+
+              $(".cont_categoria_section_result").html("<div class='progress'><div class='indeterminate' style='background-color:#"+ colorFondoPorCategoria_(cat_)+"'></div></div>");
 
               }).done(function(data){
 
@@ -767,7 +768,7 @@ this.verPOST=function(id_dia){
        var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
        $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/"+id_dia, {}, function(data){
 
-         console.log(data);
+         //console.log(data);
 
        }).done(function(data){
 
@@ -820,24 +821,27 @@ this.verPOST=function(id_dia){
 
              }).done(function(data) {
 
-               setTimeout(function(){
+
+
+                  if(data.length>0){
 
                        Handlebars.registerHelper("moduloDestacado_index_linkPost", function(value){
                             return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
                        });
-                       Handlebars.registerHelper("moduloDestacado_index", function(value){
+                       Handlebars.registerHelper("moduloDestacado_post", function(value){
+                                     var catego_=this;
                                      return new Handlebars.SafeString(
                                      "<div class='cont_destacado_header_moduloCont_item1' style='background:#"+
-                                       colorFondoPorCategoria_(this)+
+                                       colorFondoPorCategoria_(catego_)+
                                      "; color:#"+
-                                       colorTextoPorCategoria_(this)+
+                                       colorTextoPorCategoria_(catego_)+
                                      ";'>"+
-                                       this +
+                                       catego_ +
                                        "</div>"
                                      );
                         });
 
-                       if(data.length>0){
+
                             // var dat=JSON.parse(data);
 
                              //-----------convert array el string ','---------------
@@ -854,7 +858,7 @@ this.verPOST=function(id_dia){
 
                          }
 
-              },500);
+
 
 
              }).fail(function() {

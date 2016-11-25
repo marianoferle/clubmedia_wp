@@ -33,8 +33,8 @@
                   </div>
                   <div class="col s2 m2 l2">
                         <!--a href='https://twitter.com/share' data-url='dir_URL_Code' target='_blank'><i class='fa fa-twitter' aria-hidden='true'></i></a-->
-                        <a class="twitter-share-button"  href="https://twitter.com/share" data-size="large" data-text="custom share text"
-                            data-url="dir_URL_Code" data-hashtags="{{{content.rendered}}}" data-via="twitterdev" data-related="twitterapi,twitter" target="_blank">
+                        <a class="twitter-share-button"  href="https://twitter.com/share" data-text="custom share text"
+                            data-url="dir_URL_Code" data-hashtags="{{{content.rendered}}}" target="_blank">
                                 <i class='fa fa-twitter' aria-hidden='true'></i>
                         </a>
                   </div>
@@ -95,9 +95,9 @@
                            <div id="cont_post_section_video_info_youtuber_redSocial_icon" class="col s12 m8 l6">
                               <div class="col s1 m1 l1"><a href="#!" alt=""></a></div>
                               <div class="col s2 m2 l2">
-                                <a class='fb-xfbml-parse-ignore' target='_blank' href='http://www.facebook.com/share.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'>
-                                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                                  </a>
+                                 <a href="javascript:fbShare('dir_URL_Code', '{{title.rendered}}', '{{{content.rendered}}}', 'https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg', 520, 350)" target="_blank">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                 </a>
                               </div>
                               <div class="col s2 m2 l2">
                                   <a href='https://twitter.com/share' data-url='dir_URL_Code' target='_blank'>
@@ -122,7 +122,7 @@
                   </div>
               </div>
        </script>
-       
+
 
        <div id="cont_post"  class="col s12 m12 l12">
           <div class="row">
@@ -149,7 +149,7 @@
                      </div>
                      <div class="cont_info_destacado_header col s12 m6 l12">
                          {{#each acf.categorias}}
-                              {{moduloDestacado_index acf.categorias}}
+                              {{moduloDestacado_post acf.categorias}}
                          {{/each}}
                          <p>{{title.rendered}}</p>
                      </div>

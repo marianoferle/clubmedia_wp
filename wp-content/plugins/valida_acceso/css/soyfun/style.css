@@ -1,0 +1,533 @@
+.overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.6);
+    font-family: Arial;
+    font-family: inherit;
+    transition: 0.5s;
+    overflow-x: hidden;
+    z-index: 99999;
+}
+
+.loginwrap {
+    position: absolute;
+    left: calc(50% - 480px);
+    top: calc(50% - 355px);
+    width: 960px;
+    height: 710px;
+    font-family: inherit;
+    z-index: 2;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, .3);
+}
+
+.loginwrap .login01,
+.loginwrap .login02,
+.loginwrap .login03 {
+    position: relative;
+    padding: 20px 20px 10px;
+    width: calc(100% - 40px);
+    height: calc(100% - 30px);
+    z-index: 3;
+    background-repeat: no-repeat;
+    background-size: auto 436px;
+    background-position: 190% 60%;
+    background-color: white;
+}
+
+.loginwrap .login01 {
+    background-image: url(../../img/soyfun/sosmujer_login01.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 436px;
+    background-position: 190% 60%;
+}
+
+.loginwrap .login02 {
+    background-image: url(../../img/soyfun/sosmujer_login02.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 390px;
+    background-position: 100% 60%;
+}
+
+.loginwrap .login_logo {
+    position: relative;
+    display: block;
+    margin: 0 auto 0px auto;
+    padding: 0;
+    width:85px;
+    height:auto;
+}
+
+.loginwrap .login03 .login_logo {
+    margin: 0 auto 30px auto;
+    width: 120px;
+}
+
+.loginwrap .login02 .login_logo {
+    margin: 0 auto 15px auto;
+    width: 85px;
+}
+
+
+.login_frase {
+    position: relative;
+    display: block;
+    margin: 5px auto 30px;
+    padding: 0;
+    width: auto;
+    height: 37px;
+}
+
+.loginwrap h3 {
+    position: relative;
+    margin: 15px 20px;
+    width: calc(50% - 40px);
+    font-family: arial;
+    color: rgb(255, 100, 255);
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.loginwrap p {
+    margin: 0 0 15px 0;
+    font-family: arial;
+    color: rgb(0, 0, 0);
+}
+
+.loginwrap .login02 h3 {
+    margin: 100px 20px 0;
+    width: 35%;
+    font-size: 20px;
+}
+
+.loginwrap ul {
+    margin: 10px 0;
+    padding: 0px 20px;
+    width: 60%;
+}
+
+.loginwrap ul li {
+    position: relative;
+    margin: 0 0 0 25px;
+    font-family: arial;
+    color: rgba(75, 75, 75, 1);
+    font-size: 15px;
+    line-height: 1.5;
+    list-style: none;
+}
+
+.loginwrap ul li:before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 0;
+    padding: 10px;
+    background-image: url(../../img/soyfun/sosmujer_misc_bullet.png);
+    background-position: left center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+}
+
+.loginwrap form {
+    position: relative;
+    display: block;
+    margin:15px 20px;
+    width: calc(50% - 40px);
+}
+
+.loginwrap input {
+    position: relative;
+    float: left;
+    margin: 0 10px 0 0;
+    padding: 12px 5px;
+    font-size: large;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 6px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.loginwrap input::-webkit-input-placeholder {
+    color: rgb(0, 0, 0);
+}
+
+.loginwrap input:-moz-placeholder {
+    color: rgb(0, 0, 0);
+    opacity: 1;
+}
+
+.loginwrap input::-moz-placeholder {
+    color: rgb(0, 0, 0);
+    opacity: 1;
+}
+
+.loginwrap input:-ms-input-placeholder {
+    color: rgb(0, 0, 0);
+}
+
+.loginwrap .selectwrap {
+  position: relative;
+  display: inline-block;
+  margin: 10px 0px 0px 0px;
+  padding: 12px 15px;
+  background-color: rgb(255, 255, 255);
+  border: 2px #000 solid;
+  border-radius: 6px;
+}
+
+.loginwrap .selectwrap select {
+  position: relative;
+  padding: 0px 5px;
+  border: none;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  font-size: large;
+  height: 22px;
+}
+
+.loginwrap input.login.btn.continuar {
+    position: relative;
+    margin: 10px 0 0 0;
+    padding: 12px 32px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+
+.loginwrap .captcha {
+  position: relative;
+  display: block;
+  width: 35%;
+  height: 100px;
+  margin: 20px 0 10px 20px;
+}
+
+.loginwrap .clearfix {
+    clear: both;
+}
+
+.loginwrap .loginsplash {
+    position: absolute;
+    display: block;
+    width: 150px;
+    height: 150px;
+    left: 47%;
+    top: 430px;
+    background-image: url(../../img/soyfun/sosmujer_misc_loginsplash.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.loginwrap .loginsplash span {
+    position: absolute;
+    display: block;
+    left: 45%;
+    top: 50%;
+    font-family: arial;
+    font-size: large;
+    color: white;
+    transform: translateX(-56%) translateY(-50%);
+}
+
+.loginwrap .loginredes {
+    position: relative;
+    margin: 40px 0 0 11px;
+    float: left;
+    padding: 0 20px 30px 20px;
+    /*background-image: url(../../img/soyfun/sosmujer_misc_seguinos.png);*/
+    background-size: 100px auto;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+  }
+
+  .loginwrap .login01 .loginredes {
+        padding: 50px 20px 30px 40px;
+  }
+
+  .loginwrap .login02 .loginredes {
+    padding: 0px 20px 0px 20px;
+    width: 60px;
+    margin-top: 25px;
+  }
+
+.loginwrap .login03 .loginredes {
+    width: calc(100% - 40px);
+    margin: 15px 0px 0px 0px;
+    background-position: 50% 100%;
+    background-size: 86px auto;
+    background-image: none;
+}
+
+.loginwrap .loginredes a img {
+    margin: 0 0 0 0px;
+    height: 40px;
+    width: auto;
+    display: none;
+}
+
+.loginwrap .login01 .loginredes a img {
+    margin: 0 0 0 0px;
+    position: relative;
+    left: -10px;
+}
+
+.loginwrap .login02 .loginredes a img {
+  margin: 0 0 30px 20px;
+  position: relative;
+  left: -10px;
+}
+
+
+.loginwrap .loginapps {
+    position: relative;
+    display: block;
+    margin: 40px 0 20px;
+    padding: 0;
+    float: right;
+}
+
+.loginwrap .login02 .loginapps {
+    margin: 60px 0 20px 0px;
+}
+
+.loginwrap .login01 .loginapps {
+    margin: 10px 0 20px 0px;
+}
+
+.loginwrap .loginapps a img {
+    margin: 0;
+    height: 50px;
+    width: auto;
+}
+
+.loginwrap .logintyc {
+    position: relative;
+    display: block;
+    margin: 5px 0 0 0;
+    padding: 10px 0 0 0;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgb(0, 0, 0);
+    top: 88px;
+}
+
+.loginwrap .login01 .logintyc {
+    top: 20px;
+}
+
+.loginwrap .logintyc a {
+    font-family: arial;
+    font-size: small;
+    color:rgb(0, 0, 0);
+    text-decoration: underline;
+}
+
+
+/*------------------------------------------*/
+
+.txt_final_precio{
+    width: 50px;
+    height: 20px;
+    font-size: 14px;
+    color: #fff;
+    position: absolute;
+    top: 71px;
+    left: 90px;
+  }
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .loginwrap {
+        left: calc(50% - 380px);
+        width: 760px;
+    }
+    .loginwrap .login_logo {
+        width: 60px;
+    }
+    .loginwrap .login_frase {
+        height: 26px;
+    }
+    .loginwrap .login01 {
+        background-size: auto 500px;
+        background-position: -1330% 64%;
+    }
+    .loginwrap .login02 {
+        background-size: auto 340px;
+        background-position: 107% 55%;
+    }
+    .loginwrap h3 {
+        margin: 15px 10px;
+    }
+    .loginwrap .login02 h3 {
+        margin: 100px 20px 20px 10px;
+        width: 30%;
+    }
+    .loginwrap ul {
+        width: 60%;
+        padding: 0px 10px;
+    }
+    .loginwrap form {
+        margin: 10px 10px;
+    }
+    .loginwrap input {
+        margin: 0 5px 0 0;
+        padding: 10px 0px;
+        font-size: medium;
+    }
+    .loginwrap .selectwrap {
+        padding: 9px 5px;
+    }
+    .loginwrap .loginapps {
+        margin: 40px 0 20px 50px;
+        float: left;
+    }
+    .loginwrap .login02 .loginapps {
+        margin: 40px 20px 20px 50px;
+        float: right;
+    }
+    .loginwrap .logintyc {
+        margin: 0px 0 0 0;
+    }
+    .loginwrap .login01 .logintyc {
+        margin: 40px 0 0 0;
+    }
+
+    .login_img_03{width:600px;}
+
+    /*........................................*/
+
+    .loginwrap .login01 .loginredes { padding: 40px 20px 30px 40px; }
+}
+
+
+
+
+
+
+@media screen and (max-width: 780px) {
+
+    .loginwrap {
+        left: calc(50% - 150px);
+        width: 300px;
+        height: 400px;
+    }
+    .loginwrap .login01,
+    .loginwrap .login02,
+    .loginwrap .login03 {
+        height: 370px;
+        overflow: scroll;
+    }
+    .loginwrap .login02 {
+        background-image: none;
+    }
+    .loginwrap .login_frase {
+        margin: 10px auto;
+        height: 18px;
+    }
+    .loginwrap .login01 .login_frase {
+        height: 13px;
+    }
+
+    .loginwrap iframe {
+        width: 100%;
+        height: 180px;
+    }
+    .loginwrap h3 {
+        margin: 10px 0;
+        width: 100%;
+    }
+    .loginwrap .login02 h3 {
+        margin: 20px 0;
+        width: 100%;
+        text-align: center;
+        font-size: medium;
+    }
+    .loginwrap ul {
+        width: 100%;
+        padding: 0px 0px;
+    }
+    .loginwrap ul li {
+        margin: 10px 0 0 25px;
+        font-size: 13px;
+        line-height: 1.2;
+    }
+    .loginwrap form {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .loginwrap input {
+        margin: 0;
+        padding: 10px 0px;
+        font-size: smaller;
+        float: none;
+        position: relative;
+        margin: 0 auto;
+        display: block;
+    }
+    .loginwrap input.login.btn.continuar {
+        margin: 10px auto;
+        padding: 10px;
+    }
+    .loginwrap .loginredes {
+        margin: 0 auto;
+        padding: 0;
+        width: 188px;
+        background: none;
+        float: none;
+    }
+    .loginwrap .loginsplash {
+        position: relative;
+        top: initial;
+        left: initial;
+        margin: 0 auto;
+    }
+    .loginwrap .loginredes a img {
+        position: relative;
+        margin: 0 10px;
+    }
+    .loginwrap .loginredes a {
+        position: relative;
+        display: inline-block;
+        width: auto;
+    }
+    .loginwrap .loginapps {
+        margin: 20px auto;
+        float: none;
+        width: 90px;
+    }
+    .loginwrap input#areareg {
+      float: left;
+      margin-left: 64px;
+      margin-bottom: 10px;
+    }
+    .loginwrap input#telreg {
+        float: right;
+        margin-right: 40px;
+    }
+    .loginwrap .login02 input#areareg {
+        float: none;
+        margin: 0 auto;
+    }
+    .loginwrap input#telreg:after {
+        content: "";
+        clear: both;
+    }
+    .loginwrap .selectwrap {
+        padding: 9px 5px;
+        margin: 20px auto;
+        float: none;
+    }
+
+    .login_img_03{width:200px;}
+    .loginwrap .login_logo { width:100px;}
+
+    .loginwrap .login02 .loginredes a img{    margin: 0 0 0px 20px;}
+    .loginwrap .login01 .loginredes { padding: 45px 20px 0px 40px; width: 40px;}
+
+}
