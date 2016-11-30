@@ -109,7 +109,9 @@
 
 
     <!-- ...........resultados.............. -->
-    <div class="cont_categoria_section_result col s12 m12 l8"></div>
+    <div class="cont_categoria_section_result col s12 m12 l8">
+    </div>
+
 
 
 
@@ -117,39 +119,36 @@
 
     <div class="cont_categoria_section_sidebar col s12 m12 l4">
 
-      <div class="cont_sideBar_Buscador col s12 m6 l12">
+              <div class="cont_sideBar_Buscador col s12 m6 l12">
 
-                       <form id="cont_sideBar_Buscador_search">
-                         <div class="input-field">
-                           <input id="search" type="search" required>
-                           <label for="search"><i class="fa fa-search" aria-hidden="true"></i></label>
-                           <i class="material-icons">X</i>
-                         </div>
-                       </form>
+                               <form id="cont_sideBar_Buscador_search">
+                                 <div class="input-field">
+                                   <input id="search" type="search" required>
+                                   <label for="search"><i class="fa fa-search" aria-hidden="true"></i></label>
+                                   <i class="material-icons">X</i>
+                                 </div>
+                               </form>
 
-      </div>
-
-      <div class="cont_sideBar_Aviso col s12 m6 l12">
-                    <a href="#!" alt="">
-                        <img src="https://s3-sa-east-1.amazonaws.com/club.media/template/bot_aviso.jpg"/>
-                        <div class="cont_sideBar_Aviso_info"> ¡Vos podés ser el próximo! </div>
-                    </a>
-      </div>
-
-      <div class="cont_sideBar_Conectate col s12 m6 l12">
-              <h1>Conectate</h1>
-              <div class="col s12 m12 l2 center iconCont">
-                  <div class="row ">
-                    <div class="col s3"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-                    <div class="col s3"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                    <div class="col s3"><i class="fa fa-pinterest" aria-hidden="true"></i></div>
-                    <div class="col s3"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                  </div>
               </div>
-      </div>
 
+              <div class="cont_sideBar_Aviso col s12 m6 l12">
+                            <a href="#!" alt="">
+                                <img src="https://s3-sa-east-1.amazonaws.com/club.media/template/bot_aviso.jpg"/>
+                                <div class="cont_sideBar_Aviso_info"> ¡Vos podés ser el próximo! </div>
+                            </a>
+              </div>
 
-
+              <div class="cont_sideBar_Conectate col s12 m6 l12">
+                      <h1>Conectate</h1>
+                      <div class="col s12 m12 l2 center iconCont">
+                          <div class="row ">
+                            <div class="col s3"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                            <div class="col s3"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                            <div class="col s3"><i class="fa fa-pinterest" aria-hidden="true"></i></div>
+                            <div class="col s3"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                          </div>
+                      </div>
+              </div>
 
 
 
@@ -215,9 +214,6 @@
         </script>
 
        <div class="cont_sideBar_Categorias col s12 m12 l12"> </div>
-
-
-
 
 
 <!-- ............-->

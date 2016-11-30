@@ -2,7 +2,13 @@
 
 <script>
     var url_link_ ="<?php echo bloginfo('template_url') ?>";
+
+    var dir = window.document.URL;
+    var dir_URL_Code = encodeURIComponent(dir); //url del post
+    //console.log(dir, "window.document.url");
+    //console.log(dir_URL_Code, "dir url encode");
 </script>
+
 
         <!-- ..............................page............................... -->
         <?php if(isset($_GET['page'])){
@@ -10,12 +16,12 @@
         ?>
 
 
-
-                <?php if($page=='categoria_'){ ?>  <!-- .................page categoria.................. -->
+               <?php if($page=='categoria_'){ ?>  <!-- .................page categoria.................. -->
 
                                 <script>
                                     var v1='<?php if(isset($_GET['cat'])){ echo $_GET['cat']; } ?>';
-                                    var v2='<?php if(isset($_GET['subcat'])){ echo $_GET['subcat']; } ?>';                                    
+                                    var v2='<?php if(isset($_GET['subcat'])){ echo $_GET['subcat']; } ?>';
+
                                 </script>
 
                                 <!-- .....................header del document y nav.................................... -->
@@ -28,10 +34,6 @@
 
                                 <script type="text/javascript">
                                     var v_id='<?php if(isset($_GET['id'])){ echo $_GET['id']; } ?>';
-
-
-                                    var dir = window.document.URL;
-                                    var dir_URL_Code = encodeURIComponent(dir); //url del post
                                 </script>
 
                                 <!-- .....................header del document y nav.................................... -->

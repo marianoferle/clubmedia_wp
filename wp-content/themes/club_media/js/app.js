@@ -6,6 +6,9 @@
         var subCategoriaVar="";
         var urlVar="";
         var urlR_=urlRoot_;
+        var title_social="";
+        var img_social ="";
+        var contenido_social="";
 
 //--------------------------------------------------------------------------------------------------------------------
 
@@ -16,6 +19,28 @@
         this.get_subCategoriaVar=function(){ return subCategoriaVar;  }
 
         localStorage.setItem("cantidadPost", true);
+
+
+        function set_meta_social(tit_, cont_, img_, link_){
+              title_social=tit_;
+              contenido_social=cont_;
+              img_social=img_;
+              url_social=link_;
+             // console.log(url_social);
+
+              $("meta[property='og:title']").attr('content',  title_social);
+              $("meta[property='og:description']").attr('content', contenido_social);
+              $("meta[property='og:image']").attr('content',  'https://s3-sa-east-1.amazonaws.com/club.media/post/'+img_social);
+              $("meta[property='og:url']").attr('content',  url_social);
+
+              var tt_ = $("meta[property='og:title']").attr('content');
+              var cc_ = $("meta[property='og:description']").attr('content');
+              var im_ = $("meta[property='og:image']").attr('content');
+              var ll_ = $("meta[property='og:url']").attr('content');
+
+              //console.log(tt_,cc_,im_,ll_);
+        }
+
 
 
         //------------------
@@ -121,12 +146,15 @@
                     var cat_=listColCat[i].categoria;
                     ver(cat_);
                     function ver(cat2_){
-                       $.post("include/restApi/cantidadPorCategoria.php",{cat:cat2_}, function (data2){
+                       $.post("include/restApi/cantidadPorCategoria.php",{cat:cat2_}, function (data2,status, textStatus){
+
+                           if(textStatus.status===200){
                                 for(var i=0 ; i< listColCat.length ; i++){
                                     if(listColCat[i].categoria==cat2_){
                                       listColCat[i].cantidad=data2;
                                     }
                                 }
+                           }//status 200
                        });
                     }
              }
@@ -135,16 +163,19 @@
         //-----------------------------------------------------------------------
         var cantCat_wordpress=function(){
                       var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-                      $.getJSON(ajaxURL+"/wp-json/wp/v2/categories?parent=0", {}, function(data){
-                            $.each(data, function( key, value ) {
-                                  for(var i=0 ; i< listColCat.length ; i++){
-                                     var cat_=listColCat[i].categoria;
-                                       if(value.slug == cat_){
-                                              listColCat[i].cantidad=value.count;
-                                              //console.log(listColCat[i].cat_nombre,listColCat[i].cantidad);
-                                       }
-                                     }
-                            });
+                      $.getJSON(ajaxURL+"/wp-json/wp/v2/categories?parent=0", {}, function(data,status, textStatus){
+
+                            if(textStatus.status===200){
+                                    $.each(data, function( key, value ) {
+                                          for(var i=0 ; i< listColCat.length ; i++){
+                                             var cat_=listColCat[i].categoria;
+                                               if(value.slug == cat_){
+                                                      listColCat[i].cantidad=value.count;
+                                                      //console.log(listColCat[i].cat_nombre,listColCat[i].cantidad);
+                                               }
+                                             }
+                                    });
+                            }//status 200
                        });
         }
 
@@ -342,44 +373,48 @@
 
                $("#cont_destacado_header ul").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
 
-             }).done(function(data) {
+             }).done(function(data,status, textStatus){
+
+                 if(textStatus.status===200){
 
 
-               setTimeout(function(){
+                         setTimeout(function(){
 
-              //   console.log(data);
+                        //   console.log(data);
 
-                         Handlebars.registerHelper("moduloDestacado_index_linkPost", function(value){
-                              return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
-                         });
+                                   Handlebars.registerHelper("moduloDestacado_index_linkPost", function(value){
+                                        return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
+                                   });
 
-                         Handlebars.registerHelper("moduloDestacado_index", function(value){
-                                       return new Handlebars.SafeString(
-                                       "<div class='cont_destacado_header_moduloCont_item1' style='background:#"+
-                                         colorFondoPorCategoria_(this)+
-                                       "; color:#"+
-                                         colorTextoPorCategoria_(this)+
-                                       ";'>"+
-                                         this+
-                                         "</div>"
-                                       );
-                          });
-
-
-
-                          //-----------convert array el string ','---------------
-                          if(data != null && data.length > 0) {
-
-                                var template_ = document.getElementById("template_destacado_index").innerHTML;
-                                var contTemplate = Handlebars.compile(template_);
-                                var context=data; //bd_result_destacado_index;
-                                var templateCompile = contTemplate(context);
-                                $("#cont_destacado_header ul").html(templateCompile);
-                          }
+                                   Handlebars.registerHelper("moduloDestacado_index", function(value){
+                                                 return new Handlebars.SafeString(
+                                                 "<div class='cont_destacado_header_moduloCont_item1' style='background:#"+
+                                                   colorFondoPorCategoria_(this)+
+                                                 "; color:#"+
+                                                   colorTextoPorCategoria_(this)+
+                                                 ";'>"+
+                                                   this+
+                                                   "</div>"
+                                                 );
+                                    });
 
 
-                   setTimeout(function(){ $('#cont_destacado_header ul').addClass('contCatResult_on'); },10);
-                }, 2000);
+
+                                    //-----------convert array el string ','---------------
+                                    if(data != null && data.length > 0) {
+
+                                          var template_ = document.getElementById("template_destacado_index").innerHTML;
+                                          var contTemplate = Handlebars.compile(template_);
+                                          var context=data; //bd_result_destacado_index;
+                                          var templateCompile = contTemplate(context);
+                                          $("#cont_destacado_header ul").html(templateCompile);
+                                    }
+
+
+                             setTimeout(function(){ $('#cont_destacado_header ul').addClass('contCatResult_on'); },10);
+                          }, 2000);
+
+              }//status 200
 
 
                 // console.log("load: result dest index");
@@ -403,11 +438,13 @@
              //$.post(urlR_+"/include/restApi/result_index.php",{pos:pos_}, function (data){
 
              var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-             $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/", {"page":pos_,"per_page":10}, function(data){
+            $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/", {"page":pos_,"per_page":10}, function(data){
 
                $(".fila1_load").css({'display':'block'});
 
-             }).done(function(data) {
+             }).done(function(data,status, textStatus){
+
+                 if(textStatus.status===200){
 
                         //-------------crea URL para lista de post en el index----------
                          Handlebars.registerHelper("moduloResult_index_linkPost", function(value){
@@ -428,34 +465,36 @@
                          });
 
 
-                 setTimeout(function(){
+                         setTimeout(function(){
 
-                         if(data.length>0){
-                               //var dat=JSON.parse(data);
-                               //console.log(dat[0]);
-                                 if(data != undefined){
-                                     if(data.length>0 && typeof  data === 'object'){
+                                 if(data.length>0){
+                                       //var dat=JSON.parse(data);
+                                       //console.log(dat[0]);
+                                         if(data != undefined){
+                                             if(data.length>0 && typeof  data === 'object'){
 
-                                          var template_ = document.getElementById("template_ContChicoResult").innerHTML;
-                                          var contTemplate = Handlebars.compile(template_);
-                                          //---------------json para los resultados del index-------------------
-                                          var context=data;//bd_result_index;
-                                          //console.log(data);
-                                          var templateCompile = contTemplate(context);
-                                          $(".fila1").append(templateCompile);
+                                                  var template_ = document.getElementById("template_ContChicoResult").innerHTML;
+                                                  var contTemplate = Handlebars.compile(template_);
+                                                  //---------------json para los resultados del index-------------------
+                                                  var context=data;//bd_result_index;
+                                                  //console.log(data);
+                                                  var templateCompile = contTemplate(context);
+                                                  $(".fila1").append(templateCompile);
 
-                                          //---------------ultimo array-----------
-                                          //var ultimo_ =data.pop().id;
-                                          //var primero_=data.shift().id;
-                                          //$("#numResult_pos").html(primero_+" / "+ultimo_);
-                                          $(".fila1_load").css({'display':'none'});
+                                                  //---------------ultimo array-----------
+                                                  //var ultimo_ =data.pop().id;
+                                                  //var primero_=data.shift().id;
+                                                  //$("#numResult_pos").html(primero_+" / "+ultimo_);
+                                                  $(".fila1_load").css({'display':'none'});
 
+                                           }
+                                         }
                                    }
-                                 }
-                           }
 
-                   setTimeout(function(){ $('.fila1').addClass('contCatResult_on'); },10);
-                }, 2000);
+                           setTimeout(function(){ $('.fila1').addClass('contCatResult_on'); },10);
+                        }, 2000);
+
+                  }//status 200
 
 
                   //  console.log("load: result index");
@@ -491,14 +530,15 @@
                     var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
                     $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?sticky=true", {'per_page':5,'page':1}, function(data){
 
-
                       if(page_=='index_'){
                           $("#contAsideBotton").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
                       }else if(page_=='categoria_'){
                           $(".cont_sideBar_Destacado").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
                       }
 
-                      }).done(function(data) {
+                      }).done(function(data,status, textStatus){
+
+                          if(textStatus.status===200){
 
                          //console.log(data);
 
@@ -547,6 +587,8 @@
 
                                   },2000);
 
+                              }//status 200
+
 
                                //console.log("load: result dest sidebar index");
                            }).fail(function() {
@@ -592,11 +634,13 @@
               var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
               $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[category_name]="+cat_, {"page":pos_,"per_page":7}, function(data){     //filter cat acf
 
-              $(".cont_categoria_section_result").html("<div class='progress'><div class='indeterminate' style='background-color:#"+ colorFondoPorCategoria_(cat_)+"'></div></div>");
+                $(".cont_categoria_section_result").html("<div class='progress'><div class='indeterminate' style='background-color:#"+ colorFondoPorCategoria_(cat_)+"'></div></div>");
 
-              }).done(function(data){
+              }).done(function(data,status, textStatus){
 
-                  //console.log(data);
+                  if(textStatus.status===200){
+
+                    //   console.log(data);
 
                          Handlebars.registerHelper("moduloCategoria_index_linkPost", function(value){
                              return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
@@ -621,26 +665,29 @@
                          });
 
 
-                  setTimeout(function(){
-                          if(data.length>0){
-                              //var dat=JSON.parse(data);
-                             if(data.length>0 && typeof  data === 'object'){
+                        setTimeout(function(){
+                                if(data.length>0){
+                                    //var dat=JSON.parse(data);
+                                   if(data.length>0 && typeof  data === 'object'){
 
-                                   //------pre compres a array el string ','-----------
-                                   //for(var i=0;i < dat[0].length;i++){  dat[0][i].categorias=dat[0][i].categorias.split(',');  }
+                                         //------pre compres a array el string ','-----------
+                                         //for(var i=0;i < dat[0].length;i++){  dat[0][i].categorias=dat[0][i].categorias.split(',');  }
 
-                                   var template_ = document.getElementById("template_resultCategoria").innerHTML;
-                                   var contTemplate = Handlebars.compile(template_);
-                                   //---------------json para los resultados destacados del index-------------------
-                                   var context=data;
-                                   var templateCompile = contTemplate(context);
-                                   $(".cont_categoria_section_result").html(templateCompile);
-                             }
-                           }
+                                         var template_ = document.getElementById("template_resultCategoria").innerHTML;
+                                         var contTemplate = Handlebars.compile(template_);
+                                         //---------------json para los resultados destacados del index-------------------
+                                         var context=data;
+                                         var templateCompile = contTemplate(context);
+                                         $(".cont_categoria_section_result").html(templateCompile);
+                                   }
+                                 }
 
-                           setTimeout(function(){ $('.cont_categoria_section_result_post').addClass('contCatResult_on'); },10);
+                                 setTimeout(function(){ $('.cont_categoria_section_result_post').addClass('contCatResult_on'); },10);
 
-                }, 2000);
+
+                           }, 2000);
+                  }
+
 
              }).fail(function(data) {
               //  console.log("error",data.length);
@@ -666,11 +713,15 @@
        this.listarResult_totalSubcat=function(cat_,sub_){
             (function() {
 
-
                       //----------------
                         if(cat_.length>0){
 
-                                setTimeout(function(){
+                          setTimeout(function(){
+
+                                //console.log(colorFondoPorCategoria_(cat_));
+                                $("#cont_categoria_head").html("<div class='progress'><div class='indeterminate' style='background-color:#"+colorFondoPorCategoria_(cat_)+"'></div></div>");
+
+                                  setTimeout(function(){
 
                                             //----------------
                                              Handlebars.registerHelper("modulo_categoria_head_linkPost", function(value){
@@ -696,10 +747,8 @@
                                             var templateCompile = contTemplate(context);
                                             $("#cont_categoria_head").html(templateCompile);
                                 },2000);
+                            },100);
                       }
-
-
-
 
               })();
             }
@@ -709,13 +758,11 @@
 
            //--------------------------------lista de categorias para nav sidebar---------------------------------
            this.listarCategoria_navLik=function(){
-             (function() {
+             (function(){
 
-
-
-                     Handlebars.registerHelper("moduloCategoria_catNav_link", function(value){
-                         return new Handlebars.SafeString(urlVar+"index.php?page=categoria_&amp;cat="+this.categoria);
-                     });
+                 Handlebars.registerHelper("moduloCategoria_catNav_link", function(value){
+                     return new Handlebars.SafeString(urlVar+"index.php?page=categoria_&amp;cat="+this.categoria);
+                 });
 
                 setTimeout(function(){
 
@@ -766,33 +813,40 @@ this.verPOST=function(id_dia){
        //$.post(urlR_+"/include/restApi/result_post_template.php",{id:id_dia}, function (data){
 
        var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-       $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/"+id_dia, {}, function(data){
+       $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/"+id_dia, {}, function(data,status, textStatus){
 
-         //console.log(data);
+            //console.log(data);
 
-       }).done(function(data){
+            data.link=encodeURIComponent(data.link);
 
-          setTimeout(function(){
-
-                    Handlebars.registerHelper("modulo_cartegoriPorId", function(value){
-                        return new Handlebars.SafeString(this.categories);
-                    });
+            set_meta_social(data.title.rendered, data.content.rendered, data.acf.url_img_video, data.link);
 
 
-                      //var dat=JSON.parse(data);
-                      if(typeof  data === 'object' && data.id==Number(id_dia)){
-                          var template_ = document.getElementById("template_Post_Script").innerHTML;
-                          var contTemplate = Handlebars.compile(template_);
-                          //---------------json para los resultados destacados del index-------------------
-                          var context=data;//bd_post;
-                          var templateCompile = contTemplate(context);
-                          $("#cont_post_result_template").html(templateCompile);
+       }).done(function(data,status, textStatus){
 
-                     }else{
-                          location.replace("index.php");
-                     }
+         if(textStatus.status===200){
 
-            },500);
+              setTimeout(function(){
+
+                          Handlebars.registerHelper("modulo_cartegoriPorId", function(value){
+                              return new Handlebars.SafeString(this.categories);
+                          });
+
+                          //var dat=JSON.parse(data);
+                          if(typeof  data === 'object' && data.id==Number(id_dia)){
+                              var template_ = document.getElementById("template_Post_Script").innerHTML;
+                              var contTemplate = Handlebars.compile(template_);
+                              //---------------json para los resultados destacados del index-------------------
+                              var context=data;//bd_post;
+                              var templateCompile = contTemplate(context);
+                              $("#cont_post_result_template").html(templateCompile);
+
+                         }else{
+                              location.replace("index.php");
+                         }
+
+                },500);
+          }
 
        }).fail(function(data) {
           //console.log("error",data);
@@ -819,9 +873,9 @@ this.verPOST=function(id_dia){
              var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
              $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?sticky=true", {'per_page':4,'page':1}, function(data){
 
-             }).done(function(data) {
+             }).done(function(data,status, textStatus){
 
-
+               if(textStatus.status===200){
 
                   if(data.length>0){
 
@@ -857,6 +911,7 @@ this.verPOST=function(id_dia){
                                    $("#cont_post_section_destacado").html(templateCompile);
 
                          }
+               }
 
 
 
@@ -904,5 +959,8 @@ return todosArt;
       $_('.modal-trigger').leanModal();
       $_('#aside').pushpin({ top:0, bottom:500 });
 
+
     });
+
+
 })(jQuery);

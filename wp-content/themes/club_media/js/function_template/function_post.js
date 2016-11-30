@@ -11,6 +11,5 @@
              //console.log(urlP_);
              $("#bot_pinteres_share").attr("href", urlP_);
 
-
    });
  })(jQuery,url_link_);
