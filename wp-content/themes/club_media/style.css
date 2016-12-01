@@ -780,6 +780,11 @@ body {
 
 
 
+.cont_categoria_head_navBar_subCategorias{float: none; width: 90%;  margin: 0 auto;}
+
+
+
+
 
 
 
@@ -1076,8 +1081,9 @@ body {
 
 #cont_post_head_catSubcat{ position:relative; float:none; margin:0 auto; text-transform: capitalize; margin-top: 20px; }
 #cont_post_head_catSubcat h2{font-size: 18px; float:left; margin-left:15px; margin-bottom:5px;  margin-top:5px;}
-#tituloPost{  font-size: 60px; margin: 30px 100px;}
-#categoriaPost{ font-size: 35px; margin:20px 0px 0px 0px; font-weight: bold; text-transform:initial; color:#ffffff;}
+#cont_post_head_catSubcat  h2:nth-child(1){font-size:22px;}
+#tituloPost{  font-size: 60px; margin: 30px 100px;     font-weight: bold;}
+#categoriaPost{ font-size: 35px; margin:20px 0px 0px 0px; text-transform:initial; color:#ffffff;}
 #cont_post_head_titRedsocial{ margin:30px 0px 10px 0px; color:#2095f4; font-size: 20px;}
 #cont_post_head_redsocial{ margin:20px 0px;}
 #cont_post_head_redsocial a{  }
@@ -1088,6 +1094,8 @@ body {
 
 #cont_post_section_video{ background:#28272d; margin: 0px; padding:0; }
 #cont_post_section_video_cont{height: 500px; background:#666; margin:0px 0px 20px 0px; margin:0px; padding:0px;}
+
+.video-section{display: none;}
 
 
           @media only screen and (min-width:1680px) {     }
@@ -1126,7 +1134,7 @@ body {
 
 
 #cont_post_section_video_info_youtuber_redSocial{ margin:20px 0px; padding:0px;}
-#cont_post_section_video_info_youtuber_redSocial_tit{ width: 140px;  font-size: 18px;  line-height: 30px;  color: #2095f4; }
+#cont_post_section_video_info_youtuber_redSocial_tit{ width: 140px;  font-size: 18px;  line-height: 30px;  color: #2095f4; margin-left: 30px;}
 #cont_post_section_video_info_youtuber_redSocial_icon{ font-size: 20px; line-height:20px; }
 #cont_post_section_video_info_youtuber_redSocial_icon div {  margin: 0px 3px 0px 0px; padding: 0px; width: 30px; }
 #cont_post_section_video_info_youtuber_redSocial_icon div a{ margin:0px; padding:0px; float:left; display: block;}
@@ -1213,6 +1221,36 @@ body {
 
 
 
+/*----------------------------------cont search---------------------------------------------*/
+
+
+
+#cont_search{ width:100%; float:none; margin:100px auto 50px auto; background: #000;  border-radius: 30px 0px 30px 0px;}
+
+      @media only screen and (min-width:1680px) { #cont_search{ width:1480px; transition: width 1s;} }
+      @media only screen and (min-width:1280px) AND (max-width:1680px) {  #cont_search{ width:1280px; transition: width 1s;} }
+      @media only screen and (min-width:1024px) AND (max-width:1280px) { #cont_search{ width:1024px; transition: width 1s;} }
+      @media only screen and (min-width:768px) AND (max-width:1023px) {  #cont_search{ width:800px;  transition: width 1s;} }
+      @media only screen and (min-width:600px) AND (max-width:799px) {   #cont_search{ width:570px;  transition: width 1s;} }
+      @media only screen and (min-width:480px) AND (max-width:599px) {   #cont_search{ width:440px;  transition: width 1s;} }
+      @media only screen and (min-width:320px) AND (max-width:479px) {   #cont_search{ width:300px;  transition: width 1s;} }
+
+
+
+#bot_search{
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1269,6 +1307,3 @@ footer.page-footer .footer-copyright{ height:50px;}
           .navFooterLink{margin:0;}
           .navFooterIcon{height:45px;}
         }
-
-
-/*-------------------------------------------------------------------------------*/

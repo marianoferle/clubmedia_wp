@@ -4,56 +4,61 @@
 
              <div id="cont_post_head" class="col s12 m12 l12 center">
                <div id="cont_post_head_catSubcat" class="col s12 m12 l12 center">
-                   <h2 style="color:#84ab1a;"> {{#each acf.categorias}} #{{this}} {{/each}}   </h2>
-                   <h2 style="color:#6e3ac3;">
-                     {{#each acf.sub_clubmediafest}}  #{{this}} {{/each}}
-                     {{#each acf.sub_humor}}  #{{this}} {{/each}}
-                     {{#each acf.sub_musica}}  #{{this}} {{/each}}
-                     {{#each acf.sub_belleza}}  #{{this}} {{/each}}
-                     {{#each acf.sub_lifestyle}}  #{{this}} {{/each}}
-                     {{#each acf.sub_gamers}}  #{{this}} {{/each}}
+                   <h2 style="color:#84ab1a;" class="col s12 m12 l12 center">
+                       {{#each acf.categorias}}
+                            #{{modulo_cartegoriPorId this}}
+                       {{/each}}
+                   </h2>
+                   <h2 style="color:#6e3ac3;" class="col s12 m12 l12 center">
+                       {{#each acf.sub_clubmediafest}}  #{{this}} {{/each}}
+                       {{#each acf.sub_humor}}  #{{this}} {{/each}}
+                       {{#each acf.sub_musica}}  #{{this}} {{/each}}
+                       {{#each acf.sub_belleza}}  #{{this}} {{/each}}
+                       {{#each acf.sub_lifestyle}}  #{{this}} {{/each}}
+                       {{#each acf.sub_gamers}}  #{{this}} {{/each}}
                    </h2>
                </div>
                <div id="cont_post_head_titu" class="col s12 m12 l12 center">
-                   <h1 id="tituloPost" class="center">{{title.rendered}}</h1>
+                   <h1 id="tituloPost" class="center">
+                        {{title.rendered}}
+                   </h1>
                    <h1 id="categoriaPost" class="center">
-                     {{acf.subtit}}
+                      {{acf.subtit}}
                    </h1>
                </div>
                <div  id="cont_post_head_titRedsocial" class="col s12 m12 l12" style="margin-bottom:10px;">Compartime</div>
                <div id="cont_post_head_redsocial" class="col s12 m12 l12">
-                  <div class="col s1 m1 l1"></div>
-
-                  <div class="col s2 m2 l2">
-                        <!--a class='fb-xfbml-parse-ignore' target='_blank' href='http://www.facebook.com/share.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'-->
-                        <!--a href='https://www.facebook.com/sharer/sharer.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'><i class="fa fa-facebook" aria-hidden="true"></i></a-->
-                        <a href="javascript:fbShare('{{link}}', '{{title.rendered}}', '{{{content.rendered}}}', 'https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg', 520, 350)" target="_blank">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </a>
-                  </div>
-                  <div class="col s2 m2 l2">
-                        <!--a href='https://twitter.com/share' data-url='dir_URL_Code' target='_blank'><i class='fa fa-twitter' aria-hidden='true'></i></a-->
-                        <a class="twitter-share-button"  href="https://twitter.com/share" data-text="custom share text"
-                            data-url="{{link}}" data-hashtags="{{{content.rendered}}}" target="_blank">
-                                <i class='fa fa-twitter' aria-hidden='true'></i>
-                        </a>
-                  </div>
-                  <div class="col s2 m2 l2">
-                        <a href="http://pinterest.com/pin/create/button/?url={{link}}" alt="" target="_blank">
-                            <i class="fa fa-pinterest" aria-hidden="true"></i>
-                        </a>
-                  </div>
-                  <div class="col s2 m2 l2">
-                        <a href="" alt="">
-                          <i class="fa fa-paperclip" aria-hidden="true"></i>
-                        </a>
-                  </div>
-                  <div class="col s2 m2 l2">
-                        <a class="social-whatsapp_" href="whatsapp://send?text={{link}}" data-action=”share/whatsapp/share” style="display:none;" >
-                          <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                        </a>
-                  </div>
-                  <div class="col s1 m1 l1"></div>
+                      <div class="col s1 m1 l1"></div>
+                      <div class="col s2 m2 l2">
+                            <!--a class='fb-xfbml-parse-ignore' target='_blank' href='http://www.facebook.com/share.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'-->
+                            <!--a href='https://www.facebook.com/sharer/sharer.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'><i class="fa fa-facebook" aria-hidden="true"></i></a-->
+                            <a href="javascript:fbShare('{{link}}', '{{title.rendered}}', '{{{content.rendered}}}', 'https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg', 520, 350)" target="_blank">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                      </div>
+                      <div class="col s2 m2 l2">
+                            <!--a href='https://twitter.com/share' data-url='dir_URL_Code' target='_blank'><i class='fa fa-twitter' aria-hidden='true'></i></a-->
+                            <a class="twitter-share-button"  href="https://twitter.com/share" data-text="custom share text"
+                                data-url="{{link}}" data-hashtags="{{{content.rendered}}}" target="_blank">
+                                    <i class='fa fa-twitter' aria-hidden='true'></i>
+                            </a>
+                      </div>
+                      <div class="col s2 m2 l2">
+                            <a href="http://pinterest.com/pin/create/button/?url={{link}}" alt="" target="_blank">
+                                <i class="fa fa-pinterest" aria-hidden="true"></i>
+                            </a>
+                      </div>
+                      <div class="col s2 m2 l2">
+                            <a href="" alt="">
+                              <i class="fa fa-paperclip" aria-hidden="true"></i>
+                            </a>
+                      </div>
+                      <div class="col s2 m2 l2">
+                            <a class="social-whatsapp_" href="whatsapp://send?text={{link}}" data-action=”share/whatsapp/share” style="display:none;" >
+                              <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                            </a>
+                      </div>
+                      <div class="col s1 m1 l1"></div>
                </div>
             </div>
 
@@ -74,7 +79,7 @@
                                    {{else}}
                                          <i class="fa fa-link" aria-hidden="true"></i>
                                    {{/if}}
-                                        <h1>{{this}}</h1>
+                                        <h1>{{modulo_set_youtuber_name this}}</h1>
                               </div>
                           {{/each}}
                        </div>
@@ -93,31 +98,34 @@
                        <div id="cont_post_section_video_info_youtuber_redSocial" class="col s12 m10 l8">
                            <div  id="cont_post_section_video_info_youtuber_redSocial_tit" class="col s12 m4 l6" style="margin-bottom:10px;">Compartime:</div>
                            <div id="cont_post_section_video_info_youtuber_redSocial_icon" class="col s12 m8 l6">
-                              <div class="col s1 m1 l1"><a href="#!" alt=""></a></div>
-                              <div class="col s2 m2 l2">
-                                <a href="javascript:fbShare('{{link}}', '{{title.rendered}}', '{{{content.rendered}}}', 'https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg', 520, 350)" target="_blank">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                </a>
-                              </div>
-                              <div class="col s2 m2 l2">
-                                  <a class="twitter-share-button"  href="https://twitter.com/share" data-text="custom share text"
-                                      data-url="{{link}}" data-hashtags="{{{content.rendered}}}" target="_blank">
-                                          <i class='fa fa-twitter' aria-hidden='true'></i>
+                                <div class="col s1 m1 l1"><a href="#!" alt=""></a></div>
+                                <div class="col s2 m2 l2">
+                                  <a href="javascript:fbShare('{{link}}', '{{title.rendered}}', '{{{content.rendered}}}', 'https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg', 520, 350)" target="_blank">
+                                      <i class="fa fa-facebook" aria-hidden="true"></i>
                                   </a>
-                              </div>
-                              <div class="col s2 m2 l2">
-                                  <a href="http://pinterest.com/pin/create/button/?url={{link}}" alt="" target="_blank">
-                                      <i class="fa fa-pinterest" aria-hidden="true"></i>
-                                  </a>
-                              </div>
-                              <div class="col s2 m2 l2"><a href="#!" alt=""> <i class="fa fa-paperclip" aria-hidden="true"></i> </a></div>
-                              <div class="col s2 m2 l2">
-                                  <a class="social-whatsapp_" href="whatsapp://send?text={{link}}" data-action=”share/whatsapp/share” style="display:none;">
-                                      <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                  </a>
-                              </div>
-                              <div class="col s1 m1 l1"><a href="#!" alt="">  </a></div>
-
+                                </div>
+                                <div class="col s2 m2 l2">
+                                    <a class="twitter-share-button"  href="https://twitter.com/share" data-text="custom share text"
+                                        data-url="{{link}}" data-hashtags="{{{content.rendered}}}" target="_blank">
+                                            <i class='fa fa-twitter' aria-hidden='true'></i>
+                                    </a>
+                                </div>
+                                <div class="col s2 m2 l2">
+                                    <a href="http://pinterest.com/pin/create/button/?url={{link}}" alt="" target="_blank">
+                                        <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="col s2 m2 l2">
+                                    <a href="#!" alt="">
+                                        <i class="fa fa-paperclip" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="col s2 m2 l2">
+                                    <a class="social-whatsapp_" href="whatsapp://send?text={{link}}" data-action=”share/whatsapp/share” style="display:none;">
+                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="col s1 m1 l1"><a href="#!" alt=""></a></div>
                             </div>
                       </div>
                       <div class="col s12 m10 l4">

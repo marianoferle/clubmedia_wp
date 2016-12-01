@@ -11,6 +11,22 @@ class CRUD{
 
 
 
+    //-----------------resultados index----------------
+    public function total_youtubers(){
+        $query = $this->db->prepare("SELECT * FROM youtubers");
+        $query->execute();
+        $data = array();
+        while ($row = $query->fetchAll(PDO::FETCH_ASSOC)) {
+            $data[] = $row;
+        }
+        $dat_= json_encode($data, true);
+        //WHERE ROWNUM <= 10 order by lista_videos desc
+        //SELECT * FROM lista_videos
+        return $dat_;
+    }
+
+
+
 
     //-----------------resultados index----------------
     public function resultados_index($posi_){

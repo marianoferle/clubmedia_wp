@@ -10,6 +10,9 @@
         var img_social ="";
         var contenido_social="";
 
+        var lista_youtubers_array=[];
+        var lista_youtubers_json={};
+
 //--------------------------------------------------------------------------------------------------------------------
 
 
@@ -17,8 +20,11 @@
         this.set_subCategoriaVar=function(subcat_){ subCategoriaVar=subcat_;  }
         this.get_categoriaVar=function(){ return categoriaVar;   }
         this.get_subCategoriaVar=function(){ return subCategoriaVar;  }
-
         localStorage.setItem("cantidadPost", true);
+
+
+
+
 
 
         function set_meta_social(tit_, cont_, img_, link_){
@@ -87,6 +93,80 @@
 
 
 
+
+
+
+
+
+
+
+
+        //-----------------------------------------------------------------------
+
+
+        var lista_total_youtubers=function(){
+          $.post(urlR_+"/include/restApi/tot_youtubers.php",{}, function (data){
+          }).done(function(data) {
+
+              if(data.length>0){
+
+                      var dat_=JSON.parse(data);
+                      dat_=dat_[0];
+                      //console.log(dat_);
+
+                      for(var i=0 ; i< dat_.length ; i++){
+                          var jsonYoutubers = {};
+                          jsonYoutubers.canal_1=dat_[i].canal_1;
+                          jsonYoutubers.canal_2=dat_[i].canal_2;
+                          jsonYoutubers.id=dat_[i].id;
+                          jsonYoutubers.id_nombre=dat_[i].id_nombre;
+                          jsonYoutubers.info=dat_[i].info;
+                          jsonYoutubers.nombre=dat_[i].nombre;
+                          jsonYoutubers.pais=dat_[i].pais;
+                          jsonYoutubers.srcImg=dat_[i].srcImg;
+
+                          lista_youtubers_array.push(jsonYoutubers);
+                          var list_you=JSON.stringify(lista_youtubers_array);
+                          localStorage.setItem("listaDeYoutubers", list_you);
+                      }
+
+                  //  console.log(lista_youtubers_json);
+              }
+
+           }).fail(function() {
+           }).always(function() {
+           },'json');
+        }
+
+        lista_total_youtubers();
+
+
+
+        //--------------------------------
+        var set_youtubers_name=function(name_){
+          var json_=JSON.parse(localStorage.listaDeYoutubers);
+            for(var i=0;i<json_.length;i++){
+                 if(name_==json_[i].id_nombre){
+                    return json_[i].nombre;
+                 }
+            }
+
+        }
+      //  console.log(set_youtubers_name('azu_makeup '));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //--------------------------json con colores para categorias--------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         var col_Fondo=[];
         var listColCat={};
@@ -110,21 +190,10 @@
                                   jsonCat.id=categ_[i].id;
                                   col_Fondo.push(jsonCat);
                                   var colFondo=JSON.stringify(col_Fondo);
-
-                                  if(typeof Storage !== "undefined"){
-                                    localStorage.setItem("colorFondoList", colFondo);
-                                  }else{
-                                    console.log(col_Fondo);
-                                  }
-
+                                  localStorage.setItem("colorFondoList", colFondo);
                               }
 
-                            if(typeof Storage !== "undefined"){
                               listColCat=JSON.parse(localStorage.colorFondoList);
-                            }else{
-                              listColCat=JSON.parse();
-                            }
-
 
                         //cantCat_();
                         cantCat_wordpress();
@@ -140,8 +209,26 @@
         setColCat();
 
 
+
+        //--------------------------------
+
+        var set_categoria_name=function(name_){
+          var json_=JSON.parse(localStorage.colorFondoList);
+            //console.log(json_);
+            for(var i=0;i<json_.length;i++){
+                 if(name_==json_[i].categoria){
+                    return json_[i].cat_nombre;
+                 }
+            }
+
+        }
+        //console.log(set_categoria_name('musica'));
+
+
+
+
         //-----------------------------------------------------------------------
-        var cantCat_=function(){
+      /*  var cantCat_=function(){
              for(var i=0;i<listColCat.length;i++){
                     var cat_=listColCat[i].categoria;
                     ver(cat_);
@@ -159,6 +246,9 @@
                     }
              }
         }
+*/
+
+
 
         //-----------------------------------------------------------------------
         var cantCat_wordpress=function(){
@@ -181,7 +271,6 @@
 
 
 
-
         //-----------------------------------------------------------------------
         var arraySubCat=function(){
             for(var i=0 ; i< listColCat.length ; i++){
@@ -193,20 +282,16 @@
 
 
 
+
         /*
-
-
         var setColCat_wordpress=function(){
             //$.post(urlR_+"/include/restApi/cantidad_cat.php",{}, function (data){
             var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
             $.getJSON(ajaxURL+"/wp-json/wp/v2/categories/", {}, function(data){
-
               console.log(data);
-
             }).done(function(data) {
                     if(data.length>0){
                         var categ_=data;
-
                               for(var i=0 ; i< data.length ; i++){
                                   var jsonCat = {};
                                   jsonCat.cat_nombre=categ_[i].name;
@@ -220,37 +305,23 @@
                                   jsonCat.cantidad=categ_[i].count;
                                   jsonCat.id=categ_[i].id;
                                   col_Fondo.push(jsonCat);
-
                                   var colFondo=JSON.stringify(col_Fondo);
-
                                   if(typeof Storage !== "undefined"){
                                     localStorage.setItem("colorFondoList", colFondo);
                                   }else{
                                     //console.log(col_Fondo);
                                   }
                                 //  console.log(col_Fondo);
-
                               }
 
-                            if(typeof Storage !== "undefined"){
                               listColCat=JSON.parse(localStorage.colorFondoList);
-                            }else{
-                              listColCat=JSON.parse();
-                            }
-
-
                         //arraySubCat();
                      }
-
-
-
              }).fail(function() {
              }).always(function() {
              },'json');
         }
        //setColCat_wordpress();*/
-
-
 
 
 
@@ -393,7 +464,7 @@
                                                  "; color:#"+
                                                    colorTextoPorCategoria_(this)+
                                                  ";'>"+
-                                                   this+
+                                                   set_categoria_name(this)+
                                                    "</div>"
                                                  );
                                     });
@@ -460,7 +531,7 @@
                              "; color:#"+
                                colorTextoPorCategoria_(this)+
                              ";'>"+
-                               this+
+                               set_categoria_name(this)+
                              "</div>");
                          });
 
@@ -548,10 +619,10 @@
                                                   return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
                                               });
                                               Handlebars.registerHelper("moduloDestacado_index", function(value){
-                                                           return new Handlebars.SafeString("<div>"+this+"</div>");
+                                                           return new Handlebars.SafeString("<div>"+set_categoria_name(this)+"</div>");
                                               });
                                               Handlebars.registerHelper("moduloDestacado_index_autores", function(value){
-                                                           return new Handlebars.SafeString("<div>"+this+"</div>");
+                                                           return new Handlebars.SafeString("<div>"+set_youtubers_name(this)+"</div>");
                                               });
 
 
@@ -653,7 +724,7 @@
                                                    "; color:#"+
                                                      colorTextoPorCategoria_(this)+
                                                    ";'>"+
-                                                     this+
+                                                     set_categoria_name(this)+
                                                    "</div>"
                                              );
                           });
@@ -829,8 +900,15 @@ this.verPOST=function(id_dia){
               setTimeout(function(){
 
                           Handlebars.registerHelper("modulo_cartegoriPorId", function(value){
-                              return new Handlebars.SafeString(this.categories);
+                              return new Handlebars.SafeString(set_categoria_name(value));
                           });
+
+                          Handlebars.registerHelper("modulo_set_youtuber_name", function(value){
+                              //console.log(set_youtubers_name(value));
+                              return new Handlebars.SafeString(set_youtubers_name(value));
+                          });
+
+
 
                           //var dat=JSON.parse(data);
                           if(typeof  data === 'object' && data.id==Number(id_dia)){
@@ -883,14 +961,13 @@ this.verPOST=function(id_dia){
                             return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
                        });
                        Handlebars.registerHelper("moduloDestacado_post", function(value){
-                                     var catego_=this;
                                      return new Handlebars.SafeString(
                                      "<div class='cont_destacado_header_moduloCont_item1' style='background:#"+
-                                       colorFondoPorCategoria_(catego_)+
+                                       colorFondoPorCategoria_(this)+
                                      "; color:#"+
-                                       colorTextoPorCategoria_(catego_)+
+                                       colorTextoPorCategoria_(this)+
                                      ";'>"+
-                                       catego_ +
+                                       set_categoria_name(this) +
                                        "</div>"
                                      );
                         });
@@ -938,6 +1015,121 @@ this.verPOST=function(id_dia){
                 //console.log(cImgw_,cImgh_);
         }
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//--------------------search---------------------------------------
+
+
+
+
+//------------------------------resultados para la seccion search-----------------------------------
+
+        this.listarResult_Search=function(busqueda_){
+
+               var bb_=busqueda_;
+               var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';+
+              // console.log(bb_);
+
+               $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[s]="+bb_,{"page":1,"per_page":100}, function(data){
+
+
+               }).done(function(data,textStatus) {
+
+
+
+                      console.log(data);
+
+                      Handlebars.registerHelper("moduloCategoria_index_linkPost", function(value){
+                          return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
+                      });
+
+                      Handlebars.registerHelper("modulo_Categoria_resultado_cat", function(value){
+                                          return new Handlebars.SafeString(
+                                                "<div class='result_post_01_contCat_bot' style='background:#"+
+                                                  colorFondoPorCategoria_(this)+
+                                                "; color:#"+
+                                                  colorTextoPorCategoria_(this)+
+                                                ";'>"+
+                                                  set_categoria_name(this)+
+                                                "</div>"
+                                          );
+                       });
+
+                       Handlebars.registerHelper("modulo_Categoria_resultado_subCat", function(value){
+                             var res_="";
+                             for(var i=0;i<this.subcat.length;i++){ res_+=("&nbsp;&nbsp;#"+this.subcat[i]); }
+                             return new Handlebars.SafeString("<div class='result_post_01_contCat_subcat'>"+res_+"</div>");
+                      });
+
+
+
+                        setTimeout(function(){
+
+                                if(data.length>0){
+                                    //var dat=JSON.parse(data);
+                                   if(data.length>0 && typeof  data === 'object'){
+
+                                         //------pre compres a array el string ','-----------
+                                         //for(var i=0;i < dat[0].length;i++){  dat[0][i].categorias=dat[0][i].categorias.split(',');  }
+
+                                         var template_ = document.getElementById("template_resultCategoria").innerHTML;
+                                         var contTemplate = Handlebars.compile(template_);
+                                         //---------------json para los resultados destacados del index-------------------
+                                         var context=data;
+                                         var templateCompile = contTemplate(context);
+                                         $(".cont_categoria_section_result").html(templateCompile);
+                                   }
+                                 }
+                                 setTimeout(function(){ $('.cont_categoria_section_result_post').addClass('contCatResult_on'); },10);
+
+
+                           }, 2000);
+
+
+
+
+               }).fail(function(data) {
+               }).always(function(data) {
+
+                 if(data.length<=0){
+                       setTimeout(function(){
+                           $(".cont_categoria_section_result").append("<div class='center'><i class='fa fa-hand-o-up' aria-hidden='true' style='font-size:22px;'></i>  Sin Resultados </div>");
+                       },500);
+                 }
+
+               },'json');
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

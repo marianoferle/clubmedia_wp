@@ -13,16 +13,25 @@ var pos_pag=1;
             AF_index.listarPost_index(post_page_);
 
 
-            $("#next_pos").click(function(){
+            $_("#next_pos").click(function(){
                 if(localStorage.cantidadPost=='true'){
                     if(post_page_<100){
                           post_page_+=1;
                           var nn_=post_page_+1;
                           AF_index.listarPost_index(post_page_);
-                          $("#numResult_pos").html('/');
+                          $_("#numResult_pos").html('/');
                     }
                 }
             });
+
+
+             $_("#bot_search").click(function(event) {
+                              event.preventDefault();
+                              var info = $_("#search").val();
+                              console.log(info);
+                              location.href = '?page=search_&bus='+info;
+
+             });
 
 
 

@@ -4,9 +4,6 @@
 require_once(dirname(__FILE__) . "/include/restApi/lib.php");
 
 
-
-
-
 //--------------------------------------------
 function register_my_menus() {
   register_nav_menus(
@@ -32,6 +29,8 @@ add_filter( 'acf_to_wp_rest_api_post_data', function( $data, $object, $context )
     }
     return $data;
 }, 10, 3 );
+
+
 
 
 
@@ -63,6 +62,14 @@ add_filter( 'rest_prepare_post', 'acf_campos_rest_api' );
 
 
 
+
+
+
+add_filter( 'json_query_vars', 'slug_allow_meta' );
+function slug_allow_meta( $valid_vars ) {
+	$valid_vars = array_merge( $valid_vars, array( 'meta_key', 'meta_value' ) );
+	return $valid_vars;
+}
 
 
 

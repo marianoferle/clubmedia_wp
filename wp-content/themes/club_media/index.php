@@ -30,6 +30,7 @@
                                 ?>
 
 
+
                 <?php }else if($page=='post_'){ ?>    <!-- .................page post................... -->
 
                                 <script type="text/javascript">
@@ -45,6 +46,16 @@
 
                                 <?php
                                   require_once(dirname(__FILE__) . "/include/terminos.php");
+                                ?>
+
+                <?php }else if($page=='search_'){ ?>
+
+                                <script>
+                                    var bus_='<?php if(isset($_GET['bus'])){ echo $_GET['bus']; } ?>';
+                                </script>
+
+                                <?php
+                                  require_once(dirname(__FILE__) . "/include/search.php");
                                 ?>
 
 
@@ -75,6 +86,7 @@
 ?>
 
 
+
           <?php if(isset($_GET['page'])){  ?>
                     <?php if($page=='categoria_'){ ?>       <!-- .................page categoria.................. -->
                                   <script src="<?php bloginfo('template_directory');?>/js/function_template/function_cat.js" type="text/javascript" charset="utf-8"></script>
@@ -82,6 +94,8 @@
                                   <script src="<?php bloginfo('template_directory');?>/js/function_template/function_post.js" type="text/javascript" charset="utf-8"></script>
                     <?php }else if($page=='terminos_'){ ?>
                                   <script src="<?php bloginfo('template_directory');?>/js/function_template/function_terminos.js" type="text/javascript" charset="utf-8"></script>
+                    <?php }else if($page=='search_'){ ?>
+                                  <script src="<?php bloginfo('template_directory');?>/js/function_template/function_search.js" type="text/javascript" charset="utf-8"></script>
                     <?php } ?>
 
 
