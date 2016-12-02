@@ -7,6 +7,7 @@ var pos_pag=1;
             AF_index.listarCategoria_index();
             AF_index.listarDest_index();
             AF_index.listarDest_indexCat_sideBar('index_');
+            AF_index.modulo_buscador_form();
 
 
             //-----------------------cantidad de resultados por pagina de 10 en 10-----------------------------------
@@ -25,13 +26,6 @@ var pos_pag=1;
             });
 
 
-             $_("#bot_search").click(function(event) {
-                              event.preventDefault();
-                              var info = $_("#search").val();
-                              console.log(info);
-                              location.href = '?page=search_&bus='+info;
-
-             });
 
 
 

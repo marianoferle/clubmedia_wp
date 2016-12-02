@@ -1,5 +1,6 @@
 //--------------------------objeto para todos los artistas---------------
-(function(){
+(function($_){
+
   this.todosArt = function(urlRoot_){
 
         var categoriaVar="";
@@ -34,15 +35,15 @@
               url_social=link_;
              // console.log(url_social);
 
-              $("meta[property='og:title']").attr('content',  title_social);
-              $("meta[property='og:description']").attr('content', contenido_social);
-              $("meta[property='og:image']").attr('content',  'https://s3-sa-east-1.amazonaws.com/club.media/post/'+img_social);
-              $("meta[property='og:url']").attr('content',  url_social);
+              $_("meta[property='og:title']").attr('content',  title_social);
+              $_("meta[property='og:description']").attr('content', contenido_social);
+              $_("meta[property='og:image']").attr('content',  'https://s3-sa-east-1.amazonaws.com/club.media/post/'+img_social);
+              $_("meta[property='og:url']").attr('content',  url_social);
 
-              var tt_ = $("meta[property='og:title']").attr('content');
-              var cc_ = $("meta[property='og:description']").attr('content');
-              var im_ = $("meta[property='og:image']").attr('content');
-              var ll_ = $("meta[property='og:url']").attr('content');
+              var tt_ = $_("meta[property='og:title']").attr('content');
+              var cc_ = $_("meta[property='og:description']").attr('content');
+              var im_ = $_("meta[property='og:image']").attr('content');
+              var ll_ = $_("meta[property='og:url']").attr('content');
 
               //console.log(tt_,cc_,im_,ll_);
         }
@@ -52,8 +53,8 @@
         //------------------
 
         this.verNav=function(){
-          $("#nav_header_1").addClass("nav_fixed_top");
-          $("#nav_header_1").removeClass("nav_off_top");
+          $_("#nav_header_1").addClass("nav_fixed_top");
+          $_("#nav_header_1").removeClass("nav_off_top");
         }
 
 
@@ -64,12 +65,12 @@
                 var yct_ =  bod_cont.offsetTop;
                 //console.log(y_,yct_);
                 if(y_>=100){
-                  $("#nav_header_1").addClass("nav_fixed_top");
-                  $("#nav_header_1").removeClass("nav_off_top");
+                  $_("#nav_header_1").addClass("nav_fixed_top");
+                  $_("#nav_header_1").removeClass("nav_off_top");
                   //console.log(y);
                 }else{
-                  $("#nav_header_1").removeClass("nav_fixed_top");
-                  $("#nav_header_1").addClass("nav_off_top");
+                  $_("#nav_header_1").removeClass("nav_fixed_top");
+                  $_("#nav_header_1").addClass("nav_off_top");
                 }
         }
 
@@ -105,7 +106,7 @@
 
 
         var lista_total_youtubers=function(){
-          $.post(urlR_+"/include/restApi/tot_youtubers.php",{}, function (data){
+          $_.post(urlR_+"/include/restApi/tot_youtubers.php",{}, function (data){
           }).done(function(data) {
 
               if(data.length>0){
@@ -172,7 +173,7 @@
         var listColCat={};
 
         var setColCat=function(){
-            $.post(urlR_+"/include/restApi/cantidad_cat.php",{}, function (data){
+            $_.post(urlR_+"/include/restApi/cantidad_cat.php",{}, function (data){
             }).done(function(data) {
                     if(data.length>0){
                         var categ_=JSON.parse(data);
@@ -253,10 +254,10 @@
         //-----------------------------------------------------------------------
         var cantCat_wordpress=function(){
                       var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-                      $.getJSON(ajaxURL+"/wp-json/wp/v2/categories?parent=0", {}, function(data,status, textStatus){
+                      $_.getJSON(ajaxURL+"/wp-json/wp/v2/categories?parent=0", {}, function(data,status, textStatus){
 
                             if(textStatus.status===200){
-                                    $.each(data, function( key, value ) {
+                                    $_.each(data, function( key, value ) {
                                           for(var i=0 ; i< listColCat.length ; i++){
                                              var cat_=listColCat[i].categoria;
                                                if(value.slug == cat_){
@@ -401,8 +402,8 @@
 
 
 
-                     $("#contCategoria1").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
-                     $("#contCategoria2").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
+                     $_("#contCategoria1").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
+                     $_("#contCategoria2").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
 
                       setTimeout(function(){
 
@@ -419,11 +420,11 @@
                               var context=listColCat;
                               var templateCompile = contTemplate(context);
                               var templateCompile2 = contTemplate2(context);
-                              $("#contCategoria1").html(templateCompile);
-                              $("#contCategoria2").html(templateCompile2);
+                              $_("#contCategoria1").html(templateCompile);
+                              $_("#contCategoria2").html(templateCompile2);
 
-                           setTimeout(function(){ $('#contCategoria1').addClass('contCatResult_on'); },10);
-                           setTimeout(function(){ $('#contCategoria2').addClass('contCatResult_on'); },10);
+                           setTimeout(function(){ $_('#contCategoria1').addClass('contCatResult_on'); },10);
+                           setTimeout(function(){ $_('#contCategoria2').addClass('contCatResult_on'); },10);
                       }, 2000);
 
 
@@ -440,9 +441,9 @@
 
             // $.post(urlR_+"/include/restApi/result_dest_index.php",{}, function (data){
             var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-            $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?sticky=true", {'per_page':4,'page':1}, function(data){
+            $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts?sticky=true", {'per_page':4,'page':1}, function(data){
 
-               $("#cont_destacado_header ul").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
+               $_("#cont_destacado_header ul").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
 
              }).done(function(data,status, textStatus){
 
@@ -478,11 +479,11 @@
                                           var contTemplate = Handlebars.compile(template_);
                                           var context=data; //bd_result_destacado_index;
                                           var templateCompile = contTemplate(context);
-                                          $("#cont_destacado_header ul").html(templateCompile);
+                                          $_("#cont_destacado_header ul").html(templateCompile);
                                     }
 
 
-                             setTimeout(function(){ $('#cont_destacado_header ul').addClass('contCatResult_on'); },10);
+                             setTimeout(function(){ $_('#cont_destacado_header ul').addClass('contCatResult_on'); },10);
                           }, 2000);
 
               }//status 200
@@ -509,9 +510,9 @@
              //$.post(urlR_+"/include/restApi/result_index.php",{pos:pos_}, function (data){
 
              var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-            $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/", {"page":pos_,"per_page":10}, function(data){
+            $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts/", {"page":pos_,"per_page":10}, function(data){
 
-               $(".fila1_load").css({'display':'block'});
+               $_(".fila1_load").css({'display':'block'});
 
              }).done(function(data,status, textStatus){
 
@@ -550,19 +551,19 @@
                                                   var context=data;//bd_result_index;
                                                   //console.log(data);
                                                   var templateCompile = contTemplate(context);
-                                                  $(".fila1").append(templateCompile);
+                                                  $_(".fila1").append(templateCompile);
 
                                                   //---------------ultimo array-----------
                                                   //var ultimo_ =data.pop().id;
                                                   //var primero_=data.shift().id;
                                                   //$("#numResult_pos").html(primero_+" / "+ultimo_);
-                                                  $(".fila1_load").css({'display':'none'});
+                                                  $_(".fila1_load").css({'display':'none'});
 
                                            }
                                          }
                                    }
 
-                           setTimeout(function(){ $('.fila1').addClass('contCatResult_on'); },10);
+                           setTimeout(function(){ $_('.fila1').addClass('contCatResult_on'); },10);
                         }, 2000);
 
                   }//status 200
@@ -599,12 +600,12 @@
 
                     //  $.post(urlR_+"/include/restApi/result_dest_index.php",{}, function (data){
                     var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-                    $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?sticky=true", {'per_page':5,'page':1}, function(data){
+                    $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts?sticky=true", {'per_page':5,'page':1}, function(data){
 
                       if(page_=='index_'){
-                          $("#contAsideBotton").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
+                          $_("#contAsideBotton").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
                       }else if(page_=='categoria_'){
-                          $(".cont_sideBar_Destacado").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
+                          $_(".cont_sideBar_Destacado").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
                       }
 
                       }).done(function(data,status, textStatus){
@@ -642,18 +643,18 @@
                                                        var templateCompile = contTemplate(context);
 
                                                        if(page_=='index_'){
-                                                            $("#contAsideBotton").html(templateCompile);
+                                                            $_("#contAsideBotton").html(templateCompile);
                                                        }else if(page_=='categoria_'){
-                                                            $(".cont_sideBar_Destacado").html(templateCompile);
+                                                            $_(".cont_sideBar_Destacado").html(templateCompile);
                                                        }
 
                                                  }
                                              }
 
                                      if(page_=='index_'){
-                                          setTimeout(function(){ $('#contAsideBotton').addClass('contCatResult_on'); },10);
+                                          setTimeout(function(){ $_('#contAsideBotton').addClass('contCatResult_on'); },10);
                                      }else if(page_=='categoria_'){
-                                          setTimeout(function(){  $(".cont_sideBar_Destacado").addClass('contCatResult_on'); },10);
+                                          setTimeout(function(){  $_(".cont_sideBar_Destacado").addClass('contCatResult_on'); },10);
                                      }
 
                                   },2000);
@@ -703,9 +704,9 @@
 
               //$.post(urlR_+"/include/restApi/result_sel_cat.php",{cat:cat_,sub:sub_}, function (data){
               var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-              $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[category_name]="+cat_, {"page":pos_,"per_page":7}, function(data){     //filter cat acf
+              $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[category_name]="+cat_, {"page":pos_,"per_page":7}, function(data){     //filter cat acf
 
-                $(".cont_categoria_section_result").html("<div class='progress'><div class='indeterminate' style='background-color:#"+ colorFondoPorCategoria_(cat_)+"'></div></div>");
+                $_(".cont_categoria_section_result").html("<div class='progress'><div class='indeterminate' style='background-color:#"+ colorFondoPorCategoria_(cat_)+"'></div></div>");
 
               }).done(function(data,status, textStatus){
 
@@ -749,11 +750,11 @@
                                          //---------------json para los resultados destacados del index-------------------
                                          var context=data;
                                          var templateCompile = contTemplate(context);
-                                         $(".cont_categoria_section_result").html(templateCompile);
+                                         $_(".cont_categoria_section_result").html(templateCompile);
                                    }
                                  }
 
-                                 setTimeout(function(){ $('.cont_categoria_section_result_post').addClass('contCatResult_on'); },10);
+                                 setTimeout(function(){ $_('.cont_categoria_section_result_post').addClass('contCatResult_on'); },10);
 
 
                            }, 2000);
@@ -767,7 +768,7 @@
 
                 if(data.length<=0){
                       setTimeout(function(){
-                          $(".cont_categoria_section_result").append("<div class='center'><i class='fa fa-hand-o-up' aria-hidden='true' style='font-size:22px;'></i>  Sin Resultados </div>");
+                          $_(".cont_categoria_section_result").append("<div class='center'><i class='fa fa-hand-o-up' aria-hidden='true' style='font-size:22px;'></i>  Sin Resultados </div>");
                       },500);
                 }
 
@@ -790,7 +791,7 @@
                           setTimeout(function(){
 
                                 //console.log(colorFondoPorCategoria_(cat_));
-                                $("#cont_categoria_head").html("<div class='progress'><div class='indeterminate' style='background-color:#"+colorFondoPorCategoria_(cat_)+"'></div></div>");
+                                $_("#cont_categoria_head").html("<div class='progress'><div class='indeterminate' style='background-color:#"+colorFondoPorCategoria_(cat_)+"'></div></div>");
 
                                   setTimeout(function(){
 
@@ -816,7 +817,7 @@
                                             //---------------json para los resultados destacados del index-------------------
                                             var context=jsonCatSel(cat_); //dat;
                                             var templateCompile = contTemplate(context);
-                                            $("#cont_categoria_head").html(templateCompile);
+                                            $_("#cont_categoria_head").html(templateCompile);
                                 },2000);
                             },100);
                       }
@@ -843,7 +844,7 @@
                       var context=listColCat;//bd_categorias;
                       //console.log(listColCat);
                       var templateCompile = contTemplate(context);
-                      $(".cont_sideBar_Categorias").html(templateCompile);
+                      $_(".cont_sideBar_Categorias").html(templateCompile);
 
                  }, 1000);
 
@@ -884,7 +885,7 @@ this.verPOST=function(id_dia){
        //$.post(urlR_+"/include/restApi/result_post_template.php",{id:id_dia}, function (data){
 
        var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-       $.getJSON(ajaxURL+"/wp-json/wp/v2/posts/"+id_dia, {}, function(data,status, textStatus){
+       $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts/"+id_dia, {}, function(data,status, textStatus){
 
             //console.log(data);
 
@@ -917,7 +918,7 @@ this.verPOST=function(id_dia){
                               //---------------json para los resultados destacados del index-------------------
                               var context=data;//bd_post;
                               var templateCompile = contTemplate(context);
-                              $("#cont_post_result_template").html(templateCompile);
+                              $_("#cont_post_result_template").html(templateCompile);
 
                          }else{
                               location.replace("index.php");
@@ -949,7 +950,7 @@ this.verPOST=function(id_dia){
           (function(){
              //$.post(urlR_+"/include/restApi/result_dest_index.php",{}, function (data){
              var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-             $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?sticky=true", {'per_page':4,'page':1}, function(data){
+             $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts?sticky=true", {'per_page':4,'page':1}, function(data){
 
              }).done(function(data,status, textStatus){
 
@@ -985,7 +986,7 @@ this.verPOST=function(id_dia){
                                    //---------------json para los resultados destacados del index-------------
                                    var context=data;//bd_result_destacado_index;
                                    var templateCompile = contTemplate(context);
-                                   $("#cont_post_section_destacado").html(templateCompile);
+                                   $_("#cont_post_section_destacado").html(templateCompile);
 
                          }
                }
@@ -1025,13 +1026,37 @@ this.verPOST=function(id_dia){
 
 
 
-
-
+//------------------------------------------------------------------------------------------------------
 
 
 
 
 //--------------------search---------------------------------------
+
+
+
+
+this.modulo_buscador_form=function(){
+
+      $_("#bot_search").click(function(event) {
+                          event.preventDefault();
+                          var info = $_("#search").val();
+                          //console.log(info);
+                          location.href = '?page=search_&bus='+info;
+      });
+
+      $_("#cont_sideBar_Buscador_search input").keydown(function(event) {
+              if(event.keyCode == 13) {
+                          event.preventDefault();
+                          var info = $_("#search").val();
+                          //console.log(info);
+                          location.href = '?page=search_&bus='+info;
+              }
+        });
+
+}
+
+
 
 
 
@@ -1044,12 +1069,10 @@ this.verPOST=function(id_dia){
                var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';+
               // console.log(bb_);
 
-               $.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[s]="+bb_,{"page":1,"per_page":100}, function(data){
+               $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[s]="+bb_,{"page":1,"per_page":100}, function(data){
 
 
                }).done(function(data,textStatus) {
-
-
 
                       console.log(data);
 
@@ -1091,10 +1114,10 @@ this.verPOST=function(id_dia){
                                          //---------------json para los resultados destacados del index-------------------
                                          var context=data;
                                          var templateCompile = contTemplate(context);
-                                         $(".cont_categoria_section_result").html(templateCompile);
+                                         $_(".cont_categoria_section_result").html(templateCompile);
                                    }
                                  }
-                                 setTimeout(function(){ $('.cont_categoria_section_result_post').addClass('contCatResult_on'); },10);
+                                 setTimeout(function(){ $_('.cont_categoria_section_result_post').addClass('contCatResult_on'); },10);
 
 
                            }, 2000);
@@ -1107,7 +1130,7 @@ this.verPOST=function(id_dia){
 
                  if(data.length<=0){
                        setTimeout(function(){
-                           $(".cont_categoria_section_result").append("<div class='center'><i class='fa fa-hand-o-up' aria-hidden='true' style='font-size:22px;'></i>  Sin Resultados </div>");
+                           $_(".cont_categoria_section_result").append("<div class='center'><i class='fa fa-hand-o-up' aria-hidden='true' style='font-size:22px;'></i>  Sin Resultados </div>");
                        },500);
                  }
 
@@ -1138,7 +1161,7 @@ this.verPOST=function(id_dia){
 
 return todosArt;
 
-})();
+})(jQuery);
 //-----------------------
 
 

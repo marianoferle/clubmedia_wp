@@ -13,6 +13,7 @@ $_(document).ready(function(){
             AF_cat.listarResult_totalSubcat(v1,v2);
             AF_cat.listarResult_Categoria(v1,v2,post_page_);
 
+            AF_cat.modulo_buscador_form();
 
             $_("#next_pos").click(function(){
                 if(localStorage.cantidadPost=='true'){
@@ -26,21 +27,7 @@ $_(document).ready(function(){
             });
 
 
-        $_("#bot_search").click(function(event) {
-                            event.preventDefault();
-                            var info = $_("#search").val();
-                            console.log(info);
-                            location.href = '?page=search_&bus='+info;
-        });
 
-        $_("#cont_sideBar_Buscador_search input").keydown(function(event) {
-                if(event.keyCode == 13) {
-                            event.preventDefault();
-                            var info = $_("#search").val();
-                            console.log(info);
-                            location.href = '?page=search_&bus='+info;
-                }
-          });
 
 
 

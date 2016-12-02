@@ -141,13 +141,13 @@
 
                             <div id="contAsideUp" class="col s12 m12 l12">
 
-                                    <form id="cont_sideBar_Buscador_search">
-                                      <div class="input-field">
-                                        <input id="search" type="search" required>
-                                        <label for="search" id="bot_search"><i class="fa fa-search" aria-hidden="true"></i></label>
-                                        <i class="material-icons">X</i>
-                                      </div>
-                                    </form>
+                              <form id="cont_sideBar_Buscador_search">
+                                <div class="input-field">
+                                  <input id="search" type="search" required>
+                                  <label for="search" id="bot_search"><i class="fa fa-search" aria-hidden="true"></i></label>
+                                  <i class="material-icons">X</i>
+                                </div>
+                              </form>
 
                             </div>
 
