@@ -50,8 +50,8 @@ body {
  .progress .indeterminate{ background-color: #fde213; }
 
 
-#cont_page_pos{margin:10px 0px;}
-#next_pos a{font-size: 40px; color: #333; line-height: 62px;}
+#cont_page_pos{margin:40px 0px;}
+#next_pos a{font-size: 40px; color: #333; line-height: 62px; box-shadow: 0px 0px 11px 6px #ffeb3b;}
 #next_pos a:hover{ font-size:45px;   line-height: 65px; transition: all 0.2s; }
 
 /*
@@ -151,7 +151,7 @@ body {
 #nav_header_1 .nav-wrapper{ }
 #nav_header_1 .nav-wrapper .brand-logo{ width:auto; height:90px; color: #fff; min-width:750px; z-index:99;}
 #nav_header_1 .button-collapse{ color: #fff; }
-#nav_desktop_cont a{ color: #ffdf1f;  margin: 0; padding: 0;}
+#nav_desktop_cont a{ color: #ffdf1f;  margin: 0; padding: 0;    text-shadow: 0px 0px 10px #ffdf1f;}
 #nav_desktop_cont li{ width:110px; height:90px; }
 #nav_desktop_cont li a:hover{background:none;}
 #logo_nav{width:300px!important;}
@@ -193,9 +193,17 @@ body {
 
 /*-------------------------------------------*/
 
-#icon_social_nav_mobile{  height: 100%; width: 100%; float: left; display: block; margin-left: 25px;}
+#icon_social_nav_mobile{  height: 100%; width:100%; float: left; display: block; margin-top: 10px;}
 #icon_social_nav_mobile div a{width:20px; float:left; margin: 0; padding: 0;   margin-left: 10px; color:#fff; font-size:18px; }
-#icon_social_nav_mobile div a i{margin: 0!important; padding: 0!important; line-height:85px;}
+#icon_social_nav_mobile div a i{margin: 0!important; padding: 0!important; line-height:25px;}
+
+
+
+
+
+
+
+
 
 /*----------------------------------------------------------------------*/
 #cont_destacado_header{ width:100%; position: relative;  background: #000;}
@@ -494,7 +502,7 @@ body {
 
         @media only screen and (min-width:1280px) {  #contAsideUp{ height:160px;}  }
         @media only screen and (min-width:1024px) AND (max-width:1280px) {#contAsideUp{ height:140px;} }
-        @media only screen and (min-width:768px) AND (max-width:1023px) { #contAsideUp{ height:120px;} }
+        @media only screen and (min-width:768px) AND (max-width:1023px) { #contAsideUp{ height:160px;} }
         @media only screen and (min-width:600px) AND (max-width:799px) {  #contAsideUp{ height:140px;} }
         @media only screen and (min-width:480px) AND (max-width:599px) {  #contAsideUp{ height:140px;} }
         @media only screen and (min-width:320px) AND (max-width:479px) {  #contAsideUp{ height:140px;} }
@@ -559,7 +567,7 @@ body {
           .contChicoResult .contChicoResult_moduloCont{  position:relative;  overflow: hidden; width: 100%; height: 100%;}
           .contChicoResult .contChicoResult_moduloCont a{width:100%; display: block; float: left; color:#fff;}
           .contChicoResult .contChicoResult_moduloCont img{  position:relative; width:100%!important; }
-          .contChicoResult .contChicoResult_moduloCont a:hover img{  position:relative; width:120%!important; margin:-10% 0 0 -10%; transition: all 0.5s;}
+          /*.contChicoResult .contChicoResult_moduloCont a:hover img{  position:relative; width:120%!important; margin:-10% 0 0 -10%; transition: all 0.5s;}*/
           .contChicoResult .contChicoResult_moduloCont .contChicoResult_moduloContfondo_opacity{ width: 100%; height: 100%; background: #000;  display: block;  float: left;  position: absolute; top: 0;  left: 0; opacity: 0.5;}
           .contChicoResult .contChicoResult_moduloCont .contChicoResult_moduloContfondo_cont_info{ position: absolute; top: 0;  left: 0; margin: 20px 30px; height: calc(100% - 40px);  width: calc(100% - 60px); }
           .contChicoResult .contChicoResult_moduloCont .contChicoResult_moduloContfondo_cont_info h1{width:100%; font-size:20px; line-height:25px; color:#fff; float: left; display: block; margin:20px 0px 10px 0px; font-weight: bold;}
@@ -598,7 +606,7 @@ body {
           .contGrandeResult .contGrandeResult_moduloCont{  position:relative;  overflow: hidden; width: 100%; height: 100%;}
           .contGrandeResult .contGrandeResult_moduloCont a{width:100%; display: block; float: left; color:#fff;}
           .contGrandeResult .contGrandeResult_moduloCont img{  position:relative; width:100%!important; }
-          .contGrandeResult .contGrandeResult_moduloCont a:hover img{  position:relative; width:120%!important; margin:-10% 0 0 -10%; transition: all 0.5s;}
+        /*  .contGrandeResult .contGrandeResult_moduloCont a:hover img{  position:relative; width:120%!important; margin:-10% 0 0 -10%; transition: all 0.5s;}*/
           .contGrandeResult .contGrandeResult_moduloCont .contGrandeResult_moduloContfondo_opacity{ width: 100%; height: 100%; background: #000;  display: block;  float: left;  position: absolute; top: 0;  left: 0; opacity: 0.5;}
           .contGrandeResult .contGrandeResult_moduloCont .contGrandeResult_moduloContfondo_cont_info{ position: absolute; bottom: 0;  left: 0; margin: 20px 30px; width: calc(100% - 60px); }
           .contGrandeResult .contGrandeResult_moduloCont .contGrandeResult_moduloContfondo_cont_info h1{width:100%; font-size:35px; line-height:40px; color:#fff; float: left; display: block; margin:20px 0px 10px 0px; font-weight: bold;}
@@ -799,22 +807,47 @@ body {
 
 /*----------------------------------aviso consegui tus entradas en sidebar------------------------*/
 #cont_sideBar_Buscador {height:160px;}
-#cont_sideBar_Buscador_search{  margin: 50px 20px;  width: calc(100% - 40px); border:2px #fff solid;}
+#cont_sideBar_Buscador_search{  margin:0px 20px 50px 20px;  width: calc(100% - 40px); border:2px #fff solid;}
 #cont_sideBar_Buscador_search .input-field{margin: 0px;}
 #cont_sideBar_Buscador_search .input-field input[type=search]+label{ }
-#cont_sideBar_Buscador_search .input-field label.active{ top: -0px!important; transform: translateY(-115%)!important; color:#fff!important; font-size: 16px; }
+#cont_sideBar_Buscador_search .input-field label.active{ top: 40px!important; transform: translateY(-115%)!important; color:#fff!important; font-size: 16px; }
 #cont_sideBar_Buscador_search .input-field label{ color:#fff!important; font-size: 20px; top: 10px;}
 #cont_sideBar_Buscador_search .input-field input[type=search]:focus{ background:#333; color:#fff;}
 #cont_sideBar_Buscador_search input:-webkit-autofill{background: #333; color: #fff;}
 #cont_sideBar_Buscador_search #search{margin:0;}
-}
 
-        @media only screen and (min-width:1280px) { .cont_sideBar_Buscador{ height:160px;}    }
-        @media only screen and (min-width:1024px) AND (max-width:1280px) { .cont_sideBar_Buscador{ height:162px;}  }
-        @media only screen and (min-width:768px) AND (max-width:1023px) {  .cont_sideBar_Buscador{ height:389px;} #cont_sideBar_Buscador_search{margin: 170px 20px;}  }
-        @media only screen and (min-width:600px) AND (max-width:799px) {   .cont_sideBar_Buscador{ height:274px;} #cont_sideBar_Buscador_search{margin: 114px 20px;}  }
-        @media only screen and (min-width:480px) AND (max-width:599px) {   }
-        @media only screen and (min-width:320px) AND (max-width:479px) {   }
+#cont_tit_sideBar_Buscador_search_index{margin:40px 20px 0px 20px;}
+#cont_tit_sideBar_Buscador_search_{margin:40px 20px 0px 20px;}
+
+        @media only screen and (min-width:1280px) {
+          .cont_sideBar_Buscador{ height:160px;}
+          #cont_tit_sideBar_Buscador_search_index{margin:40px 20px 0px 20px;}
+          #cont_tit_sideBar_Buscador_search{margin:40px 20px 0px 20px;}
+
+        }
+        @media only screen and (min-width:1024px) AND (max-width:1280px) {
+          .cont_sideBar_Buscador{ height:162px;}
+          #cont_tit_sideBar_Buscador_search{margin:40px 20px 0px 20px;}
+          #cont_tit_sideBar_Buscador_search_index{margin:40px 20px 0px 20px;}
+        }
+        @media only screen and (min-width:768px) AND (max-width:1023px) {
+          .cont_sideBar_Buscador{ height:389px;}
+          #cont_sideBar_Buscador_search{ margin: 20px 20px;}
+          #cont_tit_sideBar_Buscador_search_index{margin: 35px 20px 0px 20px;}
+          #cont_tit_sideBar_Buscador_search{margin: 140px 20px 0px 20px;}
+        }
+        @media only screen and (min-width:600px) AND (max-width:799px) {
+          .cont_sideBar_Buscador{ height:274px;}
+          #cont_sideBar_Buscador_search{margin: 10px 20px;}
+          #cont_tit_sideBar_Buscador_search_index{margin: 30px 20px 0px 20px;}
+          #cont_tit_sideBar_Buscador_search{ margin: 80px 20px 0px 20px;}
+        }
+        @media only screen and (min-width:480px) AND (max-width:599px) {
+          #cont_tit_sideBar_Buscador_search{margin: 40px 20px 0px 20px;}
+        }
+        @media only screen and (min-width:320px) AND (max-width:479px) {
+          #cont_tit_sideBar_Buscador_search{margin: 40px 20px 0px 20px;}
+        }
 
 
 
@@ -923,7 +956,7 @@ body {
             }
             @media only screen and (min-width:600px) AND (max-width:799px) {
               .cont_sideBar_Destacado{ height:274px;}
-              .cont_sideBar_Destacado .contAsideBotton_info h1{  margin:20px 0px 10px 0px;  font-size:22px;}
+              .cont_sideBar_Destacado .contAsideBotton_info h1{  margin:60px 0px 10px 0px;  font-size:22px;}
               .cont_sideBar_Destacado .contAsideBotton_info p{  font-size: 12px; margin: 15px; }
               .cont_sideBar_Destacado .contAsideBotton_info h4{ font-size: 14px; margin: 10px 0px;}
               .cont_sideBar_Destacado .contAsideBotton_info a{  width: 125px; padding: 0px; height: 35px; line-height: 35px; font-size: 14px; margin-top: 10px; }
@@ -1093,27 +1126,27 @@ body {
 
 
 #cont_post_section_video{ background:#28272d; margin: 0px; padding:0; }
-#cont_post_section_video_cont{height: 500px; background:#666; margin:0px 0px 20px 0px; margin:0px; padding:0px;}
+#cont_post_section_video_cont{height: 830px; background:#666; margin:0px 0px 20px 0px; margin:0px; padding:0px;}
 
 .video-section{display: none;}
 
 
           @media only screen and (min-width:1680px) {     }
-          @media only screen and (min-width:1280px) AND (max-width:1680px) { #cont_post_section_video_cont{height: 550px; transition: width 1s;} }
-          @media only screen and (min-width:1024px) AND (max-width:1280px) {  #cont_post_section_video_cont{height: 500px; transition: width 1s;} }
-          @media only screen and (min-width:768px) AND (max-width:1023px) {   #cont_post_section_video_cont{height: 440px; transition: width 1s;} }
+          @media only screen and (min-width:1280px) AND (max-width:1680px) { #cont_post_section_video_cont{height: 715px; transition: width 1s;} }
+          @media only screen and (min-width:1024px) AND (max-width:1280px) {  #cont_post_section_video_cont{height: 571px; transition: width 1s;} }
+          @media only screen and (min-width:768px) AND (max-width:1023px) {   #cont_post_section_video_cont{height: 445px; transition: width 1s;} }
           @media only screen and (min-width:600px) AND (max-width:799px) {
-            #cont_post_section_video_cont{height: 360px; transition: width 1s;}
+            #cont_post_section_video_cont{ height: 320px; transition: width 1s;}
             #tituloPost{  font-size: 50px; }
             #categoriaPost{ font-size: 30px; }
           }
           @media only screen and (min-width:480px) AND (max-width:599px) {
-            #cont_post_section_video_cont{height: 280px; transition: width 1s;}
+            #cont_post_section_video_cont{ height: 245px; transition: width 1s;}
             #tituloPost{  font-size: 40px; }
             #categoriaPost{ font-size: 30px; }
           }
           @media only screen and (min-width:320px) AND (max-width:479px) {
-            #cont_post_section_video_cont{height: 180px; transition: width 1s;}
+            #cont_post_section_video_cont{height: 165px; transition: width 1s;}
             #tituloPost{  font-size: 30px; margin: 30px 10px; }
             #categoriaPost{ font-size: 20px; }
           }
@@ -1244,6 +1277,44 @@ body {
 
 
 
+.cont_tit_Buscador_search_nav{ width: 90%;  height: 30px;  line-height: 30px; margin: 0 auto;}
+.cont_form_Buscador_search_nav{width: 90%; height: 40px; background: #333; margin: 0 auto;}
+/*
+.cont_form_Buscador_search_nav label{ height:40px; line-height:40px;}
+.bot_search_nav{ height: 40px; line-height: 40px; cursor:pointer;}*/
+
+#li_search_nav_top{ display:none; width: 354px; height: 100px; position: absolute; top: 60px; right: -30px; }
+#li_search_nav_top #bot_search_nav_top{cursor: pointer; height: 40px; line-height: 40px; display: block; }
+#li_search_nav_top #close_search_bot_top{ height: 40px!important; line-height: 40px!important; font-size: 22px;}
+
+
+
+#li_search_nav_bottom{ display:none; width: 354px; height: 100px; position: absolute; bottom: 60px; right:0px; }
+#li_search_nav_bottom #bot_search_nav_bottom{cursor: pointer; height: 40px; line-height: 40px; display: block; }
+#li_search_nav_bottom #close_search_bot_bottom{ height: 40px!important; line-height: 40px!important; font-size: 22px;}
+#li_search_nav_bottom .input-field{margin: 0; padding: 0;}
+#search_nav_bottom{ margin: 0;   width: 100%;   height: 40px;   padding: 0; border: none;}
+#li_search_nav_bottom  label{top: 0px;}
+
+
+#li_search_nav_mobile{float: left; display: block; width: 100%; height: auto;}
+#li_search_nav_mobile #bot_search_nav_mobile{cursor: pointer; height: 40px; line-height: 40px; display: block; }
+#li_search_nav_mobile #close_search_bot{ height: 40px!important; line-height: 40px!important; font-size: 22px;}
+
+
+
+@media only screen and (min-width:1680px) {   }
+@media only screen and (min-width:1280px) AND (max-width:1680px) {}
+@media only screen and (min-width:1024px) AND (max-width:1280px) {}
+@media only screen and (min-width:768px) AND (max-width:1023px) {#li_search_nav_bottom{  bottom: 129px;} }
+@media only screen and (min-width:600px) AND (max-width:799px) { #li_search_nav_bottom{  bottom: 120px;}  }
+@media only screen and (min-width:480px) AND (max-width:599px) { #li_search_nav_bottom{  bottom: 180px;  width: 320px;} }
+@media only screen and (min-width:320px) AND (max-width:479px) { #li_search_nav_bottom{  bottom: 200px;  width: 320px;} }
+
+
+
+
+
 
 
 
@@ -1269,7 +1340,7 @@ body {
 
 /*---------------------------------------------footer---------------------------------------------------*/
 
-footer.page-footer{padding-top:0px; background-color: #15181c;}
+footer.page-footer{padding-top:0px; background-color: #15181c; position: relative;}
 .navFooterIcon .row{ width:186px; margin-top:10px;}
 .navFooterIcon .row .col{ float:left; display: block; width:30px; height:30px; margin-left:1px;}
 .navFooterIcon .row .col a{color:#666; }

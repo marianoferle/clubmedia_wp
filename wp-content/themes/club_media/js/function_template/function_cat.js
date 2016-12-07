@@ -1,6 +1,6 @@
 var pos_pag=1;
 
-(function($_,urlLink,post_page_){
+(function($_,urlLink,pag_,post_page_){
 $_(document).ready(function(){
 
             var AF_cat = new todosArt(urlLink);
@@ -11,16 +11,17 @@ $_(document).ready(function(){
             AF_cat.listarDest_indexCat_sideBar('categoria_');
 
             AF_cat.listarResult_totalSubcat(v1,v2);
-            AF_cat.listarResult_Categoria(v1,v2,post_page_);
+            AF_cat.listarResult_Categoria(v1,v2,pag_,post_page_);
 
             AF_cat.modulo_buscador_form();
+            AF_cat.modulo_buscador_form_nav();
 
             $_("#next_pos").click(function(){
                 if(localStorage.cantidadPost=='true'){
                     if(post_page_<100){
                           post_page_+=1;
                           var nn_=post_page_+1;
-                          AF_cat.listarResult_Categoria(v1,v2,post_page_);
+                          AF_cat.listarResult_Categoria(v1,v2,pag_,post_page_);
                           $_("#numResult_pos").html('/');
                     }
                 }
@@ -33,4 +34,4 @@ $_(document).ready(function(){
 
     });
 
-})(jQuery,url_link_,pos_pag);
+})(jQuery,url_link_,page_, pos_pag);

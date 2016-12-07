@@ -5,6 +5,8 @@
            AF_post.verPOST(v_id);
            AF_post.listar_Dest_Post();
            AF_post.verNav();
+           AF_post.modulo_buscador_form_nav();
+
 
 
              var urlP_="http://pinterest.com/pin/create/button/?url="+dir_URL_Code;

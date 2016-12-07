@@ -21,7 +21,7 @@
                                 <script>
                                     var v1='<?php if(isset($_GET['cat'])){ echo $_GET['cat']; } ?>';
                                     var v2='<?php if(isset($_GET['subcat'])){ echo $_GET['subcat']; } ?>';
-
+                                    var page_='<?php  echo $_GET['page']; ?>';
                                 </script>
 
                                 <!-- .....................header del document y nav.................................... -->
@@ -35,6 +35,7 @@
 
                                 <script type="text/javascript">
                                     var v_id='<?php if(isset($_GET['id'])){ echo $_GET['id']; } ?>';
+                                    var page_='<?php  echo $_GET['page']; ?>';
                                 </script>
 
                                 <!-- .....................header del document y nav.................................... -->
@@ -48,14 +49,23 @@
                                   require_once(dirname(__FILE__) . "/include/terminos.php");
                                 ?>
 
-                <?php }else if($page=='search_'){ ?>
+                <?php }else if($page=='search_'){
+
+                   if(isset($_GET['bus'])){ $cont_busqueda = $_GET['bus']; }
+                ?>
+
 
                                 <script>
                                     var bus_='<?php if(isset($_GET['bus'])){ echo $_GET['bus']; } ?>';
+                                    var page_='<?php  echo $_GET['page']; ?>';
                                 </script>
+                                <style>
+                                      #cont_categoria_head{min-height: 100px;}
+                                </style>
+
 
                                 <?php
-                                  require_once(dirname(__FILE__) . "/include/search.php");
+                                  require_once(dirname(__FILE__) . "/include/categoria.php");
                                 ?>
 
 

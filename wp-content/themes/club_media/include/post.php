@@ -75,7 +75,7 @@
                          {{#each acf.autores}}
                               <div class="infoLink_youtuber_section">
                                    {{#if this}}
-                                         <img src="https://s3-sa-east-1.amazonaws.com/club.media/youtubers/{{this}}_perfil.jpg" width="40" height="40" />
+                                         <img src="https://s3-sa-east-1.amazonaws.com/club.media/youtubers/{{this}}_perfil.jpg" width="40" height="40" alt="{{this}}" />
                                    {{else}}
                                          <i class="fa fa-link" aria-hidden="true"></i>
                                    {{/if}}
@@ -157,7 +157,7 @@
                  <div class="cont_destacado_post_moduloFooter col s12 m12 l4">
                    <a href="{{ moduloDestacado_index_linkPost acf.categorias }}" target='_self' title=''>
                      <div class="contDestFooter_Img col s12 m6 l12   {{#ifCond @index '==' 1}} right{{/ifCond}}">
-                         <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt=""/>
+                         <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
                          <div class="cont_destacado_footer_moduloCont_fondo_opacity"></div>
                      </div>
                      <div class="cont_info_destacado_header col s12 m6 l12">

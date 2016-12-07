@@ -7,7 +7,9 @@ var pos_pag=1;
             AF_index.listarCategoria_index();
             AF_index.listarDest_index();
             AF_index.listarDest_indexCat_sideBar('index_');
+
             AF_index.modulo_buscador_form();
+            AF_index.modulo_buscador_form_nav();
 
 
             //-----------------------cantidad de resultados por pagina de 10 en 10-----------------------------------

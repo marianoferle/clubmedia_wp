@@ -5,21 +5,36 @@
   <div class="row">
 
 
+    <?php if($page=='categoria_'){ ?>
 
           <script id="template_categoria_subCatList" type="text/x-handlebars-template">
-                 <h1 class="center" style="color:#{{colorFondo}};">{{cat_nombre}}</h1>
+                 <h1 class="center" style="color:#{{colorFondo}}; text-shadow: 0px 0px 10px #{{colorFondo}};">
+                      {{cat_nombre}}
+                 </h1>
                  <div class="cont_categoria_head_navBar_subCategorias">
                     <ul class="col s12 m12 l12">
                             {{#each this.subCat}}
-                            <li><a href='{{modulo_categoria_subcat_link ../this }}' class='waves-effect btn' style='background:#{{../colorFondo}}; color:#{{../colorTexto}};'>
-                                    {{modulo_categoria_subcat this }}
-                            </a></li>
+                                <li><a href='{{modulo_categoria_subcat_link ../this }}' class='waves-effect btn'
+                                  style='background:#{{../colorFondo}}; color:#{{../colorTexto}}; '>
+                                        {{modulo_categoria_subcat this }}
+                                </a></li>
                             {{/each}}
                     </ul>
                  </div>
          </script>
+         <div id="cont_categoria_head" class="col s12 m12 l12"></div>
 
-         <div id="cont_categoria_head" class="col s12 m12 l12">   </div>
+  <?php  }else if($page=='search_'){ ?>
+
+         <div id="cont_categoria_head" class="col s12 m12 l12">
+           <h1 class="center" style="color:#fff;"></h1>
+           <h3 class="center" style="color:#fff;">...<?php echo $cont_busqueda ?>...</h3>
+         </div>
+
+
+  <?php  } ?>
+
+
 
 
 
@@ -61,7 +76,7 @@
                                  </div>
 
                                  <div class="result_post_02 col s12 m6 s6">
-                                     <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt=""/>
+                                     <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
                                      <div class="result_post_02_contOpacity"></div>
                                  </div>
                            </a>
@@ -73,7 +88,7 @@
                            <a href="{{moduloCategoria_index_linkPost acf.categorias}}" target="_self" title="link post">
 
                                  <div class="result_post_02 col s12 m6 s6">
-                                     <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt=""/>
+                                     <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
                                      <div class="result_post_02_contOpacity"></div>
                                  </div>
 
@@ -120,7 +135,8 @@
     <div class="cont_categoria_section_sidebar col s12 m12 l4">
 
               <div class="cont_sideBar_Buscador col s12 m6 l12">
-
+                
+                        <div id="cont_tit_sideBar_Buscador_search">Buscar:</div>
                         <form id="cont_sideBar_Buscador_search">
                           <div class="input-field">
                             <input id="search" type="search" required>
@@ -133,7 +149,7 @@
 
               <div class="cont_sideBar_Aviso col s12 m6 l12">
                             <a href="#!" alt="">
-                                <img src="https://s3-sa-east-1.amazonaws.com/club.media/template/bot_aviso.jpg"/>
+                                <img src="https://s3-sa-east-1.amazonaws.com/club.media/template/bot_aviso.jpg" alt="¡Vos podés ser el próximo!"/>
                                 <div class="cont_sideBar_Aviso_info"> ¡Vos podés ser el próximo! </div>
                             </a>
               </div>
@@ -160,7 +176,7 @@
         {{#each this}}
           {{#ifCond sticky '==' true}}
           {{#ifCond @index '==' 4}}
-                 <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" title="Destacado"/>
+                 <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
                  <!--img src="img/template/{{srcImgDestacado}}" title="Destacado"/-->
 
                  <div class="contAsideBotton_fondo_opacity"></div>

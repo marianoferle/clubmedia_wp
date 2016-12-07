@@ -292,7 +292,7 @@
         //-----------------------------------------------------------------------
         var cantCat_wordpress=function(){
                       var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-                      $_.getJSON(ajaxURL+"/wp-json/wp/v2/categories?parent=0", {}, function(data,status, textStatus){
+                      $_.getJSON("wp-json/wp/v2/categories?parent=0", {}, function(data,status, textStatus){
 
                             if(textStatus.status===200){
                                     $_.each(data, function( key, value ) {
@@ -453,7 +453,7 @@
                       setTimeout(function(){
 
                               Handlebars.registerHelper("moduloCategoria_index_linkPost", function(value){
-                                  return new Handlebars.SafeString(urlVar+"index.php?page=categoria_&amp;cat="+this.categoria);
+                                  return new Handlebars.SafeString("?page=categoria_&amp;cat="+this.categoria);
                               });
 
                               var template_ = document.getElementById("template_categoria_index").innerHTML;
@@ -486,7 +486,7 @@
 
             // $.post(urlR_+"/include/restApi/result_dest_index.php",{}, function (data){
             var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-            $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts?sticky=true", {'per_page':4,'page':1}, function(data){
+            $_.getJSON("wp-json/wp/v2/posts?sticky=true", {'per_page':4,'page':1}, function(data){
 
                $_("#cont_destacado_header ul").html("<div class='progress'><div class='indeterminate' style='background-color:#ffdf1f;'></div></div>");
 
@@ -499,8 +499,12 @@
 
                         //   console.log(data);
 
-                                   Handlebars.registerHelper("moduloDestacado_index_linkPost", function(value){
+                                   /*Handlebars.registerHelper("moduloDestacado_index_linkPost", function(value){
                                         return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
+                                   });*/
+
+                                   Handlebars.registerHelper("moduloDestacado_index_linkPost", function(value){
+                                        return new Handlebars.SafeString("?p="+this.id+"&page=post_");
                                    });
 
                                    Handlebars.registerHelper("moduloDestacado_index", function(value){
@@ -556,8 +560,7 @@
              var pos_=posicion_result_list_;
              //$.post(urlR_+"/include/restApi/result_index.php",{pos:pos_}, function (data){
 
-             var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-            $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts/", {"page":pos_,"per_page":10}, function(data){
+            $_.getJSON("wp-json/wp/v2/posts/", {"page":pos_,"per_page":10}, function(data){
 
                $_(".fila1_load").css({'display':'block'});
 
@@ -566,9 +569,13 @@
                  if(textStatus.status===200){
 
                         //-------------crea URL para lista de post en el index----------
+                        /* Handlebars.registerHelper("moduloResult_index_linkPost", function(value){
+                             return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
+                         });*/
+
                          Handlebars.registerHelper("moduloResult_index_linkPost", function(value){
                              //console.log(this.dia_id,this.hora_id);
-                             return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
+                             return new Handlebars.SafeString("?p="+this.id+"&amp;page=post_");
                          });
 
                          //-----------------crea subcategorias en modulo POST index---------------------
@@ -665,9 +672,14 @@
 
                                     setTimeout(function(){
 
-                                              Handlebars.registerHelper("moduloDestacado_index_linkPost_sideBar", function(value){
+                                            /*  Handlebars.registerHelper("moduloDestacado_index_linkPost_sideBar", function(value){
                                                   return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
+                                              });*/
+
+                                              Handlebars.registerHelper("moduloDestacado_index_linkPost_sideBar", function(value){
+                                                  return new Handlebars.SafeString("?p="+this.id+"&amp;page=post_");
                                               });
+
                                               Handlebars.registerHelper("moduloDestacado_index", function(value){
                                                            return new Handlebars.SafeString("<div>"+set_categoria_name(this)+"</div>");
                                               });
@@ -752,8 +764,7 @@
               if(sub_.length>0){cat_=sub_;}
 
               //$.post(urlR_+"/include/restApi/result_sel_cat.php",{cat:cat_,sub:sub_}, function (data){
-              var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-              $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[category_name]="+cat_, {"page":pos_,"per_page":7}, function(data){     //filter cat acf
+              $_.getJSON("wp-json/wp/v2/posts?filter[category_name]="+cat_, {"page":pos_,"per_page":7}, function(data){     //filter cat acf
 
                 $_(".cont_categoria_section_result").html("<div class='progress'><div class='indeterminate' style='background-color:#"+ colorFondoPorCategoria_(cat_)+"'></div></div>");
 
@@ -763,8 +774,12 @@
 
                     //   console.log(data);
 
-                         Handlebars.registerHelper("moduloCategoria_index_linkPost", function(value){
+                         /*Handlebars.registerHelper("moduloCategoria_index_linkPost", function(value){
                              return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
+                         });*/
+
+                         Handlebars.registerHelper("moduloCategoria_index_linkPost", function(value){
+                             return new Handlebars.SafeString("?p="+this.id+"&amp;page=post_");
                          });
 
                          Handlebars.registerHelper("modulo_Categoria_resultado_cat", function(value){
@@ -847,13 +862,14 @@
                                   setTimeout(function(){
 
                                             //----------------
-                                             Handlebars.registerHelper("modulo_categoria_head_linkPost", function(value){
+                                             /*Handlebars.registerHelper("modulo_categoria_head_linkPost", function(value){
                                                  return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id+'&hora='+this.hora);
+                                             });*/
+
+                                             Handlebars.registerHelper("modulo_categoria_head_linkPost", function(value){
+                                                 return new Handlebars.SafeString("?page=post_&amp;id="+this.id+'&hora='+this.hora);
                                              });
 
-                                             Handlebars.registerHelper("modulo_categoria_subcat_link", function(value){
-                                                 return new Handlebars.SafeString(urlVar+"index.php?page=categoria_&amp;cat="+cat_+'&subcat='+this);
-                                             });
 
                                              Handlebars.registerHelper("modulo_categoria_subcat", function(value){
                                                  if(this.length>0 && this.length>1){
@@ -885,7 +901,7 @@
              (function(){
 
                  Handlebars.registerHelper("moduloCategoria_catNav_link", function(value){
-                     return new Handlebars.SafeString(urlVar+"index.php?page=categoria_&amp;cat="+this.categoria);
+                     return new Handlebars.SafeString("?page=categoria_&amp;cat="+this.categoria);
                  });
 
                 setTimeout(function(){
@@ -928,12 +944,6 @@
 
 
 
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
 
 
 //--------------------------------lista de categorias para nav sidebar---------------------------------
@@ -941,9 +951,8 @@ this.verPOST=function(id_dia){
   (function() {
        //$.post(urlR_+"/include/restApi/result_post_template.php",{id:id_dia}, function (data){
 
-       var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
        $_.ajax({
-           url : ajaxURL+"/wp-json/wp/v2/posts/"+id_dia,
+           url : "wp-json/wp/v2/posts/"+id_dia,
            data : {},
            type : 'GET',
            dataType : 'json',
@@ -951,7 +960,6 @@ this.verPOST=function(id_dia){
            crossDomain: true,
            success : function(data,status, textStatus) {
 
-              
 
                  data.link=encodeURIComponent(data.link);
                  set_meta_social(data.title.rendered, data.content.rendered, data.acf.url_img_video, data.link);
@@ -1045,8 +1053,7 @@ this.verPOST=function(id_dia){
         this.listar_Dest_Post=function(){
           (function(){
              //$.post(urlR_+"/include/restApi/result_dest_index.php",{}, function (data){
-             var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
-             $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts?sticky=true", {'per_page':4,'page':1}, function(data){
+             $_.getJSON("wp-json/wp/v2/posts?sticky=true", {'per_page':4,'page':1}, function(data){
 
              }).done(function(data,status, textStatus){
 
@@ -1054,9 +1061,14 @@ this.verPOST=function(id_dia){
 
                   if(data.length>0){
 
-                       Handlebars.registerHelper("moduloDestacado_index_linkPost", function(value){
+                      /* Handlebars.registerHelper("moduloDestacado_index_linkPost", function(value){
                             return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
+                       });*/
+
+                       Handlebars.registerHelper("moduloDestacado_index_linkPost", function(value){
+                            return new Handlebars.SafeString("?p="+this.id+"&amp;page=post_");
                        });
+
                        Handlebars.registerHelper("moduloDestacado_post", function(value){
                                      return new Handlebars.SafeString(
                                      "<div class='cont_destacado_header_moduloCont_item1' style='background:#"+
@@ -1256,15 +1268,19 @@ this.modulo_buscador_form=function(){
                var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';+
               // console.log(bb_);
 
-               $_.getJSON(ajaxURL+"/wp-json/wp/v2/posts?filter[s]="+bb_,{"page":1,"per_page":100}, function(data){
+               $_.getJSON("wp-json/wp/v2/posts?filter[s]="+bb_,{"page":1,"per_page":100}, function(data){
 
 
                }).done(function(data,textStatus) {
 
                       console.log(data);
 
-                      Handlebars.registerHelper("moduloCategoria_index_linkPost", function(value){
+                    /*  Handlebars.registerHelper("moduloCategoria_index_linkPost", function(value){
                           return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
+                      });*/
+
+                      Handlebars.registerHelper("moduloCategoria_index_linkPost", function(value){
+                          return new Handlebars.SafeString("?p="+this.id+"&amp;page=post_");
                       });
 
                       Handlebars.registerHelper("modulo_Categoria_resultado_cat", function(value){

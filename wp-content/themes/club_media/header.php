@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="<?php bloginfo('language'); ?>">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <meta charset="<?php bloginfo('charset'); ?>">
 
 <link rel="shortcut icon" type="image/ico" href="https://s3-sa-east-1.amazonaws.com/club.media/template/favicon.ico" />
@@ -18,14 +17,22 @@
 <meta property="og:description"   content="ClubMedia" />
 <meta property="og:image"         content="https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg" />
 
-
+<noscript>
+  <p>Bienvenido a Club.Media</p>
+  <p>La página que estás viendo requiere para su funcionamiento el uso de JavaScript.
+Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
+</noscript>
+</body>
 
 <!--link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"-->
-<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/normalize.css" /></link>
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/normalize.css" />
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/materialize.min.css">
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/font-awesome.min.css">
-<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" /></link>
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/style.css" />
 
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 
 
 
