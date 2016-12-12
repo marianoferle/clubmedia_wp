@@ -20,14 +20,15 @@
                     <select id="carrierId" name="carrierId" onchange="cambia_tarifa();">
                         <!-- Cuando se elija una operadora tiene que cambiar el texto del ".loginsplash" -->
                         <option value="3" selected>Personal</option>
-                        <option value="2">Movistar</option>
-                        <option value="1">Claro</option>
+                        <option value="2" disabled>Movistar</option>
+                        <option value="1" disabled>Claro</option>
                     </select>
                 </div>
                 <div class="clearfix"></div>
                 <input type="button" value="Continuar >" id="XXX" name="XXX" onclick="genera_pincode();" class="login btn continuar">
             </form>
-            <div class="loginsplash" id="tarifa"><span></span><div class="txt_final_precio"> final</div></div>
+            <div class="loginsplash" id="tarifa"><span></span>
+              <div class="txt_final_precio"></div></div>
             <div class="clearfix"></div>
             <div class="loginredes">
                 <a title="" alt="" href="#!" target="_blank"><img class="btn_fb" src="/wp-content/plugins/valida_acceso/img/soyfun/sosmujer_logo_fb_color.png"></a>

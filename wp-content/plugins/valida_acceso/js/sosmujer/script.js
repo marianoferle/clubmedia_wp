@@ -131,7 +131,6 @@ function genera_pincode(){
   this.operadora = document.getElementById('carrierId');
   this.prefijo = document.getElementById('areareg');
   this.telefono = document.getElementById('telreg');
-
   if (this.prefijo.value == ""  || this.telefono.value.trim().includes(' ') || this.telefono.value.includes('-') || this.telefono.value.includes('+') || this.telefono.value.includes(',') || this.telefono.value.includes('.')){
     alert("Por favor escriba la característica de su número sin espacios, ni guiones ni caracteres especiales.");
   } else if (this.telefono.value == "" || this.telefono.value.length < 7  || this.telefono.value.trim().includes(' ') || this.telefono.value.includes('-') || this.telefono.value.includes('+') || this.telefono.value.includes(',') || this.telefono.value.includes('.')){
@@ -141,6 +140,11 @@ function genera_pincode(){
     var url = '/wp-admin/admin-ajax.php?action=get_pincode_ajax&id_servicio='+this.id_servicio+'&id_operadora=';
     switch (this.operadora.value) {
       case '1': // Claro
+  // agregamos un evento para GTM sepa cuando abre el popup del PIN
+  window.dataLayer.push({
+      'event':'popuppin'
+  });
+  // fin evento
         this.msisdn = '549' + this.prefijo.value.trim() + this.telefono.value.trim();
         url = url + this.operadora.value + '&msisdn=' + this.msisdn;
         obtener_pin(url);
@@ -149,10 +153,20 @@ function genera_pincode(){
         //this.msisdn = '54' + this.prefijo.value.trim() + this.telefono.value.trim();
         // No hay servicio Movistar
         //url = '';
+        // agregamos un evento para GTM sepa cuando abre el popup de las redes
+        window.dataLayer.push({
+            'event':'popupredes'
+        });
+        // fin evento
         document.getElementById('login01').style.display = 'none';
         document.getElementById('login03').style.display = 'initial';
       break;
       case '3': // Personal
+        // agregamos un evento para GTM sepa cuando abre el popup del PIN
+        window.dataLayer.push({
+            'event':'popuppin'
+        });
+        // fin evento
         this.msisdn = '54' + this.prefijo.value.trim() + this.telefono.value.trim();
         url = url + this.operadora.value + '&msisdn=' + this.msisdn;
         obtener_pin(url);

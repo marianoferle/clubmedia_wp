@@ -951,7 +951,7 @@ this.verPOST=function(id_dia){
            crossDomain: true,
            success : function(data,status, textStatus) {
 
-              
+
 
                  data.link=encodeURIComponent(data.link);
                  set_meta_social(data.title.rendered, data.content.rendered, data.acf.url_img_video, data.link);
@@ -974,7 +974,7 @@ this.verPOST=function(id_dia){
                                       var contTemplate = Handlebars.compile(template_);
                                       //---------------json para los resultados destacados del index-------------------
                                       var context=data;//bd_post;
-                                      //console.log(data);
+                                      console.log(data);
                                       var templateCompile = contTemplate(context);
                                       $_("#cont_post_result_template").html(templateCompile);
 

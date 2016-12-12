@@ -37,7 +37,7 @@ class ValidacionNavegacion {
 	public function __construct() {
 		add_action( 'admin_menu', array($this,'administracion_plugin') );
 		add_action( 'admin_init', array($this,'registra_variables') );
-														// Valores de ejemplo para portal SOSMujer
+																																								// Valores de ejemplo para portal SOSMujer
 		$this->cantidad_visitas = get_option('valida_acceso_cant_visitas'); 				// 3
     $this->cookie_name = get_option('valida_acceso_nombre_cookie_visitante'); 	// 'control_acceso'
  	  $this->id_servicio = get_option('valida_acceso_id_servicio'); 							// 51
@@ -144,7 +144,11 @@ class ValidacionNavegacion {
 	function valida_navegacion(){
 		if (is_user_logged_in())return;
 		if ($this->get_visitas() < $this->cantidad_visitas){
-			if (is_singular() || ($this->id_servicio == 165 && $_GET['page'] == 'post_')){
+			if (array_key_exists('page',$_GET)){ // Validacion para ClubMediaPortal 165
+				if ($_GET['page'] == 'post_'){
+					$this->actualiza_cookie();
+				}
+			} elseif (is_singular()){
 				$this->actualiza_cookie();
 			}
 			$this->habilitado = true;

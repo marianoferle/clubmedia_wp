@@ -92,6 +92,10 @@
                              <p>
                                {{acf.masinfo}}
                              </p>
+
+                             <!--p>
+                               {{this.featured_media}} //id de imagen descatada en el post, hay que convertir a URL
+                             </p -->
                        </div>
 
 

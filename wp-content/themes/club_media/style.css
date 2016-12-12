@@ -519,7 +519,7 @@ body {
     #contAsideBotton .contAsideBotton_info p{  font-size: 16px;  margin: 20px 25px; }
     #contAsideBotton .contAsideBotton_info a{  background: #6f39c3;  width: 160px;  height: 40px; line-height: 40px; font-size: 18px; margin-top:10px;}
 
-        @media only screen and (min-width:1280px) {  #contAsideBotton{ height:690px;}  }
+        @media only screen and (min-width:1280px) {  #contAsideBotton{ height: 678px; }   }
         @media only screen and (min-width:1024px) AND (max-width:1280px) {
           #contAsideBotton{ height:543px;}
           #contAsideBotton .contAsideBotton_info h1{  margin:90px 0px 20px 0px;  font-size:45px;}

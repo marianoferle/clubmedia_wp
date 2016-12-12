@@ -26,7 +26,7 @@
   </div>
   </div>
   <div class="cont-footer-legal col s12 m12 l12 center">
-      Club.Media es un sitio de Moob S.A. y Grupo UNO Medios. Todos los derechos reservados
+      Club.Media es un sitio de Moob S.A. Todos los derechos reservados
   </div>
 
 

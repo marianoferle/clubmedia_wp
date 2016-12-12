@@ -243,8 +243,9 @@ body {
 
 .loginwrap .loginsplash span {
     position: absolute;
+    width: 96px;
     display: block;
-    left: 45%;
+    left: 55%;
     top: 50%;
     font-family: arial;
     font-size: large;
@@ -356,7 +357,7 @@ body {
     color: black;
     position: absolute;
     left: 57%;
-    top: 500px;
+    top: 66px;
   }
 
   .fondo_login2{display: none;}
@@ -430,7 +431,7 @@ body {
     /*........................................*/
 
     .loginwrap .login01 .loginredes { padding: 40px 20px 30px 40px; }
-    .txt_final_precio {  left: 59.5%; top: 500px;}
+    .txt_final_precio {  left: 59.5%; top:66px;}
 
      .loginwrap .login02 .logintyc{top:110px;}
 
@@ -571,7 +572,7 @@ body {
 
     .loginwrap .login02 .loginredes a img{    margin: 0 0 0px 20px;}
     .loginwrap .login01 .loginredes { padding: 45px 20px 0px 40px; width: 40px;}
-    .txt_final_precio {  left: 56%; top: 900px;}
+    .txt_final_precio {  left: 56%; top:66px;}
 
      .loginwrap .login02 .logintyc{top:30px;}
 

@@ -10,7 +10,7 @@ var necesita_captcha = true;
 
 function openNav() {
     document.getElementById('myNav').style.width = '100%';
-    document.getElementById('tarifa').innerHTML = '<span>' + this.precio3 + '</span>';
+    document.getElementById('tarifa').innerHTML = '<span>' + this.precio3 + '</span><div class="txt_final_precio"> +imps</div>';
     var link1 = document.getElementById('urlApp1');
     var link2 = document.getElementById('urlApp2');
     if(link1){

@@ -65,6 +65,13 @@ define('NONCE_SALT',       'pe9s`IYQ-,s0|P4]`q*;`(|k :1bhh4~./}/#zebc6=3Lf%|cPNL
  */
 $table_prefix  = 'wp_';
 
+
+/** Datos para S3 de Amazon */
+define( 'S3_UPLOADS_BUCKET', 'club.media' );
+define( 'S3_UPLOADS_KEY', 'AKIAJSVJNLDMIMZD3AWA' );
+define( 'S3_UPLOADS_SECRET', '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' );
+define( 'S3_UPLOADS_REGION', 'sa-east-1' );
+
 /**
  * For developers: WordPress debugging mode.
  *

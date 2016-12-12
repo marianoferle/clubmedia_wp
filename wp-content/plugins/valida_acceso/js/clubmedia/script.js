@@ -136,9 +136,11 @@ function genera_pincode(){
     var url = '/wp-admin/admin-ajax.php?action=get_pincode_ajax&id_servicio='+this.id_servicio+'&id_operadora=';
     switch (this.operadora.value) {
       case '1': // Claro
-        this.msisdn = '549' + this.prefijo.value.trim() + this.telefono.value.trim();
-        url = url + this.operadora.value + '&msisdn=' + this.msisdn;
-        obtener_pin(url);
+        //this.msisdn = '549' + this.prefijo.value.trim() + this.telefono.value.trim();
+        //url = url + this.operadora.value + '&msisdn=' + this.msisdn;
+        //obtener_pin(url);
+        document.getElementById('login01').style.display = 'none';
+        document.getElementById('login03').style.display = 'initial';
       break;
       case '2': // Movistar
         //this.msisdn = '54' + this.prefijo.value.trim() + this.telefono.value.trim();
