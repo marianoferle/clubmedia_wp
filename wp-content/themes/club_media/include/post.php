@@ -20,7 +20,7 @@
                </div>
                <div id="cont_post_head_titu" class="col s12 m12 l12 center">
                    <h1 id="tituloPost" class="center">
-                        {{title.rendered}}
+                      {{title.rendered}}
                    </h1>
                    <h1 id="categoriaPost" class="center">
                       {{acf.subtit}}
@@ -44,9 +44,9 @@
                             </a>
                       </div>
                       <div class="col s2 m2 l2">
-                            <a href="http://pinterest.com/pin/create/button/?url={{link}}" alt="" target="_blank">
-                                <i class="fa fa-pinterest" aria-hidden="true"></i>
-                            </a>
+                        <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+                            <i class="fa fa-pinterest" aria-hidden="true"></i>
+                         </a>
                       </div>
                       <div class="col s2 m2 l2">
                             <a href="" alt="">
@@ -65,7 +65,8 @@
             <div id="cont_post_section_video" class="col s12 m12 l12">
 
                  <div id="cont_post_section_video_cont" class="col s12 m12 l12">
-                   <iframe src="https://player.vimeo.com/video/{{acf.url_video}}?title=0&amp;byline=0&amp;portrait=0\" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                   <iframe src="https://player.vimeo.com/video/{{acf.url_video}}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0\" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                        <style>.video-section{display:none;}</style>
                    </iframe>
                  </div>
 
@@ -84,18 +85,19 @@
                           {{/each}}
                        </div>
 
-                       <div id="cont_post_section_video_info_youtuber_texto" class="col s12 m12 l12">
 
+                       <div id="cont_post_section_video_info_youtuber_texto" class="col s12 m12 l12">
                              <p>
                                {{{content.rendered}}}
                              </p>
+
                              <p>
                                {{acf.masinfo}}
                              </p>
 
-                             <!--p>
-                               {{this.featured_media}} //id de imagen descatada en el post, hay que convertir a URL
-                             </p -->
+                             <div style="display:none;">
+                               <img src='{{modulo_set_url_img_wordpress_Amazon_post this.featured_media}}'/> <!-- id de imagen descatada en el post, hay que convertir a URL -->
+                             </div>
                        </div>
 
 
@@ -104,9 +106,14 @@
                            <div id="cont_post_section_video_info_youtuber_redSocial_icon" class="col s12 m8 l6">
                                 <div class="col s1 m1 l1"><a href="#!" alt=""></a></div>
                                 <div class="col s2 m2 l2">
-                                  <a href="javascript:fbShare('{{link}}', '{{title.rendered}}', '{{{content.rendered}}}', 'https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg', 520, 350)" target="_blank">
+                                  <!--a href="javascript:fbShare('{{link}}', '{{title.rendered}}', '{{{content.rendered}}}', 'https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg', 520, 350)" target="_blank">
                                       <i class="fa fa-facebook" aria-hidden="true"></i>
+                                  </a-->
+                                  <a href="http://www.facebook.com/sharer.php?u={{link}}&amp;src=sdkpreparse'" target="_blank">
+                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                   </a>
+                                  </a>
+
                                 </div>
                                 <div class="col s2 m2 l2">
                                     <a class="twitter-share-button"  href="https://twitter.com/share" data-text="custom share text"
@@ -115,9 +122,12 @@
                                     </a>
                                 </div>
                                 <div class="col s2 m2 l2">
-                                    <a href="http://pinterest.com/pin/create/button/?url={{link}}" alt="" target="_blank">
+                                    <!--a href="http://pinterest.com/pin/create/button/?url={{link}}" alt="" target="_blank">
                                         <i class="fa fa-pinterest" aria-hidden="true"></i>
-                                    </a>
+                                    </a-->
+                                    <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+                                        <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                     </a>
                                 </div>
                                 <div class="col s2 m2 l2">
                                     <a href="#!" alt="">

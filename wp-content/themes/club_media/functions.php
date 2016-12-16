@@ -97,7 +97,7 @@ add_shortcode('fbshare', 'facebookShare');
 
 
 
-
+/*
 
 if(function_exists("register_field_group"))
 {
@@ -589,6 +589,6 @@ if(function_exists("register_field_group"))
 
 
 
-
+*/
 
 ?>

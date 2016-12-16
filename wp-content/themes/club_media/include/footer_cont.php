@@ -26,7 +26,7 @@
   </div>
   </div>
   <div class="cont-footer-legal col s12 m12 l12 center">
-      Club.Media es un sitio de Moob S.A. Todos los derechos reservados
+      Club.Media es un sitio de Media Moob S.A. Todos los derechos reservados
   </div>
 
 
@@ -51,6 +51,8 @@
 </script>
 
 
+
+      <script src="http://assets.pinterest.com/js/pinit.js" type="text/javascript" async defer data-pin-hover="true"></script>
 
 
       <!--script src="js/handlebars.js" type="text/javascript" charset="utf-8"></script-->

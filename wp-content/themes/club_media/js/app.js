@@ -14,6 +14,9 @@
         var lista_youtubers_array=[];
         var lista_youtubers_json={};
 
+
+
+
 //--------------------------------------------------------------------------------------------------------------------
 
 
@@ -120,12 +123,13 @@
 
 
 
-        //-----------------------------------------------------------------------
+       //-----------------------------------------------------------------------
 
 
         var lista_total_youtubers=function(){
           $_.post(urlR_+"/include/restApi/tot_youtubers.php",{}, function (data){
           }).done(function(data) {
+
 
               if(data.length>0){
 
@@ -157,7 +161,8 @@
            },'json');
         }
 
-        lista_total_youtubers();
+            lista_total_youtubers();
+
 
 
 
@@ -219,6 +224,7 @@
                         cantCat_wordpress();
                         arraySubCat();
                         arraySubCat_nombre();
+                        console.log('ok');
                      }
 
 
@@ -227,7 +233,9 @@
              }).always(function() {
              },'json');
         }
+
         setColCat();
+
 
 
 
@@ -408,6 +416,53 @@
 
 
 
+         var lista_media_array=[];
+         var listMediaStorage={};
+
+         var set_url_img_amazon = function(){
+             var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
+             $_.getJSON(ajaxURL+"/wp-json/wp/v2/media", {'per_page':100}, function(data,status, textStatus){
+             }).done(function(data,status, textStatus) {
+
+                   if(textStatus.status===200){
+                        //https://s3-sa-east-1.amazonaws.com/club.media/uploads/
+
+                            console.log(data);
+
+                            var categ_=data;
+                              for(var i=0 ; i< data.length ; i++){
+                                  var jsonImg= {};
+                                  jsonImg.id=categ_[i].id;
+                                  jsonImg.img_name=categ_[i].media_details.file;
+
+                                  lista_media_array.push(jsonImg);
+                                  var listaMedia=JSON.stringify(lista_media_array);
+                                  localStorage.setItem("lista_img_storage", listaMedia);
+                              }
+
+                        listMediaStorage=JSON.parse(localStorage.lista_img_storage);
+
+                   }//status 200
+
+            }).fail(function() {
+            }).always(function() {
+            },'json');
+         }
+
+           set_url_img_amazon();
+
+
+         var verURL_img_amazon=function(id_img){
+           for(var i=0 ; i< listMediaStorage.length ; i++){
+             //console.log(listMediaStorage[i],id_img);
+             if(listMediaStorage[i].id==id_img){
+                //console.log('ok');
+                return listMediaStorage[i].img_name;
+             }
+           }
+         }
+
+
 
 
 
@@ -509,8 +564,6 @@
                                                    colorFondoPorCategoria_(this)+
                                                  "; color:#"+
                                                    colorTextoPorCategoria_(this)+
-                                                 ";box-shadow: 0px 0px 30px 1px #"+
-                                                 colorFondoPorCategoria_(this)+
                                                  ";'>"+
                                                    set_categoria_name(this)+
                                                    "</div>"
@@ -578,11 +631,13 @@
                                colorFondoPorCategoria_(this)+
                              "; color:#"+
                                colorTextoPorCategoria_(this)+
-                             ";box-shadow: 0px 0px 30px 1px #"+
-                             colorFondoPorCategoria_(this)+
                              ";'>"+
                                set_categoria_name(this)+
                              "</div>");
+                         });
+
+                         Handlebars.registerHelper("modulo_set_url_img_wordpress_Amazon_index", function(value){
+                                 return new Handlebars.SafeString("https://s3-sa-east-1.amazonaws.com/club.media/wp-content/uploads/"+verURL_img_amazon(value));
                          });
 
 
@@ -773,8 +828,6 @@
                                                      colorFondoPorCategoria_(this)+
                                                    "; color:#"+
                                                      colorTextoPorCategoria_(this)+
-                                                   "; box-shadow: 0px 0px 30px 1px #"+
-                                                   colorFondoPorCategoria_(this)+
                                                    ";'>"+
                                                      set_categoria_name(this)+
                                                    "</div>"
@@ -928,12 +981,14 @@
 
 
 
-function setCookie(cname, cvalue, exdays) {
+/*function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+*/
+
 
 
 //--------------------------------lista de categorias para nav sidebar---------------------------------
@@ -951,8 +1006,6 @@ this.verPOST=function(id_dia){
            crossDomain: true,
            success : function(data,status, textStatus) {
 
-
-
                  data.link=encodeURIComponent(data.link);
                  set_meta_social(data.title.rendered, data.content.rendered, data.acf.url_img_video, data.link);
 
@@ -966,6 +1019,11 @@ this.verPOST=function(id_dia){
 
                                   Handlebars.registerHelper("modulo_set_youtuber_name", function(value){
                                       return new Handlebars.SafeString(set_youtubers_name(value));
+                                  });
+
+                                  Handlebars.registerHelper("modulo_set_url_img_wordpress_Amazon_post", function(value){
+                                          console.log(value,verURL_img_amazon(value));
+                                          return new Handlebars.SafeString("https://s3-sa-east-1.amazonaws.com/club.media/wp-content/uploads/"+verURL_img_amazon(value));
                                   });
 
                                   //var dat=JSON.parse(data);
@@ -986,9 +1044,9 @@ this.verPOST=function(id_dia){
                   }
 
           }, error : function(xhr, status) {
-               console.log('Disculpe, existió un problema');
+               //console.log('Disculpe, existió un problema');
           },complete : function(data,status, textStatus) {
-               console.log('Petición realizada');
+              // console.log('Petición realizada');
           }
 
        });
@@ -1063,9 +1121,7 @@ this.verPOST=function(id_dia){
                                        colorFondoPorCategoria_(this)+
                                      "; color:#"+
                                        colorTextoPorCategoria_(this)+
-                                     "; box-shadow: 0px 0px 30px 1px #"+
-                                     colorFondoPorCategoria_(this)+
-                                     ";'>"+
+                                     "; '>"+
                                        set_categoria_name(this) +
                                        "</div>"
                                      );

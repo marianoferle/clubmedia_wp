@@ -110,6 +110,7 @@
                           {{#ifCond sticky '==' true}}
                           {{#ifCond @index '==' 4}}
                              <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
+
                              <!--img src="img/template/{{srcImgDestacado}}" title="Destacado"/-->
 
                              <div class="contAsideBotton_fondo_opacity"></div>
@@ -201,7 +202,8 @@
                                             <div class="contGrandeResult col s12 m12 l8">
                                                     <div class="contGrandeResult_moduloCont">
                                                         <a href="{{moduloResult_index_linkPost acf.categorias}}" target="_self" title="link post">
-                                                            <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
+                                                            <!--img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}" /-->
+                                                            <img src='{{modulo_set_url_img_wordpress_Amazon_index  this.featured_media}}' alt="{{title.rendered}}"/>
                                                             <div class="contGrandeResult_moduloContfondo_opacity"></div>
                                                             <div class="contGrandeResult_moduloContfondo_cont_info">
                                                               {{#each acf.categorias}}
@@ -218,8 +220,9 @@
                                           <!--.................... modulo de resultado chico................-->
                                             <div class="contChicoResult col s12 m12 l4">
                                               <div class="contChicoResult_moduloCont">
-                                                 <a href="{{moduloResult_index_linkPost acf.categorias}}" target="_self" title="link post">
-                                                      <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
+                                                  <a href="{{moduloResult_index_linkPost acf.categorias}}" target="_self" title="link post">
+                                                      <!--img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}" /-->
+                                                      <img src='{{modulo_set_url_img_wordpress_Amazon_index  this.featured_media}}' alt="{{title.rendered}}"/>
                                                       <div class="contChicoResult_moduloContfondo_opacity"></div>
                                                       <div class="contChicoResult_moduloContfondo_cont_info">
                                                         {{#each acf.categorias}}
@@ -247,7 +250,8 @@
                                     <div class="contGrandeResult contGrandeResult_2b col s12 m12 l8">
                                           <div class="contGrandeResult_moduloCont">
                                               <a href="{{moduloResult_index_linkPost acf.categorias}}" target="_self" title="link post">
-                                                  <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
+                                                  <!--img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}" /-->
+                                                  <img src='{{modulo_set_url_img_wordpress_Amazon_index  this.featured_media}}' alt="{{title.rendered}}"/>
                                                   <div class="contGrandeResult_moduloContfondo_opacity"></div>
                                                   <div class="contGrandeResult_moduloContfondo_cont_info">
                                                     {{#each acf.categorias}}
@@ -265,7 +269,8 @@
                                         <div class="contChicoResult col s12 m12 l4">
                                           <div class="contChicoResult_moduloCont">
                                                <a href="{{moduloResult_index_linkPost acf.categorias}}" target="_self" title="link post">
-                                                  <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
+                                                   <!--img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}" /-->
+                                                  <img src='{{modulo_set_url_img_wordpress_Amazon_index  this.featured_media}}' alt="{{title.rendered}}"/ />
                                                   <div class="contChicoResult_moduloContfondo_opacity"></div>
                                                   <div class="contChicoResult_moduloContfondo_cont_info">
                                                     {{#each acf.categorias}}
