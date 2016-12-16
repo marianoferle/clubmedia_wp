@@ -109,7 +109,8 @@
                         {{#each this}}
                           {{#ifCond sticky '==' true}}
                           {{#ifCond @index '==' 4}}
-                             <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
+                             <!--img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/-->
+                             <img src='{{modulo_set_url_img_wordpress_Amazon_index_sidebar  this.featured_media}}' alt="{{title.rendered}}"/ />
 
                              <!--img src="img/template/{{srcImgDestacado}}" title="Destacado"/-->
 

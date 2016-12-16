@@ -44,7 +44,8 @@
                      <li class="col s12 m6 l3">
                          <div class="cont_destacado_header_moduloCont">
                              <a href="{{ moduloDestacado_index_linkPost acf.categorias }}"target='_self' title=''>
-                                 <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}" alt=""/>
+                                 <!--img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}" alt=""/-->
+                                 <img src='{{modulo_set_url_img_wordpress_Amazon_index_dest  this.featured_media}}' alt="{{title.rendered}}"/ />
                                  <div class="cont_destacado_header_moduloCont_fondo_opacity{{@key}}"></div>
                                  <div class="cont_info_destacado_header">
                                    {{#each acf.categorias}}

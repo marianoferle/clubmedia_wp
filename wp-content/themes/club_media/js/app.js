@@ -570,6 +570,10 @@
                                                  );
                                     });
 
+                                    Handlebars.registerHelper("modulo_set_url_img_wordpress_Amazon_index_dest", function(value){
+                                            return new Handlebars.SafeString("https://s3-sa-east-1.amazonaws.com/club.media/wp-content/uploads/"+verURL_img_amazon(value));
+                                    });
+
 
 
                                     //-----------convert array el string ','---------------
@@ -730,6 +734,10 @@
                                                            return new Handlebars.SafeString("<div>"+set_youtubers_name(this)+"</div>");
                                               });
 
+                                              Handlebars.registerHelper("modulo_set_url_img_wordpress_Amazon_index_sidebar", function(value){
+                                                      return new Handlebars.SafeString("https://s3-sa-east-1.amazonaws.com/club.media/wp-content/uploads/"+verURL_img_amazon(value));
+                                              });
+
 
                                               if(data.length>0){
                                                 //var dat=JSON.parse(data);
@@ -838,6 +846,10 @@
                                 var res_="";
                                 for(var i=0;i<this.subcat.length;i++){ res_+=("&nbsp;&nbsp;#"+this.subcat[i]); }
                                 return new Handlebars.SafeString("<div class='result_post_01_contCat_subcat'>"+res_+"</div>");
+                         });
+
+                         Handlebars.registerHelper("modulo_set_url_img_wordpress_Amazon_cat", function(value){
+                                 return new Handlebars.SafeString("https://s3-sa-east-1.amazonaws.com/club.media/wp-content/uploads/"+verURL_img_amazon(value));
                          });
 
 

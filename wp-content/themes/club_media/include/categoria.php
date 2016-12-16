@@ -76,7 +76,8 @@
                                  </div>
 
                                  <div class="result_post_02 col s12 m6 s6">
-                                     <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
+                                     <!--img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/-->
+                                     <img src='{{modulo_set_url_img_wordpress_Amazon_cat  this.featured_media}}' alt="{{title.rendered}}"/>
                                      <div class="result_post_02_contOpacity"></div>
                                  </div>
                            </a>
@@ -88,7 +89,8 @@
                            <a href="{{moduloCategoria_index_linkPost acf.categorias}}" target="_self" title="link post">
 
                                  <div class="result_post_02 col s12 m6 s6">
-                                     <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
+                                     <!--img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/-->
+                                     <img src='{{modulo_set_url_img_wordpress_Amazon_cat  this.featured_media}}' alt="{{title.rendered}}"/>
                                      <div class="result_post_02_contOpacity"></div>
                                  </div>
 
@@ -135,7 +137,7 @@
     <div class="cont_categoria_section_sidebar col s12 m12 l4">
 
               <div class="cont_sideBar_Buscador col s12 m6 l12">
-                
+
                         <div id="cont_tit_sideBar_Buscador_search">Buscar:</div>
                         <form id="cont_sideBar_Buscador_search">
                           <div class="input-field">
@@ -176,7 +178,9 @@
         {{#each this}}
           {{#ifCond sticky '==' true}}
           {{#ifCond @index '==' 4}}
-                 <img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/>
+
+                 <img src='{{modulo_set_url_img_wordpress_Amazon_index_sidebar  this.featured_media}}' alt="{{title.rendered}}"/>
+                 <!--img src="https://s3-sa-east-1.amazonaws.com/club.media/post/{{acf.url_img_video}}" alt="{{title.rendered}}"/-->
                  <!--img src="img/template/{{srcImgDestacado}}" title="Destacado"/-->
 
                  <div class="contAsideBotton_fondo_opacity"></div>
