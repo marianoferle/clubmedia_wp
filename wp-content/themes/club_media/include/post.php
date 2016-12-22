@@ -30,11 +30,13 @@
                <div id="cont_post_head_redsocial" class="col s12 m12 l12">
                       <div class="col s1 m1 l1"></div>
                       <div class="col s2 m2 l2">
-                            <!--a class='fb-xfbml-parse-ignore' target='_blank' href='http://www.facebook.com/share.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'-->
-                            <!--a href='https://www.facebook.com/sharer/sharer.php?u='+dir_URL_Code+'&amp;src=sdkpreparse'><i class="fa fa-facebook" aria-hidden="true"></i></a-->
-                            <a href="javascript:fbShare('{{link}}', '{{title.rendered}}', '{{{content.rendered}}}', 'https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg', 520, 350)" target="_blank">
-                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                            </a>
+
+                        <a href="javascript:window.location.href=('http://www.facebook.com/share.php?u={{link}}&amp;t={{titulo.rendered}}');">
+                           <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+
+
+
                       </div>
                       <div class="col s2 m2 l2">
                             <!--a href='https://twitter.com/share' data-url='dir_URL_Code' target='_blank'><i class='fa fa-twitter' aria-hidden='true'></i></a-->
@@ -95,7 +97,7 @@
                                {{acf.masinfo}}
                              </p>
 
-                             <div style="display:none;">
+                             <div style="display:none; z-index:9999;">
                                <img src='{{modulo_set_url_img_wordpress_Amazon_post this.featured_media}}'/> <!-- id de imagen descatada en el post, hay que convertir a URL -->
                              </div>
                        </div>
@@ -111,7 +113,6 @@
                                   </a-->
                                   <a href="http://www.facebook.com/sharer.php?u={{link}}&amp;src=sdkpreparse'" target="_blank">
                                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                                  </a>
                                   </a>
 
                                 </div>
@@ -151,9 +152,14 @@
        </script>
 
 
+
+
        <div id="cont_post"  class="col s12 m12 l12">
           <div class="row">
             <div id="cont_post_result_template"></div>
+
+
+
 
 
 

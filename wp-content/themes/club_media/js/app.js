@@ -427,7 +427,7 @@
                    if(textStatus.status===200){
                         //https://s3-sa-east-1.amazonaws.com/club.media/uploads/
 
-                            console.log(data);
+                            //console.log(data);
 
                             var categ_=data;
                               for(var i=0 ; i< data.length ; i++){
@@ -1018,8 +1018,11 @@ this.verPOST=function(id_dia){
            crossDomain: true,
            success : function(data,status, textStatus) {
 
-                 data.link=encodeURIComponent(data.link);
-                 set_meta_social(data.title.rendered, data.content.rendered, data.acf.url_img_video, data.link);
+              console.log(data);
+
+                data.link=encodeURIComponent(data.link);
+                set_meta_social(data.title.rendered, data.content.rendered, data.acf.url_img_video, data.link);
+
 
                  if(textStatus.status===200){
 
@@ -1034,7 +1037,7 @@ this.verPOST=function(id_dia){
                                   });
 
                                   Handlebars.registerHelper("modulo_set_url_img_wordpress_Amazon_post", function(value){
-                                          console.log(value,verURL_img_amazon(value));
+                                        //  console.log(value,verURL_img_amazon(value));
                                           return new Handlebars.SafeString("https://s3-sa-east-1.amazonaws.com/club.media/wp-content/uploads/"+verURL_img_amazon(value));
                                   });
 
@@ -1044,7 +1047,7 @@ this.verPOST=function(id_dia){
                                       var contTemplate = Handlebars.compile(template_);
                                       //---------------json para los resultados destacados del index-------------------
                                       var context=data;//bd_post;
-                                      console.log(data);
+                                    //  console.log(data);
                                       var templateCompile = contTemplate(context);
                                       $_("#cont_post_result_template").html(templateCompile);
 
@@ -1058,7 +1061,7 @@ this.verPOST=function(id_dia){
           }, error : function(xhr, status) {
                //console.log('Disculpe, existió un problema');
           },complete : function(data,status, textStatus) {
-              // console.log('Petición realizada');
+                //console.log('Petición realizada');
           }
 
        });
