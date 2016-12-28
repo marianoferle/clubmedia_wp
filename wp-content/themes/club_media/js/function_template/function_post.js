@@ -8,10 +8,9 @@
            AF_post.modulo_buscador_form_nav();
 
 
-
              var urlP_="http://pinterest.com/pin/create/button/?url="+dir_URL_Code;
              //console.log(urlP_);
              $_("#bot_pinteres_share").attr("href", urlP_);
 
    });
- })(jQuery,url_link_);
+})(jQuery,url_link_);

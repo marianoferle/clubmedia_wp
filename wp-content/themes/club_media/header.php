@@ -35,6 +35,9 @@ Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
 <![endif]-->
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>try{Modernizr} catch(e) {document.write('<script src="./assets/js/vendor/modernizr-2.8.3.min.js"><\/script>')}</script>
+
 
 
 

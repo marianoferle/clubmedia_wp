@@ -30,6 +30,17 @@
                                 ?>
 
 
+                <?php }else if($page=='pages_'){ ?>    <!-- .................page post................... -->
+
+                                <script type="text/javascript">
+                                    var v_id='<?php if(isset($_GET['id'])){ echo $_GET['id']; } ?>';
+                                    var page_='<?php  echo $_GET['page']; ?>';
+                                </script>
+
+                                <!-- .....................header del document y nav.................................... -->
+                                <?php
+                                  require_once(dirname(__FILE__) . "/include/page.php");
+                                ?>
 
                 <?php }else if($page=='post_'){ ?>    <!-- .................page post................... -->
 
@@ -102,6 +113,8 @@
                                   <script src="<?php bloginfo('template_directory');?>/js/function_template/function_cat.js" type="text/javascript" charset="utf-8"></script>
                     <?php }else if($page=='post_'){ ?>            <!-- .................page post................... -->
                                   <script src="<?php bloginfo('template_directory');?>/js/function_template/function_post.js" type="text/javascript" charset="utf-8"></script>
+                    <?php }else if($page=='pages_'){ ?>            <!-- .................page post................... -->
+                                  <script src="<?php bloginfo('template_directory');?>/js/function_template/function_page.js" type="text/javascript" charset="utf-8"></script>
                     <?php }else if($page=='terminos_'){ ?>
                                   <script src="<?php bloginfo('template_directory');?>/js/function_template/function_terminos.js" type="text/javascript" charset="utf-8"></script>
                     <?php }else if($page=='search_'){ ?>

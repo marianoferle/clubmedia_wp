@@ -3,6 +3,7 @@ var pos_pag=1;
 (function($_, post_page_,urlLink){
 
     $_(document).ready(function(){
+
             var AF_index = new todosArt(urlLink);
             AF_index.listarCategoria_index();
             AF_index.listarDest_index();
@@ -11,10 +12,8 @@ var pos_pag=1;
             AF_index.modulo_buscador_form();
             AF_index.modulo_buscador_form_nav();
 
-
             //-----------------------cantidad de resultados por pagina de 10 en 10-----------------------------------
             AF_index.listarPost_index(post_page_);
-
 
             $_("#next_pos").click(function(){
                 if(localStorage.cantidadPost=='true'){
@@ -26,10 +25,6 @@ var pos_pag=1;
                     }
                 }
             });
-
-
-
-
 
             //--------------------nav on onscroll document----------------------------------------------
             document.onscroll=function(){  AF_index.scrollBody_(body_);}

@@ -72,13 +72,19 @@ body {
 
 
 
-        @media only screen and (min-width:1680px) {  }
-        @media only screen and (min-width:1280px) AND (max-width:1680px) {   }
+
+
+        @media only screen and (min-width:1780px) { }
+        @media only screen and (min-width:1580px) AND (max-width:1780px){ }
+        @media only screen and (min-width:1480px) AND (max-width:1580px){ }
+        @media only screen and (min-width:1360px) AND (max-width:1480px){ }
+        @media only screen and (min-width:1280px) AND (max-width:1360px){ }
         @media only screen and (min-width:1024px) AND (max-width:1280px) { }
-        @media only screen and (min-width:768px) AND (max-width:1023px) {  }
-        @media only screen and (min-width:600px) AND (max-width:799px) {   }
-        @media only screen and (min-width:480px) AND (max-width:599px) {   }
-        @media only screen and (min-width:320px) AND (max-width:479px) {   }
+        @media only screen and (min-width:768px) AND (max-width:1023px) { }
+        @media only screen and (min-width:600px) AND (max-width:799px) { }
+        @media only screen and (min-width:480px) AND (max-width:599px) { }
+        @media only screen and (min-width:320px) AND (max-width:479px) { }
+
 
 
 
@@ -169,8 +175,9 @@ body {
                     @media only screen and (min-width:768px) AND (max-width:1023px) { #nav_header_1 .nav-wrapper .brand-logo{margin-left:100px; }  }
                     @media only screen and (min-width:600px) AND (max-width:799px) {   }
                     @media only screen and (min-width:480px) AND (max-width:599px) {   }
-                    @media only screen and (min-width:320px) AND (max-width:479px) {   }
-                    @media only screen and (max-width:320px) {  }
+                    @media only screen and (min-width:320px) AND (max-width:479px) { #nav_header_1 { height: 60px; }   }
+                    @media only screen and (max-width:320px) { #nav_header_1 { height: 60px; } }
+
 
 
 
@@ -706,12 +713,13 @@ body {
       @media only screen and (min-width:1280px) AND (max-width:1680px) {  #cont_categoria{ width:1280px; transition: width 1s;}  }
       @media only screen and (min-width:1024px) AND (max-width:1280px) { #cont_categoria{ width:1024px; transition: width 1s;} }
       @media only screen and (min-width:768px) AND (max-width:1023px) {  #cont_categoria{ width:800px;  transition: width 1s;} }
-      @media only screen and (min-width:600px) AND (max-width:799px) {   #cont_categoria{ width:570px;  transition: width 1s;} }
-      @media only screen and (min-width:480px) AND (max-width:599px) {   #cont_categoria{ width:440px;  transition: width 1s;} }
+      @media only screen and (min-width:600px) AND (max-width:799px) {   #cont_categoria{ width:570px;  transition: width 1s;  margin-top: 10px;} }
+      @media only screen and (min-width:480px) AND (max-width:599px) {   #cont_categoria{ width:440px;  transition: width 1s;  margin-top: 10px;} }
       @media only screen and (min-width:320px) AND (max-width:479px) {
-        #cont_categoria{ width:300px;  transition: width 1s;}
+        #cont_categoria{ width:300px;  transition: width 1s; margin-top: 10px;}
         #cont_categoria_head h1{max-width:300px!important;}
       }
+      @media only screen and (max-width:320px){ #cont_categoria{ width:300px;  transition: width 1s; margin-top: 10px;} }
 
 
 
@@ -1100,13 +1108,14 @@ body {
 /*--------------------------cont_post----------------------*/
 #cont_post{ width:100%; float:none;  margin: 100px auto 50px auto;  min-height: 1200px; background: #000; border-radius: 30px 0px 30px 0px;}
 
-          @media only screen and (min-width:1680px) { #cont_post{ width:1480px; transition: width 1s;} }
+          @media only screen and (min-width:1680px) { #cont_post{ width:1480px; transition: width 1s; } }
           @media only screen and (min-width:1280px) AND (max-width:1680px) { #cont_post{ width:1280px; transition: width 1s;} }
           @media only screen and (min-width:1024px) AND (max-width:1280px) { #cont_post{ width:1024px; transition: width 1s;} }
           @media only screen and (min-width:768px) AND (max-width:1023px) {  #cont_post{ width:800px;  transition: width 1s;} }
           @media only screen and (min-width:600px) AND (max-width:799px) {   #cont_post{ width:570px;  transition: width 1s;} }
-          @media only screen and (min-width:480px) AND (max-width:599px) {   #cont_post{ width:440px;  transition: width 1s;} }
-          @media only screen and (min-width:320px) AND (max-width:479px) {   #cont_post{ width:300px;  transition: width 1s;} }
+          @media only screen and (min-width:480px) AND (max-width:599px) {   #cont_post{ width:440px;  transition: width 1s; margin-top:30px; } }
+          @media only screen and (min-width:320px) AND (max-width:479px) {   #cont_post{ width:300px;  transition: width 1s; margin-top:30px; } }
+          @media only screen and (max-width:320px) {   #cont_post{ width:300px;  transition: width 1s; margin-top:30px; } }
 
 
 
@@ -1131,37 +1140,88 @@ body {
 .video-section{display: none;}
 
 
+#cont_post_section_imagen_cont{width:100%; height:830px; overflow:hidden;}
+#cont_post_section_imagen_cont img{ width:100%; }
+
           @media only screen and (min-width:1680px) {     }
-          @media only screen and (min-width:1280px) AND (max-width:1680px) { #cont_post_section_video_cont{height: 715px; transition: width 1s;} }
-          @media only screen and (min-width:1024px) AND (max-width:1280px) {  #cont_post_section_video_cont{height: 571px; transition: width 1s;} }
-          @media only screen and (min-width:768px) AND (max-width:1023px) {   #cont_post_section_video_cont{height: 445px; transition: width 1s;} }
+          @media only screen and (min-width:1280px) AND (max-width:1680px) {
+            #cont_post_section_video_cont{height: 715px; transition: width 1s;}
+            #cont_post_section_imagen_cont{height: 715px; transition: width 1s;}
+          }
+          @media only screen and (min-width:1024px) AND (max-width:1280px) {
+            #cont_post_section_video_cont{height: 571px; transition: width 1s;}
+            #cont_post_section_imagen_cont{height: 571px; transition: width 1s;}
+          }
+          @media only screen and (min-width:768px) AND (max-width:1023px) {
+            #cont_post_section_video_cont{height: 445px; transition: width 1s;}
+            #cont_post_section_imagen_cont{height: 445px; transition: width 1s;}
+         }
           @media only screen and (min-width:600px) AND (max-width:799px) {
             #cont_post_section_video_cont{ height: 320px; transition: width 1s;}
+            #cont_post_section_imagen_cont{height: 320px; transition: width 1s;}
             #tituloPost{  font-size: 50px; }
             #categoriaPost{ font-size: 30px; }
           }
           @media only screen and (min-width:480px) AND (max-width:599px) {
             #cont_post_section_video_cont{ height: 245px; transition: width 1s;}
+            #cont_post_section_imagen_cont{height: 245px; transition: width 1s;}
             #tituloPost{  font-size: 40px; }
             #categoriaPost{ font-size: 30px; }
           }
           @media only screen and (min-width:320px) AND (max-width:479px) {
             #cont_post_section_video_cont{height: 165px; transition: width 1s;}
+            #cont_post_section_imagen_cont{height: 165px; transition: width 1s;}
             #tituloPost{  font-size: 30px; margin: 30px 10px; }
             #categoriaPost{ font-size: 20px; }
           }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 #cont_post_section_video_info{ position: relative;}
 #cont_post_section_video_info_youtuber{ margin-top: 20px;}
-#cont_post_section_video_info_youtuber{} .infoLink_youtuber_section{ margin-bottom: 10px; float:left; display:block; border-radius:20px; margin-left: 20px; background:#000; min-width:130px;}
-#cont_post_section_video_info_youtuber{} .infoLink_youtuber_section i{  position:relative; left:-10px; width:30px; height:30px; font-size:20px; line-height: 30px; float:left; display:block; background:#029dd5; text-align:center; border-radius:14px; color:#fff;}
-#cont_post_section_video_info_youtuber{} .infoLink_youtuber_section h1{ font-size:18px; line-height:40px; float: left; display:block; margin:0px; padding:0px 10px 0px 10px;  }
-#cont_post_section_video_info_youtuber{} .infoLink_youtuber_section img{border-radius: 21px;  margin-top: 0px;  float: left;  display: block; }
+#cont_post_section_video_info_youtuber .infoLink_youtuber_section{ cursor:pointer; z-index:999; cursor:pointer; margin-bottom: 10px; float:left; display:block; border-radius:20px; margin-left: 20px; background:#000; min-width:130px;}
+#cont_post_section_video_info_youtuber .infoLink_youtuber_section i{position:relative; left:-10px; width:30px; height:30px; font-size:20px; line-height: 30px; float:left; display:block; background:#029dd5; text-align:center; border-radius:14px; color:#fff;}
+#cont_post_section_video_info_youtuber .infoLink_youtuber_section h1{font-size:18px; line-height:40px; float: left; display:block; margin:0px; padding:0px 10px 0px 10px;  }
+#cont_post_section_video_info_youtuber .infoLink_youtuber_section img{border-radius: 21px;  margin-top: 0px;  float: left;  display: block; }
 
 
-#cont_post_section_video_info_youtuber_texto{ width:calc(100% - 60px); margin:30px; }
+#cont_post_section_video_info_youtuber_texto{
+  width: calc(100% - 300px);
+  margin: 30px 270px 30px 30px;
+  letter-spacing: 2px;
+  text-align: justify;
+}
+
+
+        @media only screen and (min-width:1780px) { }
+        @media only screen and (min-width:1580px) AND (max-width:1780px){ }
+        @media only screen and (min-width:1480px) AND (max-width:1580px){ }
+        @media only screen and (min-width:1360px) AND (max-width:1480px){ }
+        @media only screen and (min-width:1280px) AND (max-width:1360px){ }
+        @media only screen and (min-width:1024px) AND (max-width:1280px) { }
+        @media only screen and (min-width:768px) AND (max-width:1023px) { }
+        @media only screen and (min-width:600px) AND (max-width:799px) { }
+        @media only screen and (min-width:480px) AND (max-width:599px) {
+          #cont_post_section_video_info_youtuber_texto{ width: calc(100% - 10px); margin: 30px 5px; }
+        }
+        @media only screen and (min-width:320px) AND (max-width:479px) {
+          #cont_post_section_video_info_youtuber_texto{ width: calc(100% - 10px); margin: 30px 5px; }
+         }
+
+
+
+
 
 
 

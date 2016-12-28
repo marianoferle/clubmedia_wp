@@ -1,10 +1,10 @@
 var pos_pag=1;
 
 (function($_,urlLink,pag_,post_page_){
-$_(document).ready(function(){
+
+    $_(document).ready(function(){
 
             var AF_cat = new todosArt(urlLink);
-
 
             AF_cat.listarCategoria_navLik();
             AF_cat.verNav();
@@ -26,11 +26,6 @@ $_(document).ready(function(){
                     }
                 }
             });
-
-
-
-
-
 
     });
 
