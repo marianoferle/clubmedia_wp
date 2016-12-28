@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 <script>
+    //---------url- para las src de imagenes------------
     var url_link_ ="<?php echo bloginfo('template_url') ?>";
-
     var dir = window.document.URL;
     var dir_URL_Code = encodeURIComponent(dir); //url del post
     //console.log(dir, "window.document.url");
@@ -10,7 +10,7 @@
 </script>
 
 
-        <!-- ..............................page............................... -->
+        <!-- ..............................page para separar los template (pages,categoria,post,search,terminos)............................... -->
         <?php if(isset($_GET['page'])){
             $page= $_GET['page'];
         ?>
@@ -37,7 +37,7 @@
                                     var page_='<?php  echo $_GET['page']; ?>';
                                 </script>
 
-                                <!-- .....................header del document y nav.................................... -->
+                                <!-- .....................page_pages.................................... -->
                                 <?php
                                   require_once(dirname(__FILE__) . "/include/page.php");
                                 ?>
@@ -56,7 +56,7 @@
 
                 <?php }else if($page=='terminos_'){ ?>
 
-                                <?php
+                                <?php  //-------------pages termnos, es una landing simple con informacion basica,sin info dinamica.
                                   require_once(dirname(__FILE__) . "/include/terminos.php");
                                 ?>
 
@@ -64,7 +64,6 @@
 
                    if(isset($_GET['bus'])){ $cont_busqueda = $_GET['bus']; }
                 ?>
-
 
                                 <script>
                                     var bus_='<?php if(isset($_GET['bus'])){ echo $_GET['bus']; } ?>';
@@ -85,7 +84,8 @@
       <?php }else{?>
 
 
-                      <!-- .....................header del document y nav.................................... -->
+    <!-- ....................................index.............................................. -->
+
                       <?php
                           require_once(dirname(__FILE__) . "/include/index_cont.php");
                       ?>

@@ -1259,33 +1259,33 @@ this.modulo_buscador_form_nav=function(){
            //------------------------------------------------------
 
 
-         var cli_search_bottom=false;
+           var cli_search_bottom=false;
 
-          $_("#bot_search_nav_bottom").click(function(event) {
-                              event.preventDefault();
-                              var info = $_("#search_nav_bottom").val();
-                              //console.log(info);
-                              location.href = '?page=search_&bus='+info;
-          });
-
-          $_("#li_search_nav_bottom input").keydown(function(event) {
-                  if(event.keyCode == 13) {
-                              event.preventDefault();
-                              var info = $_("#search_nav_bottom").val();
-                              //console.log(info);
-                              location.href = '?page=search_&bus='+info;
-                  }
+            $_("#bot_search_nav_bottom").click(function(event) {
+                                event.preventDefault();
+                                var info = $_("#search_nav_bottom").val();
+                                //console.log(info);
+                                location.href = '?page=search_&bus='+info;
             });
 
-         $_("#bot_search_navBottom_on_off").click(function(){
-              cli_search_bottom=!cli_search_bottom;
-              var form_=$_("#li_search_nav_bottom");
-              if(cli_search_bottom){
-                 form_.show(500);
-              }else{
-                 form_.hide(500);
-              }
-         });
+            $_("#li_search_nav_bottom input").keydown(function(event) {
+                    if(event.keyCode == 13) {
+                                event.preventDefault();
+                                var info = $_("#search_nav_bottom").val();
+                                //console.log(info);
+                                location.href = '?page=search_&bus='+info;
+                    }
+              });
+
+           $_("#bot_search_navBottom_on_off").click(function(){
+                cli_search_bottom=!cli_search_bottom;
+                var form_=$_("#li_search_nav_bottom");
+                if(cli_search_bottom){
+                   form_.show(500);
+                }else{
+                   form_.hide(500);
+                }
+           });
 
 
 

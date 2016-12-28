@@ -3,6 +3,7 @@
        <script id="template_Page_Script" type="text/x-handlebars-template">
 
              <div id="cont_post_head" class="col s12 m12 l12 center">
+
                <div id="cont_post_head_catSubcat" class="col s12 m12 l12 center">
 
                      <h2 style="color:#84ab1a;" class="col s12 m12 l12 center">
@@ -12,6 +13,7 @@
                      </h2>
                      <h2 style="color:#6e3ac3;" class="col s12 m12 l12 center"></h2>
                </div>
+
                <div id="cont_post_head_titu" class="col s12 m12 l12 center">
                    <h1 id="tituloPost" class="center">
                       {{title.rendered}}

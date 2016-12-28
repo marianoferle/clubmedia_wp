@@ -155,6 +155,8 @@
        </script>
 
 
+
+
        <div id="cont_post"  class="col s12 m12 l12">
           <div class="row">
             <div id="cont_post_result_template"></div>
@@ -194,11 +196,7 @@
           {{/each}}
     </script>
 
-
-
-     <div id="cont_post_section_destacado" class="col s12 m12 l12">
-
-     </div>
+     <div id="cont_post_section_destacado" class="col s12 m12 l12"></div>
 
 
 
