@@ -105,8 +105,9 @@
 
 
 
- //--------------------------------------------------------------------------------------------------------------------------------
 
+
+ //-------------------------creo JSON de en Localstorage para comparar informacion de BD con Wordpress----------------------
 
         var lista_total_youtubers=function(){
           $_.post(urlR_+"/include/restApi/tot_youtubers.php",{}, function (data){
@@ -145,8 +146,8 @@
         var listaYoutuber_=JSON.parse(localStorage.listaDeYoutubers);
 
 
-//------------------------------------------------------------------------------
 
+//---------------------------set de nombre por ID----------------usa el localstorage de arriva-------------------------------
         var set_youtubers_name=function(name_){
             for(var i=0;i<listaYoutuber_.length;i++){
                  if(name_==listaYoutuber_[i].id_nombre){
@@ -161,7 +162,10 @@
 
 
 
-//--------------------------json con colores para categorias--------------------
+
+
+
+//--------------------------json con colores para categorias--set de localstorage------------------
 
         var setColCat=function(){
             $_.post(urlR_+"/include/restApi/cantidad_cat.php",{}, function (data){
@@ -203,8 +207,6 @@
         var listColCat=JSON.parse(localStorage.colorFondoList);
 
 
-
-
 //------------------------------------------------------------------------------
 
 
@@ -227,11 +229,7 @@
 
 
 
-
-
-
-
-//------------------------------------------------------------------------------
+//----------------------------------set localstorage--------------------------------------------
 
       var categorias_wordpress=function(){
           var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
@@ -257,6 +255,8 @@
       var listaCategoriasID=JSON.parse(localStorage.lista_categorias_id);
 
 
+//---------------------------
+
 
       var set_categoria_por_id_cat=function(id_){
             for(var i=0;i<listaCategoriasID.length;i++){
@@ -272,12 +272,6 @@
                     }
              }
       }
-
-
-
-
-
-
 
 
 
@@ -302,8 +296,7 @@
 
 
 
-//-----------------------------------------------------------------------
-
+//-----------------------------------busco categorias parent 0 - en API wordpress------------------------------------
 
 
         var cantCat_wordpress=function(){
@@ -383,7 +376,7 @@
          }
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------busco imagenes en media WORDPRESS--------------------------------------
 
          var set_url_img_amazon = function(){
              var ajaxURL = 'index.php';//'http://localhost/devCode/wordpress/';
@@ -456,7 +449,16 @@
 
 
 
+
+
 //-------INDEX--------------INDEX-----------INDEX--------------INDEX------------INDEX-------------INDEX------------INDEX--------------INDEX---------INDEX-----------INDEX----
+
+//------funciones para el template INDEX------------
+
+
+
+
+
 
 
 
@@ -766,7 +768,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
  //-----------CATEGORIA-------------CATEGORIA-------------CATEGORIA------------CATEGORIA----------------CATEGORIA--------------CATEGORIA------------------CATEGORIA---------------
+
+
+//------funciones para el template categoria------------
+
+
+
 
 
 
@@ -978,8 +998,17 @@
 
 
 
+
+
+
+
+
+
+
+
 //------POST---------------POST----------------POST--------------POST----------POST----------POST---------------POST----------------POST---------------------POST------
 
+//------funciones para el template POST------------
 
 
 
@@ -1004,8 +1033,8 @@
 
 
 
-//--------------------------------lista de categorias para nav sidebar----------
 
+//---------------------------------------------busca el POST por ID en la API wordpress para renderizar la informacion ---------------------------------
 
 
 this.verPOST=function(id_dia){
@@ -1022,7 +1051,7 @@ this.verPOST=function(id_dia){
            crossDomain: true,
            success : function(data,status, textStatus) {
 
-              console.log(data,"page");
+              //console.log(data,"page");
 
                 data.link=encodeURIComponent(data.link);
                 set_meta_social(data.title.rendered, data.content.rendered, data.acf.url_img_video, data.link);
@@ -1092,7 +1121,7 @@ this.verPOST=function(id_dia){
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------busca los post destacados--------------------------------------
 
 
         this.listar_Dest_Post=function(){
@@ -1110,6 +1139,7 @@ this.verPOST=function(id_dia){
                        Handlebars.registerHelper("moduloDestacado_index_linkPost", function(value){
                             return new Handlebars.SafeString(urlVar+"index.php?page=post_&amp;id="+this.id);
                        });
+
                        Handlebars.registerHelper("moduloDestacado_post", function(value){
                                      return new Handlebars.SafeString(
                                      "<div class='cont_destacado_header_moduloCont_item1' style='background:#"+
@@ -1184,8 +1214,10 @@ this.verPOST=function(id_dia){
 
 
 
+
 //----search----search----search----search----search---search----search---search----search----search----search-----search---search----search-----
 
+//------ funciones para el template search ------ usa el template de categoria ------------
 
 
 
@@ -1204,7 +1236,8 @@ this.verPOST=function(id_dia){
 
 
 
-//---------------buscador nav movile--------------
+
+//------------------------------------------buscador nav movile----------------------------------
 this.modulo_buscador_form_nav=function(){
 
 
@@ -1225,7 +1258,7 @@ this.modulo_buscador_form_nav=function(){
         });
 
 
-//---------------------------top- y bottom-----------------
+//--------------------------buscador-----top- y bottom-----------------
 
 
         var cli_search_top=false;
@@ -1295,7 +1328,7 @@ this.modulo_buscador_form_nav=function(){
 
 
 
-//---------------buscador index cat search------------
+//------------------------buscador index cat search------------------------
 
 this.modulo_buscador_form=function(){
 
@@ -1416,8 +1449,17 @@ this.modulo_buscador_form=function(){
 
 
 
+
+
+
+
+
+
+
+
 /*----------PAGE---------------PAGE--------------PAGE-----------------PAGE----------------PAGE---------------PAGE-------------PAGE---------------*/
 
+//------funciones para el template PAGES-----es parecido al template de post -------
 
 
 
@@ -1434,6 +1476,16 @@ this.modulo_buscador_form=function(){
 
 
 
+
+
+
+
+
+
+
+
+
+//------------------------------------busca la info de una PAGE para renderizar en el template pages_-------------------------------------------------------
 
 
 this.verPAGE=function(id_dia){
@@ -1563,14 +1615,15 @@ return todosArt;
 
 
 (function($_){
+
     $_(document).ready(function(){
 
+      //activa el menu Mobile y el slider de imagenes banner
       $_(".button-collapse").sideNav();
       $_('.carousel.carousel-slider').carousel({full_width: true});
 
       $_('.modal-trigger').leanModal();
       $_('#aside').pushpin({ top:0, bottom:500 });
-
 
 
     });

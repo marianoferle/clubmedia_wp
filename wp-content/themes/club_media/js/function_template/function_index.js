@@ -5,9 +5,12 @@ var pos_pag=1;
     $_(document).ready(function(){
 
             var AF_index = new todosArt(urlLink);
-            AF_index.listarCategoria_index();
-            AF_index.listarDest_index();
-            AF_index.listarDest_indexCat_sideBar('index_');
+
+            //-----funcionalidades para cada seccion de la web.
+
+            AF_index.listarCategoria_index();     //categorias NAV en el index
+            AF_index.listarDest_index();        //destacados post - debajo del HEADER banner
+            AF_index.listarDest_indexCat_sideBar('index_');   //destacado 5to del SIDEBAR
 
             AF_index.modulo_buscador_form();
             AF_index.modulo_buscador_form_nav();
@@ -15,6 +18,7 @@ var pos_pag=1;
             //-----------------------cantidad de resultados por pagina de 10 en 10-----------------------------------
             AF_index.listarPost_index(post_page_);
 
+            //----------------------nuevos post por pagina----------------------------------------
             $_("#next_pos").click(function(){
                 if(localStorage.cantidadPost=='true'){
                     if(post_page_<100){

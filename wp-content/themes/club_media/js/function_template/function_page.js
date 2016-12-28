@@ -3,6 +3,8 @@
           // console.log(v_id,"---");
 
            var AF_page = new todosArt(urlLink);
+
+           //-----funcionalidades para cada seccion de la web.
            AF_page.verPAGE(v_id);
 
            AF_page.listar_Dest_Post();

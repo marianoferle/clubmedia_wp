@@ -6,6 +6,7 @@ $_(document).ready(function(){
 
             var AF_sear = new todosArt(urlLink);
 
+            //-----funcionalidades para cada seccion de la web.
             AF_sear.listarCategoria_navLik();
             AF_sear.verNav();
             AF_sear.listarDest_indexCat_sideBar('categoria_');
