@@ -143,12 +143,9 @@
            },'json');
         }
 
-        var listaYoutuber_;
-        if(localStorage.listaDeYoutubers===undefined){  lista_total_youtubers(); }
-        if(localStorage.listaDeYoutubers!==undefined && listaYoutuber_===undefined){
-            listaYoutuber_=JSON.parse(localStorage.listaDeYoutubers);
-        }
 
+         lista_total_youtubers();
+         var listaYoutuber_=JSON.parse(localStorage.listaDeYoutubers);
 
 
 
@@ -195,6 +192,7 @@
                                   col_Fondo.push(jsonCat);
                                   var colFondo=JSON.stringify(col_Fondo);
                                   localStorage.setItem("colorFondoList", colFondo);
+
                               }
 
                         //cantCat_();
@@ -206,13 +204,14 @@
              }).fail(function() {
              }).always(function() {
              },'json');
+
         }
 
-        var listColCat;
-        if(localStorage.listaDeYoutubers===undefined){  setColCat(); }
-        if(localStorage.listaDeYoutubers!==undefined && listColCat===undefined){
-             listColCat=JSON.parse(localStorage.colorFondoList);
-        }
+        setColCat();
+        var listColCat=JSON.parse(localStorage.colorFondoList);
+
+
+
 
 
 
@@ -261,11 +260,8 @@
           });
       }
 
-      var listaCategoriasID;
-      if(localStorage.listaDeYoutubers===undefined){  categorias_wordpress(); }
-      if(localStorage.listaDeYoutubers!==undefined && listaCategoriasID===undefined){
-           listaCategoriasID=JSON.parse(localStorage.lista_categorias_id);
-      }
+      categorias_wordpress();
+      var  listaCategoriasID=JSON.parse(localStorage.lista_categorias_id);
 
 
 
@@ -421,11 +417,9 @@
             },'json');
          }
 
-        var listMediaStorage;
-        if(localStorage.lista_img_storage===undefined){  set_url_img_amazon(); }
-        if(localStorage.lista_img_storage!==undefined && listMediaStorage===undefined ){
-            listMediaStorage=JSON.parse(localStorage.lista_img_storage);
-        }
+        set_url_img_amazon();
+        var listMediaStorage=JSON.parse(localStorage.lista_img_storage);
+
 
 
 //--------------
