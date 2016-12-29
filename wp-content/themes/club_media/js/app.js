@@ -133,6 +133,7 @@
                           lista_youtubers_array.push(jsonYoutubers);
                           var list_you=JSON.stringify(lista_youtubers_array);
                           localStorage.setItem("listaDeYoutubers", list_you);
+
                       }
                   //  console.log(lista_youtubers_json);
               }
@@ -142,8 +143,12 @@
            },'json');
         }
 
-        lista_total_youtubers();
-        var listaYoutuber_=JSON.parse(localStorage.listaDeYoutubers);
+        var listaYoutuber_;
+        if(localStorage.listaDeYoutubers===undefined){  lista_total_youtubers(); }
+        if(localStorage.listaDeYoutubers!==undefined && listaYoutuber_===undefined){
+            listaYoutuber_=JSON.parse(localStorage.listaDeYoutubers);
+        }
+
 
 
 
@@ -203,8 +208,13 @@
              },'json');
         }
 
-        setColCat();
-        var listColCat=JSON.parse(localStorage.colorFondoList);
+        var listColCat;
+        if(localStorage.listaDeYoutubers===undefined){  setColCat(); }
+        if(localStorage.listaDeYoutubers!==undefined && listColCat===undefined){
+             listColCat=JSON.parse(localStorage.colorFondoList);
+        }
+
+
 
 
 //------------------------------------------------------------------------------
@@ -251,8 +261,12 @@
           });
       }
 
-      categorias_wordpress();
-      var listaCategoriasID=JSON.parse(localStorage.lista_categorias_id);
+      var listaCategoriasID;
+      if(localStorage.listaDeYoutubers===undefined){  categorias_wordpress(); }
+      if(localStorage.listaDeYoutubers!==undefined && listaCategoriasID===undefined){
+           listaCategoriasID=JSON.parse(localStorage.lista_categorias_id);
+      }
+
 
 
 //---------------------------
@@ -407,8 +421,11 @@
             },'json');
          }
 
-        set_url_img_amazon();
-        var listMediaStorage=JSON.parse(localStorage.lista_img_storage);
+        var listMediaStorage;
+        if(localStorage.lista_img_storage===undefined){  set_url_img_amazon(); }
+        if(localStorage.lista_img_storage!==undefined && listMediaStorage===undefined ){
+            listMediaStorage=JSON.parse(localStorage.lista_img_storage);
+        }
 
 
 //--------------
