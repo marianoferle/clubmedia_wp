@@ -8,7 +8,7 @@
     <?php if($page=='categoria_'){ ?>
 
           <script id="template_categoria_subCatList" type="text/x-handlebars-template">
-                 <h1 class="center" style="color:#{{colorFondo}}; text-shadow: 0px 0px 10px #{{colorFondo}};">
+                 <h1 class="center" style="color:#{{colorFondo}};">
                       {{cat_nombre}}
                  </h1>
                  <div class="cont_categoria_head_navBar_subCategorias">
@@ -160,10 +160,10 @@
                       <h1>Conectate</h1>
                       <div class="col s12 m12 l2 center iconCont">
                           <div class="row ">
+                            <div class="col s3"></div>
                             <div class="col s3"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                             <div class="col s3"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                            <div class="col s3"><i class="fa fa-pinterest" aria-hidden="true"></i></div>
-                            <div class="col s3"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                            <div class="col s3"></div>
                           </div>
                       </div>
               </div>
@@ -222,11 +222,11 @@
                               <div class="cont_sideBar_Categorias_individual_info">
                                     <h1>{{cat_nombre}}</h1>
                                     <p>{{info_cat}}</p>
-                                    <div class="cont_sideBar_Categorias_individual_info_vid">
+                                    <!--div class="cont_sideBar_Categorias_individual_info_vid">
                                         <div id="cantidad_videos_cat_{{categoria}}" class="cont_cantidad_vid_navCat">{{cantidad}}</div>
                                         <p>Videos</p>
                                         <div class="cont_sideBar_Categorias_individual_info_vid_icon" style="background:#{{colorTexto}};"></div>
-                                    </div>
+                                    </div-->
                               </div>
                           </a>
                     </div>

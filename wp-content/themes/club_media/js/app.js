@@ -33,6 +33,12 @@
         this.get_subCategoriaVar=function(){ return subCategoriaVar;  }
         localStorage.setItem("cantidadPost", true);
 
+        //---------------------------------------------------
+
+
+
+
+
 //------------------------------------------------------------------------------
 
         function set_meta_social(tit_, cont_, img_, link_){
@@ -107,6 +113,11 @@
 
 
 
+
+
+
+
+
  //-------------------------creo JSON de en Localstorage para comparar informacion de BD con Wordpress----------------------
 
         var lista_total_youtubers=function(){
@@ -135,17 +146,29 @@
                           localStorage.setItem("listaDeYoutubers", list_you);
 
                       }
+
                   //  console.log(lista_youtubers_json);
               }
 
            }).fail(function() {
            }).always(function() {
            },'json');
+
+
         }
 
+      lista_total_youtubers();
+      var listaYoutuber_=JSON.parse(localStorage.getItem("listaDeYoutubers"));
 
-         lista_total_youtubers();
-         var listaYoutuber_=JSON.parse(localStorage.listaDeYoutubers);
+
+
+
+
+
+
+
+
+
 
 
 
@@ -192,23 +215,29 @@
                                   col_Fondo.push(jsonCat);
                                   var colFondo=JSON.stringify(col_Fondo);
                                   localStorage.setItem("colorFondoList", colFondo);
-
                               }
 
                         //cantCat_();
                         cantCat_wordpress();
                         arraySubCat();
                         arraySubCat_nombre();
+
                      }
 
              }).fail(function() {
              }).always(function() {
              },'json');
-
         }
 
         setColCat();
-        var listColCat=JSON.parse(localStorage.colorFondoList);
+        var listColCat=JSON.parse(localStorage.getItem("colorFondoList"));
+
+
+
+
+
+
+
 
 
 
@@ -258,10 +287,15 @@
                         }
                 }
           });
+
       }
 
+
       categorias_wordpress();
-      var  listaCategoriasID=JSON.parse(localStorage.lista_categorias_id);
+      var listaCategoriasID=JSON.parse(localStorage.getItem("lista_categorias_id"));
+
+
+
 
 
 
@@ -415,10 +449,15 @@
             }).fail(function() {
             }).always(function() {
             },'json');
+
          }
 
-        set_url_img_amazon();
-        var listMediaStorage=JSON.parse(localStorage.lista_img_storage);
+         set_url_img_amazon();
+         var listMediaStorage=JSON.parse(localStorage.getItem("lista_img_storage"));
+
+
+
+
 
 
 

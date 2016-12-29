@@ -32,11 +32,11 @@
                                              <div class="contInfoGrandeCat">
                                                    <h1>{{cat_nombre}}</h1>
                                                    <p>{{info_cat}}</p>
-                                                   <div class="contVidInfo">
+                                                   <!--div class="contVidInfo">
                                                      <div id="cantidad_videos_{{categoria}}" class="cont_cantidad_vid">{{cantidad}}</div>
                                                      <p>Videos</p>
                                                      <div class="contVidInfo_icon"></div>
-                                                   </div>
+                                                   </div-->
                                              </div>
                                          </a>
                                    </div>
@@ -46,11 +46,11 @@
                                            <div class="contInfoChicoCat"  style="color:#{{colorTexto}};">
                                                  <h1>{{cat_nombre}}</h1>
                                                  <p>{{info_cat}}</p>
-                                                 <div class="contVidInfo">
+                                                 <!--div class="contVidInfo">
                                                      <div id="cantidad_videos_{{categoria}}" class="cont_cantidad_vid">{{cantidad}}</div>
                                                      <p>Videos</p>
                                                      <div class="contVidInfo_icon" style="background:#{{colorTexto}};"></div>
-                                                 </div>
+                                                 </div-->
                                            </div>
                                        </a>
                                    </div>
@@ -68,11 +68,11 @@
                                          <div class="contInfoChicoCat"  style="color:#{{colorTexto}};">
                                                <h1>{{cat_nombre}}</h1>
                                                <p>{{info_cat}}</p>
-                                               <div class="contVidInfo">
+                                               <!--div class="contVidInfo">
                                                      <div id="cantidad_videos_{{categoria}}" class="cont_cantidad_vid">{{cantidad}}</div>
                                                      <p>Videos</p>
                                                      <div class="contVidInfo_icon" style="background:#{{colorTexto}};"></div>
-                                               </div>
+                                               </div-->
                                          </div>
                                      </a>
                                  </div>
@@ -190,10 +190,10 @@
                                                         <h1>Conectate</h1>
                                                         <div class="col s12 m12 l2 center iconCont">
                                                             <div class="row ">
+                                                              <div class="col s3"></div>
                                                               <div class="col s3"><a href="#!" alt="" target="_self"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
                                                               <div class="col s3"><a href="#!" alt="" target="_self"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
-                                                              <div class="col s3"><a href="#!" alt="" target="_self"><i class="fa fa-pinterest" aria-hidden="true"></i></a></div>
-                                                              <div class="col s3"><a href="#!" alt="" target="_self"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+                                                              <div class="col s3"></div>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -207,10 +207,10 @@
       <div id="cont_post_section_footer_redSocial" class="col s12 m12 l12">
         <div id="cont_post_section_footer_redSocial_tit" class="col s12 m12 l12 center">Conectate a tus artistas favoritos</div>
         <div class="col s2 m2 l2"></div>
+        <div class="col s2 m2 l2 center"> </a></div>
         <div class="col s2 m2 l2 center"><a href="#!" alt=""> <i class="fa fa-facebook" aria-hidden="true"></i>  </a></div>
         <div class="col s2 m2 l2 center"><a href="#!" alt=""> <i class="fa fa-twitter" aria-hidden="true"></i>   </a></div>
-        <div class="col s2 m2 l2 center"><a href="#!" alt=""> <i class="fa fa-pinterest" aria-hidden="true"></i> </a></div>
-        <div class="col s2 m2 l2 center"><a href="#!" alt=""> <i class="fa fa-instagram" aria-hidden="true"></i> </a></div>
+        <div class="col s2 m2 l2 center"> </a></div>
         <div class="col s2 m2 l2"></div>
       </div>
 

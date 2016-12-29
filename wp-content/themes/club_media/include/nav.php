@@ -4,7 +4,7 @@
           <div class="nav-wrapper">
                 <!-- .............logo y nav mobile........... -->
                 <a href="index.php" class="col s2 m2 l2">
-                    <img src="https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg" alt="clubmedia" class="img_logo_head_mobile" />
+                    <img src="https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.png" alt="clubmedia" class="img_logo_head_mobile" />
                 </a>
 
                 <a href="#" data-activates="mobile-nav" class="col s9 m9 l9 button-collapse right">
@@ -27,8 +27,8 @@
                     <div id="bot_search_navTop_on_off"><a href="#!" title=""><i class="fa fa-search" aria-hidden="true"></i></a></div>
                     <div class=""><a href="#!" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
                     <div class=""><a href="#!" title=""><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
-                    <div class=""><a href="#!" title=""><i class="fa fa-pinterest" aria-hidden="true"></i></a></div>
-                    <div class=""><a href="#!" title=""><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+                    <div class=""></div>
+                    <div class=""></div>
                   </div>
 
                   <div id="li_search_nav_top">
@@ -52,7 +52,7 @@
 
                 <!-- ..............nav mobile............. -->
                 <ul class="side-nav" id="mobile-nav">
-                  <li><a class="side-nav-link" href="index.php"><img src="https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.jpg" alt="clubmedia" class="img_logo_head_mobile_sidenav" /></a></li>
+                  <li><a class="side-nav-link" href="index.php"><img src="https://s3-sa-east-1.amazonaws.com/club.media/template/logo_media_moob.png" alt="clubmedia" class="img_logo_head_mobile_sidenav" /></a></li>
                   <li><a class="side-nav-link" href="index.php?page=categoria_&amp;cat=humor">Humor</a></li>
                   <li><a class="side-nav-link" href="index.php?page=categoria_&amp;cat=belleza">Belleza</a></li>
                   <li><a class="side-nav-link" href="index.php?page=categoria_&amp;cat=musica">Música</a></li>
@@ -75,8 +75,8 @@
                           <div id="icon_social_nav_mobile" class="center">
                             <div class="col l3 m3 s3"><a href="#!" title=""><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
                             <div class="col l3 m3 s3"><a href="#!" title=""><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
-                            <div class="col l3 m3 s3"><a href="#!" title=""><i class="fa fa-pinterest" aria-hidden="true"></i></a></div>
-                            <div class="col l3 m3 s3"><a href="#!" title=""><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+                            <div class="col l3 m3 s3"></div>
+                            <div class="col l3 m3 s3"></div>
                           </div>
                   </li>
 

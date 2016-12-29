@@ -7,6 +7,11 @@
                  <div id="next_header_car" class="valign-wrapper rigth" onClick="$('.carousel').carousel('next');"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
 
                  <div class="carousel-item  white-text" href="#one!">
+                   <video id="video_banner_header" width="100%" height="100%" autoplay="" loop="" preload="" autobuffer="" muted="">
+                		    <source src="http://www.clubmedianetwork.com/wp-content/uploads/2015/08/Spot-Club.mp4" type="video/mp4">
+                	 </video>
+                 </div>
+                 <div class="carousel-item  white-text" href="#one!">
                    <div class="cont_img_slider img_banner1">
                        <!--h2>First Panel</h2>
                        <p class="white-text">This is your first panel</p-->
